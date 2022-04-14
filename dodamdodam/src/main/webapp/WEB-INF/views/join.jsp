@@ -46,7 +46,7 @@
 							<tr>
 								<td>아이디</td>
 								<td>
-									<input id="m_id" style="float:left; width:200px;" required="required" class="form-control" type="text" name="m_id" placeholder="Enter ID">
+									<input id="m_id" style="float:left; width:200px;" required="required" class="form-control" type="text" name="m_id" placeholder="아이디를 입력하세요">
 									<button class="btn btn-info btn-sm" id="idCheck" type="button">중복체크</button>
 									<br><br>
 									<p id="resultIdCheck" style="text-align:left">테스트용입니다.</p>
@@ -54,21 +54,23 @@
 							</tr>
 							<tr>
 								<td>비밀번호</td>
-								<td><input id="m_pw" readonly="readonly" required="required" class="form-control" type="password" name="m_pw" placeholder="Enter PW"></td>
+								<td><input id="m_pw" readonly="readonly" required="required" class="form-control" type="password" name="m_pw" placeholder="비밀번호를 입력하세요"></td>
 							</tr>
 							<tr>
 								<td>닉네임</td>
-								<td><input id="m_nick" readonly="readonly" required="required" class="form-control" type="text" name="m_nick" placeholder="Enter NICK"></td>
+								<td><input id="m_nick" readonly="readonly" required="required" class="form-control" type="text" name="m_nick" placeholder="닉네임을 입력하세요"></td>
 							</tr>
 							<tr>
 								<td>전화번호</td>
-								<td><input id="m_tel" readonly="readonly" required="required" class="form-control" type="tel" name="m_tel" placeholder="Enter TEL"></td>
+								<td><input id="m_tel" readonly="readonly" required="required" class="form-control" type="tel" name="m_tel" placeholder="전화번호를 입력하세요"></td>
 							</tr>
 							<tr>
 								<td>성별</td>
 								<td>
-								남 : <input id="m_gender" readonly="readonly" required="required" class="form-control" type="radio" name="m_gender">
-								여 : <input id="m_gender" readonly="readonly" required="required" class="form-control" type="radio" name="m_gender">
+									<input class="form-check-input" type="radio" name="m_gender" id="m_gender" value="남" checked />
+									<label class="form-check-label" for="male"> 남성 </label>
+									<input class="form-check-input" type="radio" name="m_gender" id="m_gender" value="여" />
+									<label class="form-check-label" for="female"> 여성 </label>
 								</td>
 							</tr>						
 							<tr>
@@ -84,7 +86,7 @@
           </div>
           <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
-            <a href="diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
+            <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./board.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>

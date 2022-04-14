@@ -31,15 +31,8 @@ public class MemberController {
 	@RequestMapping("/joinInsert.do")
 	public String joinInsert(MemberVO vo, HttpServletRequest request) {
 		System.out.println("회원가입 기능 동작");
-		String id = request.getParameter("m_id");
-		
-		if(id == "admin") {
-			mapper.joinInsertAdmin(vo);
-		} else {
-			mapper.joinInsert(vo);
-		}
-		
-		return "redirect:/board.do";
+		mapper.joinInsert(vo);
+		return "redirect:/home.do";
 	}
 
 	//로그인 기능

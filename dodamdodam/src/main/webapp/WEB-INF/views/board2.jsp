@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -54,7 +53,6 @@
 				            </div>
 				        </div>
 				    </div>
-				   
 				  <!-- board list area -->
 				    <div id="board-list">
 				        <div class="container">
@@ -69,18 +67,15 @@
 				    				</tr>
 				                </thead>
 				                <tbody>
-									<c:set var="p" value="${postStart}" />
-									<c:set var="plus" value="1" />
-									<c:forEach var="i" items="${list}">
-										<tr>
-											<td>${p+plus }</td>
-											<td><a href="Select.do?q_num=${i.b_seq }">${i.b_title}</a></td>
-											<td>${i.m_nick }</td>
-											<td>${vo.b_date}</td>
-				    						<td>${vo.b_cnt}</td>
-										</tr>
-										<c:set var="plus" value="${plus +1}" />
-									</c:forEach>
+				    				<c:forEach var="vo" items="${list}" varStatus="i">
+				    				<tr>
+				    					<td>${i.count}</td>
+				    					<td><a href="boardContent.do?idx=${vo.b_seq}">${vo.b_title}</a></td>
+				    					<td>${vo.m_nick}</td>
+				    					<td>${vo.b_date}</td>
+				    					<td>${vo.b_cnt}</td>
+				    				<tr>
+				    				</c:forEach>
 				                </tbody>
 				    				<tr>
 				    					<td colspan="4"></td>
@@ -88,41 +83,6 @@
 				    				</tr>				                
 				            </table>
 				        </div>
-				        
-				        
-				        <!-- 페이징 처리 -->
-				        <div class="page-line" align="center">
-					        <nav aria-label="Page navigation example">
-								<ul style="justify-content: center" class="pagination">
-									<c:set var="back" value="${postStart/10}" />
-									<li class="page-item" style="display: inline;"><a class="page-link"
-										href="board.do?pageNum=
-										
-										<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
-										aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									</a></li>
-									
-									<c:forEach begin="1" end="${endPageNum}" var="i">
-										<c:choose>
-											<c:when test="${postEnd eq 10 }">
-												<li class="page-item" style="display: inline;"><a class="page-link"
-													href="board.do?pageNum=${i}">${i}</a></li>
-											</c:when>
-											<c:otherwise>
-												<li class="page-item" style="display: inline;"><a class="page-link"
-													href="board.do?pageNum=${i}">${i}</a></li>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-									
-									
-									<li class="page-item" style="display: inline;">
-									<a class="page-link" href="board.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />" aria-label="Next"> 
-									<span aria-hidden="true">&raquo;</span></a>
-									</li>
-								</ul>
-							</nav>
-						</div>
 				    </div>
 				
 				</section>
@@ -133,7 +93,7 @@
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
-            <a href="./board.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
+            <a href="./boardchoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
             <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
             <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>

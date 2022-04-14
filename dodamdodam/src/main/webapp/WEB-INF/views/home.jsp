@@ -74,7 +74,7 @@
           </div>
           <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
-            <a href="/diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
+            <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
@@ -89,13 +89,23 @@
       </div>
     </div>
     <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219);">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/>
-      <p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">오늘은 사랑스러운 aaa와의 <br> nnnn일 째입니다 </a>
-      <a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-right: 30px;">로그인</button></a
-      ><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-right: 30px;">회원가입</button></a>
-      <div class="lb-audio">
-        <audio controls>
-          <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
+      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/><c:choose
+      			><c:when test="${not empty member}"
+      			><span style="float : right;">${member.nick}님 환영합니다.
+						<a href="logout.do">
+					    	<button class="btn btn-success btn-sm" style="float: right;">로그아웃</button>
+					    </a>	
+					    <c:if test="${member.id eq 'admin'}">
+					    	<button style="" type="button" id="memberList" class ="btn btn-info btn-sm">회원정보보기</button>
+					    </c:if>		   
+				    </span>
+		    	</c:when><c:otherwise
+		    		><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">안녕하세요~ <br> 로그인 해주세요 </p
+		    		><a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그인</button></a
+			      	><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">회원가입</button></a>
+		    	</c:otherwise></c:choose>
+      <div class="lb-audio"><audio controls
+      	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
         </audio>
     </div>
     </div>

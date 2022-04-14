@@ -14,7 +14,5 @@ public interface MemberMapper {
 
 	public MemberVO idCheck(String m_id);
 
-	public void joinInsertAdmin(MemberVO vo);
-
 	public MemberVO loginSelect(MemberVO vo);
 }

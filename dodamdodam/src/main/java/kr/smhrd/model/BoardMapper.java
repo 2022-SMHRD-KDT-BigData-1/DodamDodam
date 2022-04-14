@@ -8,8 +8,10 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface BoardMapper {
 
-	public List<BoardVO> boardList();
-
 	public void boardInsert(BoardVO vo);
+
+	public int boardAmount();
+
+	public List<BoardVO> board(int postStart);
    
 }

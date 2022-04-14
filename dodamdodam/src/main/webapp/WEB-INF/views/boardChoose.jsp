@@ -10,9 +10,66 @@
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
     <link rel="stylesheet" href="${path}/resources/static/board2.css" />
-</head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"  />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Poor+Story&family=Single+Day&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"  />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Single+Day&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<style>
+#choose1 {
+    float:left;
+    width:600px;
+    height: 550px;
+    background-color: white;
+    margin-left: 20px;
+    color: #000;
+    font-family: 'Single Day', cursive ;
+    text-align: center;
+    font-size: 25px;
+    
+}
+#choose2 {
+    float:right;
+    width:600px;
+    height: 550px;
+    margin-right: 20px;
+    color: #000;
+    background-color: white;
+    font-family: 'Single Day', cursive ;
+    text-align: center;
+    font-size: 25px;
+}
+
+#choose1:hover{
+    cursor: pointer;
+}
+#choose2:hover{
+    cursor: pointer;
+}
+
+</style>
+    
+    
+</head>
 <body>
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
@@ -35,19 +92,26 @@
             </div>
             <div class="home_main">
               <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
-              	<div class="page_name">
-              		<a href ="/board.do"><h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1></a>
-              	</div>
-              	<div class="page_name">
-              		<a href ="/board2.do"><h1 style="text-align:center; color:#FFA9AA;">나눔게시판 페이지</h1></a>
-              	</div> 
-				
+              
+              	<div class="miniroom_contents"> 
+                    <h1 style="color: black; text-align: center;
+                    font-family: 'Dongle', sans-serifs; font-size: 50px;">원하는 게시판을 선택해주세요!</h1>
+                     <a href="board.do?pageNum=1"><div id="choose1" style="background-color: rgb(255, 255, 195);">
+                        소통 게시판
+                        <div><img src="/static/images/conversation.png" width="320px" style="margin-top: 150px;"> </div>
+                    </div></a>
+                    
+                    <a href="board2.do?pageNum=1"><div onclick="location.href=/board2.do" id="choose2" style="background-color: rgb(205, 237, 255);">
+                        물건 나눔/거래 게시판
+                        <div><img src="/static/images/people-trading.png" width="320px" style="margin-top: 150px;"> </div>
+                    </div></a>
+                </div>
               </div>
             </div>
           </div>
           <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
-            <a href="diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
+            <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./board.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>

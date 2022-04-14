@@ -3,9 +3,20 @@
 <mapper namespace="kr.smhrd.model.BoardMapper">
     
     
-    <select id="boardList" resultType="kr.smhrd.model.BoardVO">
+<!--     <select id="boardList" resultType="kr.smhrd.model.BoardVO">
         select * from t_board order by b_date desc
-    </select>
+    </select> -->
+    
+    <!-- 게시글 리스트 -->
+    <select id="board" parameterType="kr.smhrd.model.BoardVO" resultType="kr.smhrd.model.BoardVO">
+		<!--select * from t_qna order by q_date desc  -->
+		 select * from t_board order by b_date desc Limit 10 Offset #{postStart}
+	</select>
+	
+    <!-- 페이지 총 amount -->
+    <select id="boardAmount" resultType="int">
+	    select count(*) from t_board
+	</select>
     
     <insert id="boardInsert" parameterType = "kr.smhrd.model.BoardVO">
 		insert into t_board(b_title, b_content,b_file ,m_nick, b_category)
