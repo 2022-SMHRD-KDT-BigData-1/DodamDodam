@@ -1,6 +1,8 @@
+<%@page import="kr.smhrd.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% MemberVO member = (MemberVO)session.getAttribute("member"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -71,12 +73,12 @@
             </div>
           </div>
           <div class="menu_bar">
-            <a href="./home.html" class="menu_button1">&nbsp;&nbsp;홈</a>
-            <a href="diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
-            <a href="./photo.html" class="menu_button3">&nbsp;&nbsp;사진첩</a>
-            <a href="./board.html" class="menu_button4">&nbsp;&nbsp;게시판</a>
-            <a href="./diary2.html" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
-            <a href="./info.html" class="menu_button4"
+            <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
+            <a href="/diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
+            <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
+            <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
+            <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
+            <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
             <a href="./video.html" class="menu_button4"
@@ -86,32 +88,11 @@
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219)">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" />
-      <a
-        style="
-          font-style: inherit;
-          font-size: 15px;
-          color: black;
-          font-weight: bold;
-          margin: auto;
-          text-align: center;
-        "
-        >오늘은 사랑스러운 aaa와의</a
-      >
-      <a
-        style="
-          font-style: inherit;
-          font-size: 15px;
-          color: black;
-          font-weight: bold;
-          margin: auto;
-          text-align: center;
-        "
-        >--------nnnn일 째입니다--------</a
-      >
-      <button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-        ><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
+    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219);">
+      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/>
+      <p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">오늘은 사랑스러운 aaa와의 <br> nnnn일 째입니다 </a>
+      <a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-right: 30px;">로그인</button></a
+      ><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-right: 30px;">회원가입</button></a>
       <div class="lb-audio">
         <audio controls>
           <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  

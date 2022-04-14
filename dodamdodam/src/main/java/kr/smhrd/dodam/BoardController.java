@@ -17,6 +17,15 @@ public class BoardController {
 	
 	@Inject
 	private BoardMapper mapper;
+
+	@RequestMapping("/boardChoose.do")
+	public void boardChoose() {
+	}
+
+	
+//	@RequestMapping("/board2.do")
+//	public void board2() {
+//	}
 	
 	//게시판 게시글 목록
 	@RequestMapping("/board.do")

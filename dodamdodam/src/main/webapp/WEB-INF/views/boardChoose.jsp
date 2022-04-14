@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
-    <link rel="stylesheet" href="${path}/resources/static/board.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${path}/resources/static/board2.css" />
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -35,48 +34,14 @@
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
             <div class="home_main">
-              <div class="home_contents">
+              <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
               	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">글쓰기 페이지</h1>
+              		<a href ="/board.do"><h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1></a>
               	</div>
-                <div class="board_insert_form" align="center" style="color:#FFA9AA;">
-                  <form class="form-horizontal" action="boardInsert.do" method="post">
-                  	<input type="hidden" name="m_nick" id="m_nick" value="admin">
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="title">제목 : </label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="b_title" id="b_title"
-								placeholder="Enter title" required="required">
-							<select name="b_category">
-								<option value="0">게시판</option>
-								<option value="1">나눔 게시판</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents">내용 : </label>
-						<div class="col-sm-8">
-							<textarea class="form-control" rows="10" name="b_content"
-								id="b_content" required="required"></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents">첨부파일 : </label>
-						<div class="col-sm-8">
-							<input type="file" name="b_file" id="b_file" width="500px">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents"></label>
-						<div class="col-sm-8">
-							<button type="reset" class="btn btn-info">취소</button>
-							<button type="submit" class="btn btn-info">저장</button>
-						</div>
-					</div>
-
-					</form>
-    			  
-                </div>
+              	<div class="page_name">
+              		<a href ="/board2.do"><h1 style="text-align:center; color:#FFA9AA;">나눔게시판 페이지</h1></a>
+              	</div> 
+				
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@
 		values(#{m_id}, #{m_pw}, #{m_nick}, #{m_tel}, #{m_gender}, #{m_type})
     </insert>
     
-    <select id = "LoginSelect" parameterType="kr.smhrd.model.MemberVO" resultType="kr.smhrd.model.MemberVO">
+    <select id = "loginSelect" parameterType="kr.smhrd.model.MemberVO" resultType="kr.smhrd.model.MemberVO">
 		select * from t_member where m_id = #{m_id} and m_pw = #{m_pw}        
     </select>
     <select id = "memberList" resultType="kr.smhrd.model.MemberVO">
