@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.model.DiaryMapper">
+    
+    <select id = "DiaryAllSelect" resultType="kr.smhrd.model.DiaryVO">
+		select * from t_diary where m_id = #{m_id}        
+    </select>
+    
+    <insert id="diaryInsert" parameterType = "kr.smhrd.model.DiaryVO">
+		insert into t_diary(m_id, c_seq, d_title, d_content, d_msg,d_date)
+		values(#{m_id}, #{c_seq}, #{d_title}, #{d_content}, #{d_msg}, #{d_date})
+    </insert>
+    
+</mapper>
