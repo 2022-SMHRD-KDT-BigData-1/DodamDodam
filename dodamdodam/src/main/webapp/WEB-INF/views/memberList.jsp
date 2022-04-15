@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
-    
+    <link rel="stylesheet" href="${path}/resources/static/board2.css" />
   </head>
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -36,41 +36,28 @@
               <span class="title"></span>
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
-            <div class="home_main">
+            <div class="home_main" style="overflow: auto">
               <div class="home_contents">
-                <div class="updated_news_title">
-                  <br /><strong>나의 최근 작성글</strong>
-                </div>
-                <div class="updated_news_contents">
-                  <div class="updated_news_left">
-                    <span class="updated_news_left1"
-                      ><span class="updated_news_red">&nbsp;사진첩&nbsp;</span>
-                      최찬호의 1살 때 사진</span
-                    >
-                    <span class="updated_news_left2"
-                      ><span class="updated_news_blue">&nbsp;게시판&nbsp;</span>
-                      최찬호의 2살 시절 논문</span
-                    >
-                    <span class="updated_news_left3"
-                      ><span class="updated_news_blue">&nbsp;육아수첩&nbsp;</span>
-                      최찬호의 3살 예방주사 맞는날</span
-                    >
-                    <span class="updated_news_left4"
-                      ><span class="updated_news_red">&nbsp;육아교육용컨텐츠&nbsp;</span>
-                      최찬호의 4살 토익 900점 도전기</span
-                    >
-                  </div>
-
-                </div>
-                <div class="miniroom_title">
-                  <br /><strong>오늘의 육아정보</strong>
-                </div>
-                <div class="miniroom_contents">
-                  <img
-                    class="miniroom_gif"
-                    src="${path}/resources/static/images/2020_11_1759675844b134cdb.jpg"
-                  />
-                </div>
+             	 <div>
+	              	<table class="board-table">
+			    		<tr class="success">
+			    			<td>아이디</td>
+			    			<td>닉네임</td>
+			    			<td>전화번호</td>
+			    			<td>성별</td>
+			    			<td>가입일</td>
+			    		</tr>
+			    		<c:forEach var="vo" items="${list}" varStatus="i">
+			    		<tr>
+			    			<td>${vo.m_id}</td>
+			    			<td>${vo.m_nick}</td>
+			    			<td>${vo.m_tel }</td>
+			    			<td>${vo.m_gender }</td>
+			    			<td>${vo.m_joindate }</td>
+			    		<tr>
+			    		</c:forEach>
+			    	</table>
+			    </div>
               </div>
             </div>
           </div>
