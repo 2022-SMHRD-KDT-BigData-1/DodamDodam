@@ -88,7 +88,7 @@
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
-            <a href="./board.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
+            <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
             <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
             <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>

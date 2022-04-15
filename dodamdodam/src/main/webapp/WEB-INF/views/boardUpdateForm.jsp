@@ -1,7 +1,9 @@
+<%@page import="kr.smhrd.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% BoardVO vo = (BoardVO)session.getAttribute("list"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -11,6 +13,7 @@
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
     <link rel="stylesheet" href="${path}/resources/static/board2.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -55,76 +58,45 @@
 				        </div>
 				    </div>
 				   
-				  <!-- board list area -->
-				    <div id="board-list">
-				        <div class="container">
-				            <table class="board-table">
-				                <thead>
-				    				<tr>
-				    					<th width=10%>번호</th>
-				           				<th width=45%>제목</th>
-				           				<th width=15%>이름</th>
-				           				<th width=20%>작성일</th>
-				           				<th width=10%>조회수</th>
-				    				</tr>
-				                </thead>
-				                <tbody>
-									<c:set var="p" value="${postStart}" />
-									<c:set var="plus" value="1" />
-									<c:forEach var="i" items="${list}">
-										<tr>
-											<td>${p+plus }</td>
-											<td><a href="boardContent.do?b_seq=${i.b_seq}">${i.b_title}</a></td>
-											<td>${i.m_nick }</td>
-											<td>${i.b_date}</td>
-				    						<td>${i.b_cnt}</td>
-										</tr>
-										<c:set var="plus" value="${plus +1}" />
-									</c:forEach>
-				                </tbody>
-				    				<tr>
-				    					<td colspan="4"></td>
-				    					<td align="center"><a href="boardInsertForm.do"><button>글쓰기</button></a></td>
-				    				</tr>				                
-				            </table>
-				        </div>
-				        
-				        
-				        <!-- 페이징 처리 -->
-				        <div class="page-line" align="center">
-					        <nav aria-label="Page navigation example">
-								<ul style="justify-content: center" class="pagination">
-									<c:set var="back" value="${postStart/10}" />
-									<li class="page-item" style="display: inline;"><a class="page-link"
-										href="board.do?pageNum=
-										
-										<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
-										aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									</a></li>
-									
-									<c:forEach begin="1" end="${endPageNum}" var="i">
-										<c:choose>
-											<c:when test="${postEnd eq 10 }">
-												<li class="page-item" style="display: inline;"><a class="page-link"
-													href="board.do?pageNum=${i}">${i}</a></li>
-											</c:when>
-											<c:otherwise>
-												<li class="page-item" style="display: inline;"><a class="page-link"
-													href="board.do?pageNum=${i}">${i}</a></li>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-									
-									
-									<li class="page-item" style="display: inline;">
-									<a class="page-link" href="board.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />" aria-label="Next"> 
-									<span aria-hidden="true">&raquo;</span></a>
-									</li>
-								</ul>
-							</nav>
-						</div>
+				    <div id="board-Content">
+				        <form action="boardUpdate.do" method="post">
+						<input type="hidden" name="b_seq" value="${vo.b_seq}">
+							<table class="table table-hover table-bordered">
+								<tr>
+									<td>번호</td>
+									<td>${vo.b_seq}</td>
+								</tr>
+								<tr>
+									<td>제목</td>
+									<td><input type="text" class="form-control" name="b_title"
+										value="${vo.b_title}" required="required"></td>
+								</tr>
+								<tr>
+									<td>작성자</td>
+									<td>${vo.m_nick }</td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td><textarea class="form-control" name="b_content" rows="5" required="required">${vo.b_content }</textarea></td>
+								</tr>
+								<tr>
+									<td>조회수</td>
+									<td>${vo.b_cnt }</td>
+								</tr>
+								<tr>
+									<td>작성일</td>
+									<td>${vo.b_date }</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<button type="submit" class="btn btn-info btn-sm">수정</button>
+										<a href="boardDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="board.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
+									</td>
+								</tr>
+							</table>
+						</form>
 				    </div>
-				
 				</section>
               </div>
             </div>

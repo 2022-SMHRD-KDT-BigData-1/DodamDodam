@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -41,13 +42,12 @@
               	</div>
                 <div class="board_insert_form" align="center" style="color:#FFA9AA;">
                   <form class="form-horizontal" action="boardInsert.do" method="post">
-                  	<input type="hidden" name="m_nick" id="m_nick" value="admin">
+                  	<input type="hidden" name="m_nick" id="m_nick" value="${member.m_nick }">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="title">제목 : </label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="b_title" id="b_title"
-								placeholder="Enter title" required="required">
-							<select name="b_category">
+							<input type="text" class="form-control" name="b_title" id="b_title" placeholder="Enter title" required="required">
+							<select name="b_category" id="b_category">
 								<option value="0">게시판</option>
 								<option value="1">나눔 게시판</option>
 							</select>
@@ -84,7 +84,7 @@
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
-            <a href="./board.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
+            <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
             <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
             <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>
@@ -92,15 +92,22 @@
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219)">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" />
-      <a style="font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: auto; text-align: center;">오늘은 사랑스러운 aaa와의</a>
-      <a style="font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: auto; text-align: center;">--------nnnn일 째입니다--------</a>
-      <button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-      ><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
-      <div class="lb-audio">
-        <audio controls>
-          <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
+    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219);">
+      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/><c:choose
+      			><c:when test="${not empty member}"
+      			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
+      			><a href="mypage.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">마이페이지</button></a
+			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그아웃</button></a>	
+					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
+					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 100px">회원정보보기</button></a>	
+					    </c:if>
+		    	</c:when><c:otherwise
+		    		><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">안녕하세요~ <br> 로그인 해주세요 </p
+		    		><a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그인</button></a
+			      	><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">회원가입</button></a>
+		    	</c:otherwise></c:choose>
+     <div class="lb-audio"><audio controls
+      	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
         </audio>
     </div>
     </div>

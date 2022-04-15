@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
     <link rel="stylesheet" href="${path}/resources/static/board2.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -37,94 +38,47 @@
             <div class="home_main">
               <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
               	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
+              		<h1 style="text-align:center; color:#FFA9AA;">나눔장터 페이지</h1>
               	</div> 	
 				<section class="notice">
-				    <!-- board search area -->
-				    <div id="board-search">
-				        <div class="container">
-				            <div class="search-window">
-				                <form action="">
-				                    <div class="search-wrap">
-				                        <label for="search" class="blind">공지사항 내용 검색</label>
-				                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-				                        <button type="submit" class="btn btn-dark">검색</button>
-				                    </div>
-				                </form>
-				            </div>
-				        </div>
+				    <div id="board-Content">
+				        <form action="boardUpdateForm.do" method="post">
+						<input type="hidden" name="b_seq" value="${vo.b_seq}">
+							<table class="table table-hover table-bordered">
+								<tr>
+									<td>번호</td>
+									<td>${vo.b_seq }</td>
+								</tr>
+								<tr>
+									<td>제목</td>
+									<td>${vo.b_title }</td>
+								</tr>
+								<tr>
+									<td>작성자</td>
+									<td>${vo.m_nick }</td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td>${vo.b_content }</td>
+								</tr>
+								<tr>
+									<td>조회수</td>
+									<td>${vo.b_cnt }</td>
+								</tr>
+								<tr>
+									<td>작성일</td>
+									<td>${vo.b_date }</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<button type="submit" class="btn btn-info btn-sm">수정</button>
+										<a href="boardDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="board.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
+									</td>
+								</tr>
+							</table>
+						</form>
 				    </div>
-				   
-				  <!-- board list area -->
-				    <div id="board-list">
-				        <div class="container">
-				            <table class="board-table">
-				                <thead>
-				    				<tr>
-				    					<th width=10%>번호</th>
-				           				<th width=45%>제목</th>
-				           				<th width=15%>이름</th>
-				           				<th width=20%>작성일</th>
-				           				<th width=10%>조회수</th>
-				    				</tr>
-				                </thead>
-				                <tbody>
-									<c:set var="p" value="${postStart}" />
-									<c:set var="plus" value="1" />
-									<c:forEach var="i" items="${list}">
-										<tr>
-											<td>${p+plus }</td>
-											<td><a href="boardContent.do?b_seq=${i.b_seq}">${i.b_title}</a></td>
-											<td>${i.m_nick }</td>
-											<td>${i.b_date}</td>
-				    						<td>${i.b_cnt}</td>
-										</tr>
-										<c:set var="plus" value="${plus +1}" />
-									</c:forEach>
-				                </tbody>
-				    				<tr>
-				    					<td colspan="4"></td>
-				    					<td align="center"><a href="boardInsertForm.do"><button>글쓰기</button></a></td>
-				    				</tr>				                
-				            </table>
-				        </div>
-				        
-				        
-				        <!-- 페이징 처리 -->
-				        <div class="page-line" align="center">
-					        <nav aria-label="Page navigation example">
-								<ul style="justify-content: center" class="pagination">
-									<c:set var="back" value="${postStart/10}" />
-									<li class="page-item" style="display: inline;"><a class="page-link"
-										href="board.do?pageNum=
-										
-										<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
-										aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									</a></li>
-									
-									<c:forEach begin="1" end="${endPageNum}" var="i">
-										<c:choose>
-											<c:when test="${postEnd eq 10 }">
-												<li class="page-item" style="display: inline;"><a class="page-link"
-													href="board.do?pageNum=${i}">${i}</a></li>
-											</c:when>
-											<c:otherwise>
-												<li class="page-item" style="display: inline;"><a class="page-link"
-													href="board.do?pageNum=${i}">${i}</a></li>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-									
-									
-									<li class="page-item" style="display: inline;">
-									<a class="page-link" href="board.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />" aria-label="Next"> 
-									<span aria-hidden="true">&raquo;</span></a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-				    </div>
-				
 				</section>
               </div>
             </div>
