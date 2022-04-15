@@ -10,8 +10,7 @@ import lombok.NoArgsConstructor;
 public class EmotionVO {
 	private int e_seq;
 	private String m_id;
-	private int d_seq;
-	private String e_result;
+	private String d_date;
 	private String e_joy;
 	private String e_sorrow;
 	private String e_anger;

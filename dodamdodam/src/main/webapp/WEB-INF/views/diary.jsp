@@ -49,6 +49,111 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
     <script src='${path}/resources/static/ko.js'></script> <!-- 캘린더 -->
     <script>
+    
+	    $(document).ready(function () {
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	$.ajax({
+				url : "emotionList.do",
+				type : "post",
+				dataType : "JSON",
+				success : emotion,
+				error : function(e){
+					console.log(e);
+				}
+			}); //ajax 		    
+	    	function emotion(emotionList){
+				console.log("감정분석 에이젝스 성공")
+				
+				var kai = emotionList.length;
+				
+				var date = '${date}';
+				
+				console.log(emotionList[1])
+				
+				var joyIdx = [0,0,0,0,0];
+				var sorrowIdx = [0,0,0,0,0];
+				var angerIdx = [0,0,0,0,0];
+				var unrestIdx = [0,0,0,0,0];
+				var dateIdx = ['','','','',''];
+				
+				$.each(emotionList, function(index, vo) {
+					if('${date}' == vo.d_date){
+						todayIdx = index;
+					}	//if
+				})
+				
+				for(var i = todayIdx; i > todayIdx-5; i--){
+					
+					if(emotionList[i] != null){
+						joyIdx[i] = parseFloat(emotionList[i].e_joy)
+						sorrowIdx[i] = parseFloat(emotionList[i].e_sorrow)
+						angerIdx[i] = parseFloat(emotionList[i].e_anger)
+						unrestIdx[i] = parseFloat(emotionList[i].e_unrest)
+						dateIdx[i] = emotionList[i].d_date
+					}
+				}
+				
+				
+				//막대 그래프 추가
+				 Highcharts.chart('container2', {
+			            chart: {
+			                type: 'column'
+			            },
+			            title: {
+			                text: '최근 '+kai +'회간의 감정분석 결과에요.'
+			            },
+			            xAxis: {
+			                categories: [dateIdx[0], dateIdx[1], dateIdx[2], dateIdx[3],dateIdx[4]]
+			            },
+			            yAxis: {
+			                min: 0,
+			                title: {
+			                    text: ''
+			                }
+			            },
+			            tooltip: {
+			                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+			                shared: true
+			            },
+			            plotOptions: {
+			                column: {
+			                    stacking: 'percent'
+			                }
+			            },
+			            series: [{
+			                name: '기쁨',
+			                data: [joyIdx[0], joyIdx[1], joyIdx[2], joyIdx[3], joyIdx[4]]
+			            }, {
+			                name: '분노',
+			                data: [angerIdx[0], angerIdx[1], angerIdx[2], angerIdx[3], angerIdx[4]]
+			            }, {
+			                name: '슬픔',
+			                data: [sorrowIdx[0], sorrowIdx[1], sorrowIdx[2], sorrowIdx[3], sorrowIdx[4]]
+			            },{
+			                name: '불안',
+			                data: [unrestIdx[0], unrestIdx[1], unrestIdx[2], unrestIdx[3], unrestIdx[4]]
+			            }]
+			        });
+				
+			} // ajax
+			
+	    
+			
+			
+		}) //ready
+			
+			
+	    
+	    
+	    
+	    
 	    
       document.addEventListener('DOMContentLoaded', function() {
     	    var calendarEl = document.getElementById('calendar');
@@ -60,22 +165,44 @@
 	            success: loadDiary,
 				error : function(e){
 					console.log(e);
+					var calendarEl = document.getElementById('calendar');
+			    	
+			    	var calendar = new FullCalendar.Calendar(calendarEl, {
+			    	      selectable: true,
+			    	      locale: 'ko',
+			    	      timeZone: 'UTC',
+			    	      dateClick: function(info) {
+			    	        console.log(info.dateStr);
+			    			$('#diaryDate').val(info.dateStr)
+			    			$("#popUp").show();
+			    			$("#calendar").css('opacity', '0');
+			    			$("#close").on("click", function () {
+			    				$("#popUp").hide();
+			    				$("#calendar").css('opacity', '1');
+			    				$('#diaryTitle').val('');
+								$('#diaryContent').val('');
+								$('#childMSG').val('');
+								$('#counter').html("(0 / 최대 3000자)");
+			    			})
+			    	      }
+			    	 })
+		  	   		calendar.render();
 				}
 	     }); //ajax end
     	    
     	    function loadDiary(diary){
 
-				console.log('에이젝스 받아와짐')
+				console.log('달력 에이젝스 받아와짐')
+				
+				
+				
            var events = [];
           
            if(diary!=null){
         	   
-        	   var todayWord = "일기를 작성해주세요"
+        	   var todayWord = ""
      	    	  $.each(diary, function(index, vo) {
-     	    		  
-     					 if('${date}' == vo.d_date){
-     						todayWord = vo.d_content;
-     					 }
+     						todayWord += vo.d_content;
      	          }); //.each()
                		
      	    	   var text = todayWord,
@@ -143,7 +270,46 @@
     				$('#diaryTitle').val('');
 					$('#diaryContent').val('');
 					$('#childMSG').val('');
-					$('#counter').html("(0 / 최대 3000자)");  
+					$('#counter').html("(0 / 최대 3000자)");
+					 var todayWord = "일기를 작성해주세요"
+		     	    	  $.each(diary, function(index, vo) {
+		     						todayWord += vo.d_content;
+		     	          }); //.each()
+		               		
+		     	    	   var text = todayWord,
+		     	    	    lines = text.split(/[,\. ]+/g),
+		     	    	    data = lines.reduce((arr, word) => {
+		     	    	        let obj = Highcharts.find(arr, obj => obj.name === word);
+		     	    	        if (obj) {
+		     	    	            obj.weight += 1;
+		     	    	        } else {
+		     	    	            obj = {
+		     	    	                name: word,
+		     	    	                weight: 1
+		     	    	            };
+		     	    	            arr.push(obj);
+		     	    	        }
+		     	    	        return arr;
+		     	    	    }, []);
+		     		
+		     		    	Highcharts.chart('container', {
+		     		    	    accessibility: {
+		     		    	        screenReaderSection: {
+		     		    	            beforeChartFormat: '<h5>{chartTitle}</h5>' +
+		     		    	                '<div>{chartSubtitle}</div>' +
+		     		    	                '<div>{chartLongdesc}</div>' +
+		     		    	                '<div>{viewTableButton}</div>'
+		     		    	        }
+		     		    	    },
+		     		    	    series: [{
+		     		    	        type: 'wordcloud',
+		     		    	        data,
+		     		    	        name: 'Occurrences'
+		     		    	    }],
+		     		    	    title: {
+		     		    	        text: '이러한 단어를 많이 사용하셨어요.'
+		     		    	    }
+		     		    	});
 					
 				})
 				
@@ -205,49 +371,10 @@
     	    });
     	    calendar.render();
     	    
-    	    
-           }//if end      
+    	  
+           }//if end
       }
-      //막대 그래프 추가
-      Highcharts.chart('container2', {
-          chart: {
-              type: 'column'
-          },
-          title: {
-              text: '감정분석 결과'
-          },
-          xAxis: {
-              categories: ['오늘', '1일전', '2일전', '3일전','4일전']
-          },
-          yAxis: {
-              min: 0,
-              title: {
-                  text: ''
-              }
-          },
-          tooltip: {
-              pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
-              shared: true
-          },
-          plotOptions: {
-              column: {
-                  stacking: 'percent'
-              }
-          },
-          series: [{
-              name: '기쁨',
-              data: [1, 3, 4, 7, 2]
-          }, {
-              name: '분노',
-              data: [3, 2, 3, 2, 1]
-          }, {
-              name: '슬픔',
-              data: [3, 4, 4, 2, 5]
-          },{
-              name: '불안',
-              data: [3, 4, 4, 2, 5]
-          }]
-      });
+      
     	  });
       
     </script>
@@ -537,6 +664,7 @@
 					      </form>
 					    </div>
                 	 <div id='calendar'></div>
+                	 	<button></button>
 	                	 <figure class="highcharts-figure2">
 					        <div id="container2"></div>
 					    </figure>

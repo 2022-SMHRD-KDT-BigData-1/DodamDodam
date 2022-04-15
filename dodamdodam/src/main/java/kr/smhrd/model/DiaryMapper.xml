@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.model.DiaryMapper">
     
+    
+    <select id = "emotionList" resultType="kr.smhrd.model.EmotionVO">
+		select * from t_emotion where m_id = #{m_id}        
+    </select>
+    
     <select id = "DiaryAllSelect" resultType="kr.smhrd.model.DiaryVO">
 		select * from t_diary where m_id = #{m_id}        
     </select>
