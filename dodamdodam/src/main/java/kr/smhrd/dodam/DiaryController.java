@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.smhrd.model.DiaryMapper;
 import kr.smhrd.model.DiaryVO;
 import kr.smhrd.model.EmotionVO;
+import kr.smhrd.model.MemberVO;
 
 @Controller
 public class DiaryController {
@@ -25,9 +26,9 @@ public class DiaryController {
 		return "redirect:/diary.do";
 	}
 	@RequestMapping("/emotionList.do")
-	public @ResponseBody List<EmotionVO> emotionList(Model model) {
-		String m_id = "admin";
-		List<EmotionVO> emotionList = mapper.emotionList(m_id); 
+	public @ResponseBody List<EmotionVO> emotionList(Model model, HttpSession session) {
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		List<EmotionVO> emotionList = mapper.emotionList(member.getM_id()); 
 		System.out.println(emotionList.get(0).getE_anger());
 		return emotionList;
 	}

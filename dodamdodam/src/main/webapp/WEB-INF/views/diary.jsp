@@ -373,6 +373,7 @@
 	     
     	  });
     
+	    $('.fc-scroller').css("overflow",'hidden'); 
 	    $('.fc-scroller-liquid-absolute').css("overflow",'hidden'); 
 	   
     </script>

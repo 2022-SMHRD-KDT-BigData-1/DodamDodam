@@ -60,9 +60,9 @@ public class HomeController {
 		
 	}
 	@RequestMapping("/diarySelect.do")
-	public @ResponseBody List<DiaryVO> diarySelect(Model model) {
-		String m_id = "admin";
-		List<DiaryVO> diarylist = mapper2.DiaryAllSelect(m_id); 
+	public @ResponseBody List<DiaryVO> diarySelect(Model model, HttpSession session) {
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		List<DiaryVO> diarylist = mapper2.DiaryAllSelect(member.getM_id()); 
 		System.out.println(diarylist.get(0).getD_content());
 		return diarylist;
 	}
