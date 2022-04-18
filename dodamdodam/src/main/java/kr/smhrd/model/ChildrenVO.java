@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor // 생성자
 @Data 
 public class ChildrenVO {
+	
 	private int c_seq;
 	private String c_name;
 	private String c_birthdate;

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.model.NoteMapper">
+    
+    <!-- 육아수첩 리스트 -->
+    <select id="note" resultType="kr.smhrd.model.NoteVO">
+        select * from t_note where m_id=#{m_id} order by n_date desc Limit 10 Offset #{postStart}
+    </select>
+    
+    <!-- 페이지 총 amount -->
+    <select id="noteAmount" resultType="int">
+	    select count(*) from t_note
+	</select>
+    
+    <insert id= "noteInsert" parameterType= "kr.smhrd.model.NoteVO">
+        insert into t_note(m_id, c_seq, n_date, n_height, n_weight, n_significant)
+        values(#{m_id}, #{c_seq}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}) 
+    </insert>
+    
+    <select id="noteContent" parameterType="int" resultType="kr.smhrd.model.NoteVO">
+        select * from t_note where m_id = #{m_id}
+    </select>
+    <select id="notechild" parameterType="String" resultType="kr.smhrd.model.ChildrenVO">
+        select * from t_children where m_id = #{m_id}
+    </select>
+    <update id="noteUpdate" parameterType="kr.smhrd.model.NoteVO">
+        update t_note set n_height, n_weight, n_significant = #{n_height}, #{n_weight}, #{n_significant} where n_seq=#{n_seq}
+    </update>
+    <delete id="noteDelete">
+        delete from t_note where n_seq = #{n_seq}
+    </delete>    
+</mapper>

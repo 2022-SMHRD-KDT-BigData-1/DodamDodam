@@ -2,7 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.model.ChildrenMapper">
     
-    <select id = "ChildInfo" resultType="kr.smhrd.model.ChildrenVO">
+<!--     <select id = "ChildInfo" resultType="kr.smhrd.model.ChildrenVO">
 		select * from t_children where m_id = #{m_id}        
+    </select> -->
+    
+    <!-- 자녀정보 조회 -->
+    <select id = "childrenList" resultType="kr.smhrd.model.ChildrenVO">
+		select * from t_children where m_id=#{m_id}      
     </select>
+    
+    <!-- 자녀정보 1명 조회 -->
+    <select id = "childrenContent" resultType="kr.smhrd.model.ChildrenVO">
+		select * from t_children where c_seq=#{c_seq}      
+    </select>
+    
+    
+    <insert id="childrenInsert" parameterType="kr.smhrd.model.ChildrenVO">
+        insert into t_children(c_name, c_birthdate, c_gender, f_height, m_height, m_id)
+        values(#{c_name},#{c_birthdate},#{c_gender},#{f_height},#{m_height},#{m_id})
+    </insert>
 </mapper>

@@ -47,6 +47,11 @@
 						<label class="control-label col-sm-2" for="title">제목 : </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="b_title" id="b_title" placeholder="Enter title" required="required">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="title">카테고리 : </label>
+						<div class="col-sm-8">
 							<select name="b_category" id="b_category">
 								<option value="0">게시판</option>
 								<option value="1">나눔 게시판</option>
@@ -82,12 +87,16 @@
           </div>
           <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
-            <a href="diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
+            <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
-            <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
-            <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
-            <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>
+            <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
+            <a href="./info.do" class="menu_button4"
+              >&nbsp;&nbsp;육아 정보</a
+            >
+            <a href="./video.do" class="menu_button4"
+              >&nbsp;&nbsp;교육용 컨텐츠</a
+            >
           </div>
         </div>
       </div>

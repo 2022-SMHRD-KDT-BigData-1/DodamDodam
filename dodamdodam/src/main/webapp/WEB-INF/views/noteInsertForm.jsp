@@ -5,16 +5,20 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>2022 MINI HOMEPAGE</title>
+    <title>2021 MINI HOMEPAGE</title>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
-    <link rel="stylesheet" href="${path}/resources/static/board2.css" />
+    <link rel="stylesheet" href="${path}/resources/static/board.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+    	.form-group {
+    		width :700px;
+    	}
+    </style>
 <body>
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
@@ -36,37 +40,71 @@
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
             <div class="home_main">
-              <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
-              	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">로그인</h1>
+              <div class="home_contents">
+              	<div class="page_name" style = "padding-top:30px;">
+              		<h1 style="text-align:center; color:#FFA9AA;">육아 수첩 작성</h1>
               	</div>
-              	
-              	<!-- 로그인 페이지  -->
-              	<div class="panel-body">
-					<!-- loginSelect.do로 요청시 회원의 정보를 일치하는 것을 찾아서
-						회원의 모든 정보를 info라는 이름의 session에 저장한 후
-						boardList.jsp로 이동하시오 -->
-					<form action="loginSelect.do" method="post">
-						<table style="width: 400px; margin:auto; text-align: center;"  class="table table-hover table-bordered">
+              
+                <div class="Note_insert_form" align="center" style="color:#FFA9AA;">
+                  <form class="form-horizontal" action="noteInsert.do" method="post">
+                  	<input type="hidden" name="m_id" id="m_nick">
+					<div class="form-group" style = "padding-top:30px;">
+						<label class="control-label col-sm-2" for="title"> 자녀 : </label>
+						<div class="col-sm-8">
+							<!-- <input type="text" class="form-control" name="b_title" id="b_title"
+								placeholder="Enter title" required="required">
+								 -->
+							<!-- 자녀 선택  -->
+							
+							<select class="form-control" name="c_seq" style="text-align:center;">
+								<option value="0">${c_seq}</option>
+								<option value="1">문도연</option>
+							</select>
+							
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="contents">키: </label>
+						<div class="col-sm-8">
+							<input class="form-control"  name="n_height"
+								id="n_height" required="required"></input>
+						</div>
 						
-							<tr>
-								<td>아이디</td>
-								<td><input class="form-control" type="text" name="m_id" placeholder="Enter ID"></td>
-							</tr>
-							<tr>
-								<td>비밀번호</td>
-								<td><input class="form-control" type="password" name="m_pw" placeholder="Enter PW"></td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<button type="submit" class="btn btn-info btn-sm">로그인</button>
-									<br>
-									<a href="join.do">회원이 아니시라면 여기를 눌러주세요.</a>
-								</td>
-							</tr>
-						</table>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="contents">몸무게: </label>
+						<div class="col-sm-8">
+							<input class="form-control" name="n_weight"
+								id="n_weight" required="required"></input>
+						</div>
+					</div >
+					
+					
+					<div class ="form-group">
+						<label class="control-label col-sm-2" for="contents">접종날자: </label>
+						<div class="col-sm-8">
+							<input class="form-control" type="date" name = "n_date">
+						</div>
+					</div>
+				<div class="form-group">
+						<label class="control-label col-sm-2" for="contents">접종 및<br> 특이사항: </label>
+						<div class="col-sm-8">
+							<textarea class="form-control" rows="10" style="width:100%;" name="n_significant"
+								id="n_significant" required="required"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="contents"></label>
+						<div class="col-sm-8">
+							<button type="reset" class="btn btn-info">취소</button>
+							<button type="submit" class="btn btn-info">저장</button>
+						</div>
+					</div>
+
 					</form>
-				</div> 
+    			  
+                </div>
               </div>
             </div>
           </div>
@@ -90,8 +128,8 @@
       <img src="${path}/resources/static/images/unnamed.jpg" width="225px" />
       <a style="font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: auto; text-align: center;">오늘은 사랑스러운 aaa와의</a>
       <a style="font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: auto; text-align: center;">--------nnnn일 째입니다--------</a>
-      <a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-    	></a><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button></a>
+      <button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
+      ><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
       <div class="lb-audio">
         <audio controls>
           <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  

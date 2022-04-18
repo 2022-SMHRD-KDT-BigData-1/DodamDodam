@@ -1,10 +1,8 @@
-<%@page import="kr.smhrd.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<% BoardVO vo = (BoardVO)session.getAttribute("list"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -12,7 +10,7 @@
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
-    <link rel="stylesheet" href="${path}/resources/static/board2.css" />
+    <link rel="stylesheet" href="${path}/resources/static/board.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -38,66 +36,55 @@
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
             <div class="home_main">
-              <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
+              <div class="home_contents">
               	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
-              	</div> 	
-				<section class="notice">
-				    <!-- board search area -->
-				    <div id="board-search">
-				        <div class="container">
-				            <div class="search-window">
-				                <form action="">
-				                    <div class="search-wrap">
-				                        <label for="search" class="blind">공지사항 내용 검색</label>
-				                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-				                        <button type="submit" class="btn btn-dark">검색</button>
-				                    </div>
-				                </form>
-				            </div>
-				        </div>
-				    </div>
-				   
-				    <div id="board-Content">
-				        <form action="boardUpdate.do" method="post">
-						<input type="hidden" name="b_seq" value="${vo.b_seq}">
-							<table class="table table-hover table-bordered">
-								<tr>
-									<td>번호</td>
-									<td>${vo.b_seq}</td>
-								</tr>
-								<tr>
-									<td>제목</td>
-									<td><input type="text" class="form-control" name="b_title"
-										value="${vo.b_title}" required="required"></td>
-								</tr>
-								<tr>
-									<td>작성자</td>
-									<td>${vo.m_nick }</td>
-								</tr>
-								<tr>
-									<td>내용</td>
-									<td><textarea class="form-control" name="b_content" rows="5" required="required">${vo.b_content }</textarea></td>
-								</tr>
-								<tr>
-									<td>조회수</td>
-									<td>${vo.b_cnt }</td>
-								</tr>
-								<tr>
-									<td>작성일</td>
-									<td>${vo.b_date }</td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<button type="submit" class="btn btn-info btn-sm">수정</button>
-										<a href="boardDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
-										<a href="board2.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
-									</td>
-								</tr>
-							</table>
-						</form>
-				    </div>
-				</section>
+              		<h1 style="text-align:center; color:#FFA9AA;">자녀정보 페이지</h1>
+              	</div>
+                <div class="board_insert_form" align="center" style="color:#FFA9AA;">
+                  <form class="form-horizontal" action="childrenInsert.do" method="post">
+                  	<input type="hidden" name="m_id" id="m_id" value="${member.m_id }">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="title">자녀 이름 : </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="c_name" id="c_name" placeholder="자녀 이름을 입력하세요" required="required">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="contents">자녀 생일 : </label>
+						<div class="col-sm-8">
+							<input class="form-control" type="date" name="c_birthdate" id="c_birthdate" required="required">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="contents">자녀 성별 : </label>
+						<div class="col-sm-8">
+							남성 : <input type="radio" name="c_gender" id="c_gender" value="남" width="500px">
+							여성 : <input type="radio" name="c_gender" id="c_gender" value="여" width="500px">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="title">부모 키(부) : </label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control" name="f_height" id="f_height" placeholder="아버지 키를 입력하세요(cm)" required="required">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="title">부모 키(모) : </label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control" name="m_height" id="m_height" placeholder="어머니 키를 입력하세요(cm)" required="required">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="contents"></label>
+						<div class="col-sm-8">
+							<button type="reset" class="btn btn-info">취소</button>
+							<button type="submit" class="btn btn-info">저장</button>
+						</div>
+					</div>
+
+					</form>
+    			  
+                </div>
               </div>
             </div>
           </div>
@@ -107,8 +94,12 @@
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
-            <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
-            <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>
+            <a href="./info.do" class="menu_button4"
+              >&nbsp;&nbsp;육아 정보</a
+            >
+            <a href="./video.do" class="menu_button4"
+              >&nbsp;&nbsp;교육용 컨텐츠</a
+            >
           </div>
         </div>
       </div>

@@ -40,6 +40,9 @@
 		delete from t_board where b_seq = #{b_seq}
     </delete>
     
+    
+    
+    
     <!-- 게시글 리스트 -->
     <select id="board2" parameterType="kr.smhrd.model.BoardVO" resultType="kr.smhrd.model.BoardVO">
 		<!--select * from t_qna order by q_date desc  -->
