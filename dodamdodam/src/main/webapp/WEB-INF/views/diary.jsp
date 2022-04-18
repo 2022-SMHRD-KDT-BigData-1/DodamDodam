@@ -49,13 +49,8 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
     <script src='${path}/resources/static/ko.js'></script> <!-- 캘린더 -->
     <script>
-    
+    	
 	    $(document).ready(function () {
-	    	
-	    	
-	    	
-	    	
-	    	
 	    	
 	    	
 	    	
@@ -144,9 +139,6 @@
 				
 			} // ajax
 			
-	    
-			
-			
 		}) //ready
 			
 			
@@ -155,7 +147,7 @@
 	    
 	    
 	    
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() { //일기가 아예 없을 때
     	    var calendarEl = document.getElementById('calendar');
 			
     	    $.ajax({
@@ -271,7 +263,8 @@
 					$('#diaryContent').val('');
 					$('#childMSG').val('');
 					$('#counter').html("(0 / 최대 3000자)");
-					 var todayWord = "일기를 작성해주세요"
+					$('#wright').show();
+					 var todayWord = ""
 		     	    	  $.each(diary, function(index, vo) {
 		     						todayWord += vo.d_content;
 		     	          }); //.each()
@@ -314,12 +307,12 @@
 				})
 				
 				
-				$.each(diary, function(index, vo) {
+				$.each(diary, function(index, vo) { // 클릭한 날짜에 일기가 작성 되어있을 때  
 					 if(info.dateStr == vo.d_date){
 						$('#diaryTitle').val(vo.d_title);
 						$('#diaryContent').val(vo.d_content);
 						$('#childMSG').val(vo.d_msg);
-
+						$('#wright').hide();
 			     	    	  $.each(diary, function(index, vo) {
 			     	    		  
 			     					 if(info.dateStr == vo.d_date){
@@ -375,12 +368,21 @@
            }//if end
       }
       
+	     
+    	   
+	     
     	  });
-      
+    
+	    $('.fc-scroller-liquid-absolute').css("overflow",'hidden'); 
+	   
     </script>
     
     <style type="text/css">
+    .fc-scroller{
+    	overflow: hidden;
+    }
     	#calendar{
+    		overflow:hidden;
 	    	position : relative;
 	    	float : left;
     		width : 60%;
@@ -653,7 +655,7 @@
 					      ></textarea>
 					      <br>
 					      <div id = "diarySubmit"class="button" style="text-align: center">
-					        <button type="submit">
+					        <button type="submit" id="wright">
 					          작성
 					        </button>
 					        &emsp;

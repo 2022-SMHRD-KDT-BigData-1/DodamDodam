@@ -10,14 +10,50 @@
 <head>
     <meta charset="UTF-8" />
     <title>2021 MINI HOMEPAGE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
-    
+    <style type="text/css">
+    	#bottomContent{
+    		position: absolute;
+    		bottom : 5%;
+    	}
+    	#slarea{
+    		width: 1237px;
+            height: 400px;
+            overflow: hidden;
+            margin-top :15px;
+            margin-left :15px;
+    	}
+    	#slContain{
+    		position: relative;
+            width:3711px;
+            height: 400px;
+    	}
+    	#slContain > .slide{
+            margin: 0 auto;
+            padding: 0 auto;
+            width: 1237px;
+    		height: 400px;
+            position: relative;
+            float: left;
+    	}
+    	.slide > img{
+    		width: 618px;
+	        height: 400px;
+	        position : relative;
+	        float: left;
+	        cursor: pointer;
+    	}
+    	.slide > img:hover{
+    		z-index: 999;
+    		opacity: 0.7;
+    	}
+    </style>
   </head>
   <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
    </div>
@@ -38,38 +74,46 @@
             </div>
             <div class="home_main">
               <div class="home_contents">
-                <div class="updated_news_title">
-                  <br /><strong>나의 최근 작성글</strong>
+                   <div class="updated_news_title">
+                  <br /><strong>도담도담 최신 인기글</strong>
                 </div>
-                <div class="updated_news_contents">
-                  <div class="updated_news_left">
-                    <span class="updated_news_left1"
-                      ><span class="updated_news_red">&nbsp;사진첩&nbsp;</span>
-                      최찬호의 1살 때 사진</span
-                    >
-                    <span class="updated_news_left2"
-                      ><span class="updated_news_blue">&nbsp;게시판&nbsp;</span>
-                      최찬호의 2살 시절 논문</span
-                    >
-                    <span class="updated_news_left3"
-                      ><span class="updated_news_blue">&nbsp;육아수첩&nbsp;</span>
-                      최찬호의 3살 예방주사 맞는날</span
-                    >
-                    <span class="updated_news_left4"
-                      ><span class="updated_news_red">&nbsp;육아교육용컨텐츠&nbsp;</span>
-                      최찬호의 4살 토익 900점 도전기</span
-                    >
-                  </div>
+                 <div class="updated_news_contents">
 
-                </div>
+                     <span class="updated_news_left1" style="width: 500PX; float: left;"
+                      ><span class="updated_news_red">&nbsp;육아 정보&nbsp;</span>
+                      2살 아이의 언어 발달 상황은?
+                      <br>
+                      <img src="${path}/resources/static/images/edu.jpg" width="300px" height="150px" style="margin-top: 20px;"></span
+                    > 
+                     <span class="updated_news_left2" style="width: 500PX; float: left;"
+                      ><span class="updated_news_blue">&nbsp;교육용 컨텐츠&nbsp;</span>
+                      EBS교육방송 '우리집 유치원'
+                      <br>
+                        <img src="${path}/resources/static/images/edu.jpg" width="300px" height="150px" style="margin-top: 20px;">
+                      </span> 
+                </div>  
+              
+              
+                <div id="bottomContent">
                 <div class="miniroom_title">
-                  <br /><strong>오늘의 육아정보</strong>
+                  <br /><strong>진행중인 EVENT</strong>
                 </div>
-                <div class="miniroom_contents">
-                  <img
-                    class="miniroom_gif"
-                    src="${path}/resources/static/images/2020_11_1759675844b134cdb.jpg"
-                  />
+                <div id = "slarea">
+                <div id="slContain">
+                  <div class="slide">
+                  	<img  src="${path}/resources/static/images/slide01.jpg" />
+                  	<img  src="${path}/resources/static/images/slide011.jpg" />
+                  </div>
+                  <div class="slide">
+                  	<img  src="${path}/resources/static/images/slide02.jpg" />
+                  	<img  src="${path}/resources/static/images/slide022.jpg" />
+                  </div>
+                  <div class="slide">
+                 	 <img  src="${path}/resources/static/images/slide03.jpg" />
+                 	 <img  src="${path}/resources/static/images/slide033.jpg" />
+                  </div>
+                </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -79,7 +123,7 @@
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
-            <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
+            <a href="./note.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
@@ -109,5 +153,16 @@
         </audio>
     </div>
     </div>
+    <script type="text/javascript">
+    var current = 0;
+	setInterval(function() {
+		var next = (current + 1) % 3;
+		var slidePosition = current * (-1237) + "px";
+		$("#slContain").animate({
+			left : slidePosition
+		}, 500);
+		current = next;
+	}, 3000);
+    </script>
   </body>
 </html>
