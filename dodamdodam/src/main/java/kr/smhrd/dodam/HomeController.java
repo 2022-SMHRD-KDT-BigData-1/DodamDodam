@@ -30,12 +30,23 @@ public class HomeController {
 	}
 	@RequestMapping("/diary.do")
 	public void diary(HttpSession session) {
+		
+		
+		
 		String m_id = "admin";
 		List<ChildrenVO> childList = mapper.ChildInfo(m_id); 
 		
 		if(childList != null) {
 			session.setAttribute("childList", childList);
 		}
+		
+	}
+	@RequestMapping("/dodam.do")
+	public void dodam() {
+		
+	}
+	@RequestMapping("/photo.do")
+	public void photo() {
 		
 	}
 	@RequestMapping("/test.do")

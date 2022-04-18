@@ -23,5 +23,4 @@
 	<context:component-scan base-package="kr.smhrd.dodam" />
 	
 	
-	
 </beans:beans>

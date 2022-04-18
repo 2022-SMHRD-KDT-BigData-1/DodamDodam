@@ -166,6 +166,9 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>8.0.26</version>
 		</dependency>
+		
+		<!-- 파일업로드 -->
+
 		   
 	</dependencies>
     <build>

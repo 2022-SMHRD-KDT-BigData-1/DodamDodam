@@ -29,5 +29,6 @@
    </bean>
    
    <mybatis-spring:scan base-package="kr.smhrd.model"/>
+   <!-- 파일업로드 -->
    
 </beans>
