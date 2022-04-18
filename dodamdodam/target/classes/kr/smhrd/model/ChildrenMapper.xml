@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.model.ChildrenMapper">
     
-<!--     <select id = "ChildInfo" resultType="kr.smhrd.model.ChildrenVO">
+     <select id = "ChildInfo" resultType="kr.smhrd.model.ChildrenVO">
 		select * from t_children where m_id = #{m_id}        
-    </select> -->
+    </select> 
     
     <!-- 자녀정보 조회 -->
     <select id = "childrenList" resultType="kr.smhrd.model.ChildrenVO">

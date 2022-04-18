@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ChildrenMapper {
 
-//	public List<ChildrenVO> ChildInfo(String m_id);
+	public List<ChildrenVO> ChildInfo(String m_id);
 
 	public List<ChildrenVO> childrenList(String m_id);
 
