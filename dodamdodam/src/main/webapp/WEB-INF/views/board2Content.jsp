@@ -99,8 +99,9 @@
       <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
-      			><a href="mypage.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">마이페이지</button></a
-			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그아웃</button></a>	
+      			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 10px">개인정보수정</button></a
+			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 10px">자녀정보</button></a
+			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 10px">로그아웃</button></a>
 					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
 					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 100px">회원정보보기</button></a>	
 					    </c:if>

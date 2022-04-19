@@ -124,15 +124,23 @@
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219)">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" />
-      <a style="font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: auto; text-align: center;">오늘은 사랑스러운 aaa와의</a>
-      <a style="font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: auto; text-align: center;">--------nnnn일 째입니다--------</a>
-      <button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-      ><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
-      <div class="lb-audio">
-        <audio controls>
-          <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
+    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219);">
+      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/><c:choose
+      			><c:when test="${not empty member}"
+      			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
+      			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 10px">개인정보수정</button></a
+			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 10px">자녀정보</button></a
+			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 10px">로그아웃</button></a>
+					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
+					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 100px">회원정보보기</button></a>	
+					    </c:if>
+		    	</c:when><c:otherwise
+		    		><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">안녕하세요~ <br> 로그인 해주세요 </p
+		    		><a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그인</button></a
+			      	><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">회원가입</button></a>
+		    	</c:otherwise></c:choose>
+     <div class="lb-audio"><audio controls
+      	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
         </audio>
     </div>
     </div>
