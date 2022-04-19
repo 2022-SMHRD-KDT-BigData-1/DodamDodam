@@ -42,7 +42,7 @@
               	</div> 	
 				<section class="notice">
 				    <div id="board-Content">
-				        <form action="boardUpdateForm.do" method="post">
+				        <form action="board2UpdateForm.do" method="post">
 						<input type="hidden" name="b_seq" value="${vo.b_seq}">
 							<table class="table table-hover table-bordered">
 								<tr>
@@ -70,9 +70,13 @@
 									<td>${vo.b_date }</td>
 								</tr>
 								<tr>
+									<td>나눔상태</td>
+									<td>${vo.b_category }</td>
+								</tr>
+								<tr>
 									<td colspan="2">
 										<button type="submit" class="btn btn-info btn-sm">수정</button>
-										<a href="boardDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="board2Delete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
 										<a href="board2.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
 									</td>
 								</tr>

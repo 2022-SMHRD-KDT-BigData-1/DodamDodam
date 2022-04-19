@@ -37,10 +37,8 @@ public class NoteController {
 		if (pageNum >= 1) {
 			postStart = (pageNum - 1) * 10 ;
 		}
-		
 		// 전체 게시글 수
 		int amount = mapper.noteAmount();
-		
 		// 마지막페이지
 		int endPageNum = (amount - 1) / 10 + 1;
 		int postStart1 = postStart;
@@ -48,7 +46,6 @@ public class NoteController {
 		model.addAttribute("endPageNum", endPageNum);
 		model.addAttribute("postStart", postStart1);
 		model.addAttribute("list", list);
-		System.out.println("끝");
 		return "note";
 	}
 	
@@ -60,9 +57,12 @@ public class NoteController {
 
 	//육아수첩 글쓰기 입력 기능
 	 @RequestMapping("/noteInsert.do")
-	 public String noteInsert(NoteVO vo) {
+	 public String noteInsert(NoteVO vo, Model model) {
 		 System.out.println("육아수첩 글쓰기 입력 기능 동작");
 		 mapper.noteInsert(vo);
+		 
+		 List<ChildrenVO> childList = mapper.ChildInfo();
+		 model.addAttribute("list", childList);
 		 return "redirect:/note.do?pageNum=" + 1;
 
 	 }

@@ -23,6 +23,7 @@
 		select * from t_member where m_id=#{m_id}
     </select>
     
+    <!-- 회원정보수정 -->
     <update id="memberUpdate" parameterType="kr.smhrd.model.MemberVO">
         update t_member set m_pw = #{m_pw}, m_tel = #{m_tel} where m_id = #{m_id}
     </update>

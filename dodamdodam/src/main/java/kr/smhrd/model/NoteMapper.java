@@ -16,4 +16,8 @@ public interface NoteMapper {
 	public void count(int b_seq);
 
 	public void noteInsert(NoteVO vo);
+
+	public void noteInsert(NoteVO vo, ChildrenVO cvo);
+
+	public List<ChildrenVO> ChildInfo();
 }

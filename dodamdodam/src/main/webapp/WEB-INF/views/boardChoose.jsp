@@ -67,17 +67,14 @@
 }
 
 </style>
-    
-    
 </head>
 <body>
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
-   </div>
-   <div class="name_main">
+  </div>
+  <div class="name_main">
     <img src="${path}/resources/static/images/도담도담 로고.png" width="250px" />
   </div>
-
     <div class="bookcover">
       <div class="bookdot">
         <div class="page">
@@ -98,12 +95,12 @@
                     font-family: 'Dongle', sans-serifs; font-size: 50px;">원하는 게시판을 선택해주세요!</h1>
                      <a href="board.do?pageNum=1"><div id="choose1" style="background-color: rgb(255, 255, 195);">
                         소통 게시판
-                        <div><img src="/static/images/conversation.png" width="320px" style="margin-top: 150px;"> </div>
+                        <div><img src="${path}/resources/static/images/conversation.png" width="320px" style="margin-top: 150px;"> </div>
                     </div></a>
                     
-                    <a href="board2.do?pageNum=1"><div onclick="location.href=/board2.do" id="choose2" style="background-color: rgb(205, 237, 255);">
+                    <a href="board2.do?pageNum=1"><div id="choose2" style="background-color: rgb(205, 237, 255);">
                         물건 나눔/거래 게시판
-                        <div><img src="/static/images/people-trading.png" width="320px" style="margin-top: 150px;"> </div>
+                        <div><img src="${path}/resources/static/images/people-trading.png" width="320px" style="margin-top: 150px;"> </div>
                     </div></a>
                 </div>
               </div>

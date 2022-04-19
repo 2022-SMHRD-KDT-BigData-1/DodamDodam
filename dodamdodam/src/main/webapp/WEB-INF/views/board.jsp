@@ -35,7 +35,7 @@
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
             <div class="home_main">
-              <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
+              <div class="home_contents" style="width: 1000px; height: 800px">
               	<div class="page_name">
               		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
               	</div> 	

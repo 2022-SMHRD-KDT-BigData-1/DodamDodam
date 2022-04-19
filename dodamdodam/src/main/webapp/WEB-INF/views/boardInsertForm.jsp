@@ -54,7 +54,10 @@
 						<div class="col-sm-8">
 							<select name="b_category" id="b_category">
 								<option value="0">게시판</option>
-								<option value="1">나눔 게시판</option>
+								<optgroup label="나눔 게시판">
+									<option value="1">나눔 중</option>
+									<option value="2">나눔 완료</option>
+								</optgroup>
 							</select>
 						</div>
 					</div>
@@ -62,7 +65,7 @@
 						<label class="control-label col-sm-2" for="contents">내용 : </label>
 						<div class="col-sm-8">
 							<textarea class="form-control" rows="10" name="b_content"
-								id="b_content" required="required"></textarea>
+								id="b_content" required="required" style="resize: none;"></textarea>
 						</div>
 					</div>
 					<div class="form-group">

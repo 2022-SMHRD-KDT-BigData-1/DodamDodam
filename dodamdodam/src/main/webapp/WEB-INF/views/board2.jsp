@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
     <link rel="stylesheet" href="${path}/resources/static/board2.css" />
+
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -35,7 +36,7 @@
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
             <div class="home_main">
-              <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
+              <div class="home_contents" style="width: 1000px; height: 800px">
               	<div class="page_name">
               		<h1 style="text-align:center; color:#FFA9AA;">나눔장터 페이지</h1>
               	</div> 	
@@ -62,10 +63,11 @@
 				                <thead>
 				    				<tr>
 				    					<th width=10%>번호</th>
-				           				<th width=45%>제목</th>
-				           				<th width=15%>이름</th>
+				           				<th width=40%>제목</th>
+				           				<th width=10%>이름</th>
 				           				<th width=20%>작성일</th>
 				           				<th width=10%>조회수</th>
+				           				<th width=10%>나눔상태</th>
 				    				</tr>
 				                </thead>
 				                <tbody>
@@ -78,12 +80,20 @@
 											<td>${i.m_nick }</td>
 											<td>${i.b_date}</td>
 				    						<td>${i.b_cnt}</td>
+				    						<c:choose>
+					    						<c:when test="${i.b_category eq 1}">
+					    							<td>나눔 중</td>
+					    						</c:when>
+					    						<c:otherwise>
+					    							<td>나눔 완료</td>
+					    						</c:otherwise>
+				    						</c:choose>
 										</tr>
 										<c:set var="plus" value="${plus +1}" />
 									</c:forEach>
 				                </tbody>
 				    				<tr>
-				    					<td colspan="4"></td>
+				    					<td colspan="5"></td>
 				    					<td align="center"><a href="boardInsertForm.do"><button>글쓰기</button></a></td>
 				    				</tr>				                
 				            </table>

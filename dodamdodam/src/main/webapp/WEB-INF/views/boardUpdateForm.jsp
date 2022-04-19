@@ -42,22 +42,7 @@
               	<div class="page_name">
               		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
               	</div> 	
-				<section class="notice">
-				    <!-- board search area -->
-				    <div id="board-search">
-				        <div class="container">
-				            <div class="search-window">
-				                <form action="">
-				                    <div class="search-wrap">
-				                        <label for="search" class="blind">공지사항 내용 검색</label>
-				                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-				                        <button type="submit" class="btn btn-dark">검색</button>
-				                    </div>
-				                </form>
-				            </div>
-				        </div>
-				    </div>
-				   
+				<section class="notice">			   
 				    <div id="board-Content">
 				        <form action="boardUpdate.do" method="post">
 						<input type="hidden" name="b_seq" value="${vo.b_seq}">
@@ -77,7 +62,7 @@
 								</tr>
 								<tr>
 									<td>내용</td>
-									<td><textarea class="form-control" name="b_content" rows="5" required="required">${vo.b_content }</textarea></td>
+									<td><textarea class="form-control" name="b_content" rows="5" required="required" style="resize: none;">${vo.b_content }</textarea></td>
 								</tr>
 								<tr>
 									<td>조회수</td>

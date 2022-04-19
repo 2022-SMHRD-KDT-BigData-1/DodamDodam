@@ -47,7 +47,7 @@
     <!-- 게시글 리스트 -->
     <select id="board2" parameterType="kr.smhrd.model.BoardVO" resultType="kr.smhrd.model.BoardVO">
 		<!--select * from t_qna order by q_date desc  -->
-		 select * from t_board where b_category = "1" and "2" order by b_date desc Limit 10 Offset #{postStart}
+		 select * from t_board where b_category = "1" or "2" order by b_date desc Limit 10 Offset #{postStart}
 	</select>
 	
     <!-- 페이지 총 amount -->
@@ -60,8 +60,9 @@
     </select>
     
     <update id="board2Update" parameterType = "kr.smhrd.model.BoardVO">
-		update t_board set b_title = #{b_title}, b_content = #{b_content} where b_seq = #{b_seq}
+		update t_board set b_title = #{b_title}, b_content = #{b_content}, b_category = #{b_category} where b_seq = #{b_seq}
     </update>
+    
     <delete id="board2Delete">
 		delete from t_board where b_seq = #{b_seq}
     </delete>

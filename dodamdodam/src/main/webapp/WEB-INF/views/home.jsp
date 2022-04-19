@@ -123,7 +123,7 @@
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
-            <a href="./note.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
+            <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
@@ -148,8 +148,8 @@
 		    		><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">안녕하세요~ <br> 로그인 해주세요 </p
 		    		><a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그인</button></a
 			      	><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">회원가입</button></a>
-		    	</c:otherwise></c:choose>
-     <div class="lb-audio"><audio controls
+		    	</c:otherwise></c:choose
+		    	><div class="lb-audio"><audio controls
       	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
         </audio>
     </div>

@@ -57,8 +57,9 @@
 							<!-- 자녀 선택  -->
 							
 							<select class="form-control" name="c_seq" style="text-align:center;">
-								<option value="0">${c_seq}</option>
-								<option value="1">문도연</option>
+								<c:forEach var="i" items="${list}">
+									<option>${i.c_name}</option>
+								</c:forEach>
 							</select>
 							
 						</div>

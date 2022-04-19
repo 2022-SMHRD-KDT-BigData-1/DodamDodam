@@ -40,26 +40,11 @@
             <div class="home_main">
               <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
               	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
+              		<h1 style="text-align:center; color:#FFA9AA;">나눔장터 페이지</h1>
               	</div> 	
-				<section class="notice">
-				    <!-- board search area -->
-				    <div id="board-search">
-				        <div class="container">
-				            <div class="search-window">
-				                <form action="">
-				                    <div class="search-wrap">
-				                        <label for="search" class="blind">공지사항 내용 검색</label>
-				                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-				                        <button type="submit" class="btn btn-dark">검색</button>
-				                    </div>
-				                </form>
-				            </div>
-				        </div>
-				    </div>
-				   
+				<section class="notice">			   
 				    <div id="board-Content">
-				        <form action="boardUpdate.do" method="post">
+				        <form action="board2Update.do" method="post">
 						<input type="hidden" name="b_seq" value="${vo.b_seq}">
 							<table class="table table-hover table-bordered">
 								<tr>
@@ -76,8 +61,15 @@
 									<td>${vo.m_nick }</td>
 								</tr>
 								<tr>
+									<td>나눔 상태</td>
+									<td>
+										나눔 중<input type="radio" id="b_category" name="b_category" value="1">
+										나눔 완료<input type="radio" id="b_category" name="b_category" value="2">
+									</td>
+								</tr>
+								<tr>
 									<td>내용</td>
-									<td><textarea class="form-control" name="b_content" rows="5" required="required">${vo.b_content }</textarea></td>
+									<td><textarea class="form-control" name="b_content" rows="5" required="required" style="resize:none;">${vo.b_content }</textarea></td>
 								</tr>
 								<tr>
 									<td>조회수</td>
@@ -90,7 +82,7 @@
 								<tr>
 									<td colspan="2">
 										<button type="submit" class="btn btn-info btn-sm">수정</button>
-										<a href="boardDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="board2Delete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
 										<a href="board2.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
 									</td>
 								</tr>
