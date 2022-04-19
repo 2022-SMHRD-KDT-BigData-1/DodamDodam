@@ -13,6 +13,8 @@
     <title>2021 MINI HOMEPAGE</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
@@ -33,6 +35,19 @@
       rel="stylesheet"
     />
     <style>
+    [data-scroll] {
+	  transition: opacity 1s;
+	  will-change : transform, scale, opcity;
+	  transform:translateY(6rem) scale(0.93);
+	  transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+	[data-scroll="in"] {
+	  transform : translateY(0) scale(1);
+	  opacity: 1;
+	}
+	[data-scroll="out"] {
+	  opacity: 0;
+	}
     .calendar {
       margin: 20px 20px 10px 20px;
       flex: 0.1;
@@ -81,12 +96,8 @@
     margin-bottom: 30px;
     width: 80%;
     height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*overflow 속성 적용*/
-    overflow: auto;
     background-color: whitesmoke;
+    overflow: auto;
 }
 
 
@@ -100,6 +111,7 @@
     font-family:'Single Day', cursive ;
     font-size: 24px;
     text-align: center;
+    display: inline-block;
 }
 
 
@@ -120,13 +132,21 @@
 
 .detail {
 margin-bottom: 30px;
-    width: 90%;
+    width: 100%;
     font-family:'Dongle', sans-serif; 
     font-size: 30px;
     color: black;
     text-align: center;
 }
-
+.dayBlock{
+	text-align: center;
+    margin: 0 auto;
+	width:100%;
+	height:100%;
+}
+.album-photo{
+	display: inline-block;
+}
 </style>
   </head>
   <body>
@@ -163,16 +183,22 @@ margin-bottom: 30px;
                   </div>
                   <button type="button" style="float: right; margin-right: 30px; font-size: 20px; font-family:'Single Day', cursive; background-color:#f8e4d9;">새로운 추억 남기기</button>
                 </div>
-                <div class="main-container">
+                <div class="main-container" >
+                <div class="dayBlock" data-scroll>
                 <div class="gray-text" id="basic-text">오늘의 이야기(2020.01.11)</div>
                 <div class="album-photo"><img src="${path}/resources/static/images/test.PNG"></div>
                 <div class="detail" id="basic-text">친구랑 싸웠다. 죽고시퍼?</div>
+                </div>
+                <div class="dayBlock" data-scroll>
                 <div class="gray-text" id="basic-text">오늘의 이야기(2022.01.19)</div>
                 <div class="album-photo"><img src="${path}/resources/static/images/test.PNG"></div>
                 <div class="detail" id="basic-text">내 애완동물</div>
+                </div>
+                <div class="dayBlock" data-scroll>
                 <div class="gray-text" id="basic-text">오늘의 이야기(2020.01.23)</div>
                 <div class="album-photo"><img src="${path}/resources/static/images/test.PNG"></div>
                 <div class="detail" id="basic-text">친구가 찍어줬다.</div>
+                </div>
               </div>
             </div>
             </div>
@@ -212,5 +238,25 @@ margin-bottom: 30px;
         </audio>
     </div>
     </div>
+    <script type="text/javascript">
+    ScrollOut({
+    	scrollingElement: ".main-container",
+    	onShown: (element) => {
+    	    // use the web animation API
+    	    new TypeIt(element.querySelector('.gray-text'),{
+    	    	   startDelay: 500,
+    	    	   cursor : false,
+    	    	 })
+    	    	   .pause(2000)
+    	    	   .go();
+    	    new TypeIt(element.querySelector('.detail'),{
+    	    	   startDelay: 2500,
+    	    	   cursor : false,
+    	    	 })
+    	    	   .pause(2000)
+    	    	   .go();
+    	    	},
+    });
+    </script>
   </body>
 </html>
