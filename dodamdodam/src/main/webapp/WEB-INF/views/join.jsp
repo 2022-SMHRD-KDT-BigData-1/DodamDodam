@@ -119,7 +119,6 @@
 			
 			//html에 id값 가져오기
 			var id = $('#m_id').val();
-			
 			$.ajax({
 				url : "idCheck.do",
 				type : "POST",
@@ -139,7 +138,7 @@
 			//아니라면 사용가능한 아이디 입니다. 글자를 넣어주세요
 			console.log(data);
 			
-			if(data.id == null) {
+			if(data.m_id == null) {
 				$('p').text("사용가능한 ID 입니다.");
 				$('p').css('color','blue');
 				$('#m_pw').removeAttr("readonly");

@@ -13,10 +13,9 @@ public interface ChildrenMapper {
 
 	public void childrenInsert(ChildrenVO vo);
 
-	public void count(int c_seq);
-
 	public ChildrenVO childrenContent(int c_seq);
 
+	public void count(int c_seq);
 	
 	
 }

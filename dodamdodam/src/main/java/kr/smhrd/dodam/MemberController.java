@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.smhrd.model.BoardVO;
 import kr.smhrd.model.MemberMapper;
 import kr.smhrd.model.MemberVO;
 
@@ -74,6 +75,23 @@ public class MemberController {
 		}
 		return vo;
 	}
+	
+	 //회원 정보 수정 기능
+	 @RequestMapping("/memberUpdateForm.do")
+	 public void memberUpdate(Model model, HttpSession session) {
+		 
+		 MemberVO vo = (MemberVO)session.getAttribute("member");
+		 
+		 model.addAttribute("vo", vo);
+		 
+	 }
+	 
+	 @RequestMapping("/memberUpdate.do")
+	 public String memberUpdate(MemberVO vo) {
+		 System.out.println("회원정보수정 기능 동작");
+		 mapper.memberUpdate(vo);
+		 return "redirect:/home.do";
+	 }
 
 	
 	//회원조회 기능
@@ -84,6 +102,8 @@ public class MemberController {
 		model.addAttribute("list", list);
 		return "memberList";
 	}
+	
+	
 	
 //	@RequestMapping("/board2.do")
 //	public String board2(Model model, HttpServletRequest request) {

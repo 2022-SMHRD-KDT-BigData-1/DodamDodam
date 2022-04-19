@@ -50,10 +50,9 @@ public class ChildrenController {
 	 //자녀정보 글 조회 기능
 	 @RequestMapping("/childrenContent.do")
 	 public void childrenContent(int c_seq,Model model) {
-		 System.out.println("게시글 조회 기능 동작");
+		 System.out.println("자녀정보글 조회 기능 동작");
 		 
 		 ChildrenVO vo = mapper.childrenContent(c_seq);
-		 mapper.count(c_seq);
 		 model.addAttribute("vo", vo);
 	 }
 	

@@ -23,6 +23,7 @@
 		values(#{b_title}, #{b_content}, #{b_file}, #{m_nick}, #{b_category})
     </insert>
     
+    <!-- 게시글 조회 -->
     <select id = "boardContent" parameterType="int" resultType="kr.smhrd.model.BoardVO">
 		select * from t_board where b_seq = #{b_seq}
     </select>

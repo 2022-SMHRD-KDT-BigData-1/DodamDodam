@@ -1,7 +1,9 @@
+<%@page import="kr.smhrd.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% BoardVO vo = (BoardVO)session.getAttribute("list"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -38,38 +40,34 @@
             <div class="home_main">
               <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
               	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">자녀정보 페이지</h1>
+              		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
               	</div> 	
-				<section class="notice">
+				<section class="notice">   
 				    <div id="board-Content">
-				        <form action="childrenUpdateForm.do" method="post">
-						<input type="hidden" name="c_seq" value="${vo.c_seq}">
+				        <form action="memberUpdate.do" method="post">
+						<input type="hidden" name="m_id" value="${vo.m_id}">
 							<table class="table table-hover table-bordered">
 								<tr>
-									<td>아이 이름</td>
-									<td>${vo.c_name }</td>
+									<td>아이디</td>
+									<td>${vo.m_id}</td>
 								</tr>
 								<tr>
-									<td>아이 생일</td>
-									<td>${vo.c_birthdate }</td>
+									<td>비밀번호</td>
+									<td><input type="password" class="form-control" name="m_pw"
+										value="${vo.m_pw}" required="required"></td>
 								</tr>
 								<tr>
-									<td>아이 성별</td>
-									<td>${vo.c_gender }</td>
+									<td>작성자</td>
+									<td>${vo.m_nick }</td>
 								</tr>
 								<tr>
-									<td>부모 키 (부)</td>
-									<td>${vo.f_height }</td>
-								</tr>
-								<tr>
-									<td>작성일</td>
-									<td>${vo.m_height }</td>
+									<td>전화번호</td>
+									<td><input type="tel" class="form-control" name="m_tel" value="${vo.m_tel }" required="required"></td>
 								</tr>
 								<tr>
 									<td colspan="2">
 										<button type="submit" class="btn btn-info btn-sm">수정</button>
-										<a href="childrenDelete.do?c_seq=${vo.c_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
-										<a href="children.do"><button type="button" class="btn btn-info btn-sm">목록</button></a>
+										<a href="home.do"><button type="button" class="btn btn-info btn-sm">취소</button></a>
 									</td>
 								</tr>
 							</table>
@@ -85,8 +83,12 @@
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
-            <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
-            <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>
+            <a href="./info.do" class="menu_button4"
+              >&nbsp;&nbsp;육아 정보</a
+            >
+            <a href="./video.do" class="menu_button4"
+              >&nbsp;&nbsp;교육용 컨텐츠</a
+            >
           </div>
         </div>
       </div>

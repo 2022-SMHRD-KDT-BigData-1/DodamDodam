@@ -73,7 +73,7 @@
 									<td colspan="2">
 										<button type="submit" class="btn btn-info btn-sm">수정</button>
 										<a href="boardDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
-										<a href="board.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
+										<a href="board2.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
 									</td>
 								</tr>
 							</table>

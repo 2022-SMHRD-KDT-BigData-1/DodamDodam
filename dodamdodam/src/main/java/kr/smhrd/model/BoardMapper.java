@@ -18,7 +18,7 @@ public interface BoardMapper {
 
 	public BoardVO boardContent(int b_seq);
 	
-	@Update("update t_board set b_cnt = b_cnt + 1 where b_cnt = #{b_cnt}")
+	@Update("update t_board set b_cnt = b_cnt + 1 where b_seq = #{b_seq}")
 	public void count(int b_seq);
 
 	public void boardUpdate(BoardVO vo);
@@ -34,7 +34,7 @@ public interface BoardMapper {
 
 	public BoardVO board2Content(int b_seq);
 	
-	@Update("update t_board set b_cnt = b_cnt + 1 where b_cnt = #{b_cnt}")
+	@Update("update t_board set b_cnt = b_cnt + 1 where b_seq = #{b_seq}")
 	public void count2(int b_seq);
 
 	public void board2Update(BoardVO vo);
