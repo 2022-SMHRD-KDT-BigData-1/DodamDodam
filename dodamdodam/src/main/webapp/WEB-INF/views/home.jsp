@@ -111,7 +111,7 @@
                       ><span class="updated_news_red">&nbsp;육아 정보&nbsp;</span>
                       2살 아이의 언어 발달 상황은?
                       <br>
-                      <img src="${path}/resources/static/images/edu.jpg" width="300px" height="150px" style="margin-top: 20px;"></span
+                      <img src="${path}/resources/static/images/메인 2살.jpg" width="300px" height="150px" style="margin-top: 20px;"></span
                     > 
                      <span class="updated_news_left2" style="width: 500PX; float: left;"
                       ><span class="updated_news_blue">&nbsp;교육용 컨텐츠&nbsp;</span>
@@ -204,7 +204,7 @@
     
     
     <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="230px"/><c:choose
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height="220px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
