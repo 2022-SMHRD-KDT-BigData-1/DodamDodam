@@ -323,7 +323,7 @@ margin-bottom: 30px;
    <div id = "photoInsertPopUp">
    	<form action = "GalleryInsert.do" method="post" id = "formPopUp" enctype="multipart/form-data">
    		<input type="date" value="${date }" name = "g_date" id="insertDate">
-   		<input type = "hidden" value="${member.m_id }">
+   		<input type = "hidden" value="${member.m_id }" name ="m_id">
    		<div id = "photoTitle">
    		<input type="text" id ="photoTitleInput" name="g_title" placeholder="제목을 입력해주세요.">
    		</div>
@@ -374,27 +374,43 @@ margin-bottom: 30px;
                   <div class="calendar">
                   	<input type = "date" value="${date }" id = "photoDate">
                   	<div class="text-box">
-					    <a href="#" class="btn btn-white btn-        animate">검색</a>
+					    <a href="#" class="btn btn-white btn-        animate" id="photoGo">검색</a>
 					</div>
                   </div>
                   <button type="button" id="photoInsert" style="float: right; margin-right: 30px; font-size: 20px; font-family:'Single Day', cursive; background-color:#f8e4d9;">새로운 추억 남기기</button>
                 </div>
+                
+                
                 <div class="main-container" >
+                <c:choose>
+                <c:when test="${Gallery != null }">
+                	<c:forEach var = 'vo' items ="${Gallery }" varStatus="i">
+                		<input type = "hidden" value="${vo.g_date}" class = "getDate">
+                		<div class="dayBlock" data-scroll>
+		                <div class="gray-text" id="basic-text">${vo.g_title }( ${vo.g_date} )</div>
+		                <div class="album-photo"><img src="<spring:url value='/resources/test/${vo.p1 }'/>"></div>
+		                <div class="detail" id="basic-text">${vo.g_msg }</div>
+                </div>
+                	</c:forEach>
+                </c:when>
+                <c:otherwise>
                 <div class="dayBlock" data-scroll>
-                <div class="gray-text" id="basic-text">오늘의 이야기(2020.01.11)</div>babyfoot.jpg
-                <div class="album-photo"><img src="<spring:url value='/resources/test/slide011.jpg'/>"></div>
-                <div class="detail" id="basic-text">친구랑 싸웠다. 죽고시퍼?</div>
+                <div class="gray-text" id="basic-text">오늘의 이야기( ${date } )</div>
+                <div class="album-photo"><img src="${path}/resources/static/images/noLogin1.jpg"></div>
+                <div class="detail" id="basic-text">당신의 이야기를 적어보세요</div>
                 </div>
                 <div class="dayBlock" data-scroll>
-                <div class="gray-text" id="basic-text">오늘의 이야기(2022.01.19)</div>
-                <div class="album-photo"><img src="${path}/resources/static/images/test.PNG"></div>
-                <div class="detail" id="basic-text">내 애완동물</div>
+                <div class="gray-text" id="basic-text">오늘의 이야기( ${date } )</div>
+                <div class="album-photo"><img src="${path}/resources/static/images/noLogin2.jpg"></div>
+                <div class="detail" id="basic-text">자녀와 함께 추억을,</div>
                 </div>
                 <div class="dayBlock" data-scroll>
-                <div class="gray-text" id="basic-text">오늘의 이야기(2020.01.23)</div>
-                <div class="album-photo"><img src="${path}/resources/static/images/test.PNG"></div>
-                <div class="detail" id="basic-text">친구가 찍어줬다.</div>
+                <div class="gray-text" id="basic-text">오늘의 이야기( ${date } )</div>
+                <div class="album-photo"><img src="${path}/resources/static/images/noLogin2.jpg"></div>
+                <div class="detail" id="basic-text">만들어가봐요.</div>
                 </div>
+                </c:otherwise>
+                </c:choose>
               </div>
             </div>
             </div>
@@ -415,21 +431,35 @@ margin-bottom: 30px;
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: rgba(238, 176, 212, 0.219);">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" align="middle"/><c:choose
+    <div class="sideform_main" style="background-color: #d5d5d5;">
+      <img src="${path}/resources/static/images/unnamed.jpg" width="230px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
-      			><a href="mypage.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">마이페이지</button></a
-			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그아웃</button></a>	
+      			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
+			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 36px;font-family:'Single Day', cursive; font-size:14px">자녀정보</button></a
+			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-right: 12px; float: right;font-family:'Single Day', cursive; font-size:14px">로그아웃</button></a>
 					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
-					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 100px">회원정보보기</button></a>	
+					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 125px; font-size:10px">회원정보보기</button></a>	
 					    </c:if>
 		    	</c:when><c:otherwise
-		    		><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">안녕하세요~ <br> 로그인 해주세요 </p
-		    		><a href="login.do"><button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">로그인</button></a
-			      	><a href="join.do"><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 50px">회원가입</button></a>
-		    	</c:otherwise></c:choose>
-     <div class="lb-audio"><audio controls
+		    		>      
+		    		<p
+        style="
+          font-style: inherit;
+          font-size: 15px;
+          color: black;
+          font-weight: bold;
+          margin: auto;
+          text-align: center;
+          font-family: 'Poor Story', cursive;
+        "
+        >로그인을 해주세요</p
+      >
+      <a href="login.do"> <button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
+        ></a
+			      	>&emsp;<a href="join.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button></a>
+		    	</c:otherwise></c:choose
+		    	><div class="lb-audio"><audio controls
       	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
         </audio>
     </div>
@@ -460,6 +490,23 @@ margin-bottom: 30px;
     	$('#photoInsertPopUp').hide();
     	$('#photoTitleInput').val('');
     	$('#photoContentInput').val('');
+	})
+	$('#photoGo').on('click', function () {
+		var begyo = $('#photoDate').val();
+		var geasu = $('.getDate').length;
+		var ptn = 0; 
+		for(var i = 0; i < geasu; i++ ){
+			
+			if($($('.getDate')[i]).val() == begyo ){
+				/* ptn = $($('.getDate')[i]).scrollTop(); */
+				ptn = 500 * i;
+				break;
+			}
+		}
+		console.log(ptn)
+		$('.main-container').animate({
+			scrollTop : ptn
+		}, 1000)
 	})
     </script>
   </body>

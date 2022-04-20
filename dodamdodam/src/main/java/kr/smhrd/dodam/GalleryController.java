@@ -1,6 +1,8 @@
 package kr.smhrd.dodam;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -8,17 +10,20 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import kr.smhrd.model.GalleryMapper;
 import kr.smhrd.model.GalleryVO;
+import kr.smhrd.model.MemberVO;
 
 @Controller
 public class GalleryController {
 	
 	
-	private static final String FILE_SERVER_PATH = "/resources/upload";
 	
 	@Inject
 	private GalleryMapper mapper;
@@ -27,6 +32,8 @@ public class GalleryController {
 	public String GalleryInsert(MultipartFile[] uploadFile, GalleryVO vo, HttpSession session) {
 		 System.out.println("파일 저장 시작");
 		 System.out.println(vo.getG_date());
+		 System.out.println(vo.getM_id());
+		 System.out.println(vo.getG_title());
 	      Logger log = LoggerFactory.getLogger(getClass());
 	      // 디렉토리에 폴더 생성
 	      
@@ -68,23 +75,55 @@ public class GalleryController {
 	         
 	      }
 	      
+	      for(int i = 0; i < uploadFile.length; i++) {
+	    	  if(i == 0) {
+	    		  vo.setP1(uploadFile[0].getOriginalFilename());
+	    	  }else if(i == 1) {
+	    		  vo.setP2(uploadFile[1].getOriginalFilename());
+	    	  }else if(i == 2) {
+	    		  vo.setP3(uploadFile[2].getOriginalFilename());
+	    	  }else if(i == 3) {
+	    		  vo.setP4(uploadFile[3].getOriginalFilename());
+	    	  }else if(i == 4) {
+	    		  vo.setP5(uploadFile[4].getOriginalFilename());
+	    	  }else if(i == 5) {
+	    		  vo.setP6(uploadFile[5].getOriginalFilename());
+	    	  }else if(i == 6) {
+	    		  vo.setP7(uploadFile[6].getOriginalFilename());
+	    	  }else if(i == 7) {
+	    		  vo.setP8(uploadFile[7].getOriginalFilename());
+	    	  }else if(i == 8) {
+	    		  vo.setP9(uploadFile[8].getOriginalFilename());
+	    	  }else if(i == 9) {
+	    		  vo.setP10(uploadFile[9].getOriginalFilename());
+	    	  }
+	      }
 	      
+	      mapper.GalleryInsert(vo);
 	      
 	      
 			return "redirect:/photo.do";
 	}
 
 	
-//	@RequestMapping("/idCheck.do")
-//	public @ResponseBody MemberVO idCheck(String id) {
-//		System.out.println(id);
-//		
-//		MemberVO vo = mapper.idCheck(id);
-//		
+//	@RequestMapping("/gallerySelect.do")
+//	public @ResponseBody List<GalleryVO> gallerySelect(HttpSession session) {
+//		MemberVO member = (MemberVO) session.getAttribute("member");
+//		List<GalleryVO> vo = mapper.gallerySelect(member.getM_id());
 //		if(vo == null) {
-//			vo = new MemberVO();
+//			vo = new ArrayList<GalleryVO>();
 //		}
 //		return vo;
 //	}
+	@RequestMapping("/photo.do")
+	public void photo(HttpSession session, Model model) {
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		if(member != null) {
+			List<GalleryVO> gallery = mapper.gallerySelect(member.getM_id());
+			
+			model.addAttribute("Gallery", gallery);
+		}
+	}
+	
 	
 }

@@ -45,10 +45,7 @@ public class HomeController {
 	public void dodam() {
 		
 	}
-	@RequestMapping("/photo.do")
-	public void photo() {
-		
-	}
+	
 	@RequestMapping("/test.do")
 	public void test(HttpSession session) {
 		String m_id = "admin";
