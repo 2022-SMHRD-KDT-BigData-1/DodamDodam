@@ -194,6 +194,9 @@
 						<password>${mvn_project.password}</password>
 						<update>true</update>
 					</configuration>
+					<pluginGroups>
+						<pluginGroup>org.apache.tomcat.maven</pluginGroup>
+					</pluginGroups>
 				</plugin>
 			</plugins>
 		</pluginManagement>
