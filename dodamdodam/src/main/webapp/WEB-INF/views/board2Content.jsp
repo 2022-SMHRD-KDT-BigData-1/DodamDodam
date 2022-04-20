@@ -20,6 +20,7 @@
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
    </div>
+   
    <div class="name_main">
     <img src="${path}/resources/static/images/도담도담 로고.png" width="250px" />
   </div>
