@@ -49,8 +49,13 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
     <script src='${path}/resources/static/ko.js'></script> <!-- 캘린더 -->
     <script>
-    	
+    
 	    $(document).ready(function () {
+	    	
+	    	
+	    	
+	    	
+	    	
 	    	
 	    	
 	    	
@@ -139,6 +144,9 @@
 				
 			} // ajax
 			
+	    
+			
+			
 		}) //ready
 			
 			
@@ -147,7 +155,7 @@
 	    
 	    
 	    
-      document.addEventListener('DOMContentLoaded', function() { //일기가 아예 없을 때
+      document.addEventListener('DOMContentLoaded', function() {
     	    var calendarEl = document.getElementById('calendar');
 			
     	    $.ajax({
@@ -263,8 +271,7 @@
 					$('#diaryContent').val('');
 					$('#childMSG').val('');
 					$('#counter').html("(0 / 최대 3000자)");
-					$('#wright').show();
-					 var todayWord = ""
+					 var todayWord = "일기를 작성해주세요"
 		     	    	  $.each(diary, function(index, vo) {
 		     						todayWord += vo.d_content;
 		     	          }); //.each()
@@ -307,12 +314,12 @@
 				})
 				
 				
-				$.each(diary, function(index, vo) { // 클릭한 날짜에 일기가 작성 되어있을 때  
+				$.each(diary, function(index, vo) {
 					 if(info.dateStr == vo.d_date){
 						$('#diaryTitle').val(vo.d_title);
 						$('#diaryContent').val(vo.d_content);
 						$('#childMSG').val(vo.d_msg);
-						$('#wright').hide();
+
 			     	    	  $.each(diary, function(index, vo) {
 			     	    		  
 			     					 if(info.dateStr == vo.d_date){
@@ -368,22 +375,12 @@
            }//if end
       }
       
-	     
-    	   
-	     
     	  });
-    
-	    $('.fc-scroller').css("overflow",'hidden'); 
-	    $('.fc-scroller-liquid-absolute').css("overflow",'hidden'); 
-	   
+      
     </script>
     
     <style type="text/css">
-    .fc-scroller{
-    	overflow: hidden;
-    }
     	#calendar{
-    		overflow:hidden;
 	    	position : relative;
 	    	float : left;
     		width : 60%;
@@ -656,7 +653,7 @@
 					      ></textarea>
 					      <br>
 					      <div id = "diarySubmit"class="button" style="text-align: center">
-					        <button type="submit" id="wright">
+					        <button type="submit">
 					          작성
 					        </button>
 					        &emsp;
@@ -694,9 +691,19 @@
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: #d5d5d5">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" />
-      <a
+     <div class="sideform_main" style="background-color: #d5d5d5;">
+      <img src="${path}/resources/static/images/unnamed.jpg" width="230px"/><c:choose
+      			><c:when test="${not empty member}"
+      			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
+      			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
+			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 36px;font-family:'Single Day', cursive; font-size:14px">자녀정보</button></a
+			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-right: 12px; float: right;font-family:'Single Day', cursive; font-size:14px">로그아웃</button></a>
+					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
+					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 125px; font-size:10px">회원정보보기</button></a>	
+					    </c:if>
+		    	</c:when><c:otherwise
+		    		>      
+		    		<p
         style="
           font-style: inherit;
           font-size: 15px;
@@ -706,29 +713,19 @@
           text-align: center;
           font-family: 'Poor Story', cursive;
         "
-        >-----오늘은 사랑스러운 aaa와-----</a
+        >로그인을 해주세요</p
       >
-      <a
-        style="
-          font-style: inherit;
-          font-size: 15px;
-          color: black;
-          font-weight: bold;
-          margin: auto;
-          text-align: center;
-          font-family: 'Poor Story', cursive;
-        "
-        >--------nnnn일 째입니다--------
-        </a>
-      <button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-        >&emsp;<button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
-      <div class="lb-audio">
-        <audio controls>
-          <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
+      <a href="login.do"> <button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
+        ></a
+			      	>&emsp;<a href="join.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button></a>
+		    	</c:otherwise></c:choose
+		    	><div class="lb-audio"><audio controls
+      	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
         </audio>
     </div>
-    <input type = "hidden" id = "DiaryContents">
     </div>
+    <input type = "hidden" id = "DiaryContents">
+  
 	<script type="text/javascript">
 	
 	
