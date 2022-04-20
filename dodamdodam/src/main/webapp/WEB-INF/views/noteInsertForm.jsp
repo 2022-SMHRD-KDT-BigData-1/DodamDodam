@@ -74,7 +74,7 @@
               
                 <div class="Note_insert_form" align="center" style="color:#FFA9AA;">
                   <form class="form-horizontal" action="noteInsert.do" method="post">
-                  	<input type="hidden" name="m_id" id="m_nick">
+                  	<input type="hidden" name="m_id" id="m_id">
 					<div class="form-group" style = "padding-top:30px;">
 						<label class="control-label col-sm-2" for="title"> 자녀 : </label>
 						<div class="col-sm-8">
@@ -106,6 +106,55 @@
 						</div>
 					</div >
 					
+					<div class ="form-group">
+						<label class="control-label col-sm-2" for="contents">백신명: </label>
+						<div class="col-sm-8">
+							<select class="form-control" name="v_name">
+								<optgroup label="결핵">
+									<option value="결핵BCG(피내용)">결핵BCG(피내용), (0개월)</option>
+									<option value="결핵BCG(경피용)">결핵BCG(경피용), (0개월)</option>
+								</optgroup>
+								<optgroup label="B형간염">
+									<option value="HepB">HepB, (0개월,1개월,6개월)</option>
+								</optgroup>
+								<optgroup label="디프테리아,파상풍,백일해">
+									<option value="DTaP">DTaP, (2개월,4개월,6개월,15~18개월)</option>
+								</optgroup>
+								<optgroup label="플리오">
+									<option value="IPV">IPV, (2개월,4개월,6개월,만4세~만6세)</option>
+								</optgroup>
+								<optgroup label="b형헤모필루스 인플루엔자">
+									<option value="PRP-T/HbOC">PRP-T/HbOC, (2개월,4개월,6개월,12개월~15개월)</option>
+								</optgroup>
+								<optgroup label="페렴구균">
+									<option value="PCV(단백결합)">PCV(단백결합), (2개월,4개월,6개월,12개월~15개월)</option>
+									<option value="PPSV(다당질)">PPSV(다당질), (24개월~만12세 사이)</option>
+								</optgroup>
+								<optgroup label="홍역,유행성이하선염,풍진">
+									<option value="MMR">MMR, (12개월~15개월,만4세~만6세)</option>
+								</optgroup>
+								<optgroup label="수두">
+									<option value="Var">Var, (12개월~15개월)</option>
+								</optgroup>
+								<optgroup label="A형간염">
+									<option value="HepA">HepA, (12개월~36개월)</option>
+								</optgroup>
+								<optgroup label="일본뇌염">
+									<option value="JE(사백신)">JE(사백신), (12개월~36개월, 만6세)</option>
+									<option value="JE(생백신)">JE(생백신), (12개월~36개월)</option>
+								</optgroup>
+								<optgroup label="인플루엔자">
+									<option value="Flu(사백신)">Flu(사백신), (6개월부터~만4세까지)</option>
+									<option value="Flu(생백신)">Flu(생백신), (24개월부터~만5세까지)</option>
+								</optgroup>
+								<optgroup label="로타바이러스">
+									<option value="RV10">RV10, (2개월,4개월)</option>
+									<option value="RV50">RV50, (2개월,4개월,6개월)</option>
+								</optgroup>
+								
+							</select>
+						</div>
+					</div>
 					
 					<div class ="form-group">
 						<label class="control-label col-sm-2" for="contents">접종날자: </label>

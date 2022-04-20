@@ -3,7 +3,6 @@ package kr.smhrd.dodam;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -11,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.smhrd.model.BoardVO;
 import kr.smhrd.model.ChildrenVO;
+import kr.smhrd.model.MemberVO;
 import kr.smhrd.model.NoteMapper;
 import kr.smhrd.model.NoteVO;
 
@@ -52,21 +51,23 @@ public class NoteController {
 	
 	//육아수첩 글쓰기 페이지 이동 기능
 	@RequestMapping("/noteInsertForm.do")
-	public void noteInsert() {
+	public void noteInsertForm(NoteVO vo, Model model,HttpSession session) {
 		System.out.println("육아수첩 작성 페이지 동작");
+		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
+		List<ChildrenVO> list = mapper.ChildInfo(m_id);
+		System.out.println(list);
+		model.addAttribute("list", list);
 	}
 
 	//육아수첩 글쓰기 입력 기능
 	 @RequestMapping("/noteInsert.do")
-	 public String noteInsert(NoteVO vo, Model model, String c_name) {
+	 public String noteInsert(NoteVO vo, Model model,HttpSession session) {
 		 System.out.println("육아수첩 글쓰기 입력 기능 동작");
 		 mapper.noteInsert(vo);
-		 
-		 List<ChildrenVO> list = mapper.ChildInfo(c_name);
-		 model.addAttribute("list", list);
 		 return "redirect:/note.do?pageNum=" + 1;
-
 	 }
+	 
+	 
 	
 	 //육아수첩 조회 기능
 	 @RequestMapping("/noteContent.do")

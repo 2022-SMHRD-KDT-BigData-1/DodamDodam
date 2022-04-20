@@ -17,5 +17,6 @@ public interface NoteMapper {
 
 	public NoteVO noteContent(int n_seq);
 
-	public List<ChildrenVO> ChildInfo(String c_name);
+	public List<ChildrenVO> ChildInfo(String m_id);
+
 }

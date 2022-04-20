@@ -68,8 +68,8 @@
               	<div class="page_name">
               		<h1 style="text-align:center; color:#FFA9AA;">자녀정보 페이지</h1>
               	</div>
-                <div class="board_insert_form" align="center" style="color:#FFA9AA;">
-                  <form class="form-horizontal" action="childrenInsert.do" method="post">
+                <div class="board_insert_form" align="center" style="color:#FFA9AA; width: 800px;">
+                  <form class="form-horizontal" action="childrenInsert.do" method="post" >
                   	<input type="hidden" name="m_id" id="m_id" value="${member.m_id }">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="title">자녀 이름 : </label>
@@ -88,18 +88,6 @@
 						<div class="col-sm-8">
 							남성 : <input type="radio" name="c_gender" id="c_gender" value="남" width="500px">
 							여성 : <input type="radio" name="c_gender" id="c_gender" value="여" width="500px">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="title">부모 키(부) : </label>
-						<div class="col-sm-8">
-							<input type="number" class="form-control" name="f_height" id="f_height" placeholder="아버지 키를 입력하세요(cm)" required="required">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="title">부모 키(모) : </label>
-						<div class="col-sm-8">
-							<input type="number" class="form-control" name="m_height" id="m_height" placeholder="어머니 키를 입력하세요(cm)" required="required">
 						</div>
 					</div>
 					<div class="form-group">

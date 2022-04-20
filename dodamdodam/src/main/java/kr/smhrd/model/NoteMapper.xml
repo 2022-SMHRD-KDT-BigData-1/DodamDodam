@@ -14,12 +14,16 @@
 	</select>
     
     <insert id= "noteInsert" parameterType= "kr.smhrd.model.NoteVO">
-        insert into t_note(m_id, c_name, n_date, n_height, n_weight, n_significant)
-        values(#{m_id}, #{c_name}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}) 
+        insert into t_note(m_id, c_seq, n_date, n_height, n_weight, n_significant)
+        values(#{m_id}, #{c_seq}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}) 
     </insert>
     
     <select id="noteContent" parameterType="int" resultType="kr.smhrd.model.NoteVO">
         select * from t_note where n_seq = #{n_seq}
+    </select>
+    
+    <select id = "ChildInfo" resultType="kr.smhrd.model.ChildrenVO">
+		select * from t_children where m_id=#{m_id}      
     </select>
     
     <select id="notechild" parameterType="String" resultType="kr.smhrd.model.NoteVO">
