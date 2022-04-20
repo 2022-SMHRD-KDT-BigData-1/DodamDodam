@@ -55,13 +55,11 @@
 								placeholder="Enter title" required="required">
 								 -->
 							<!-- 자녀 선택  -->
-							
-							<select class="form-control" name="c_seq" style="text-align:center;">
+							<select class="form-control" name="c_name" style="text-align:center;">
 								<c:forEach var="i" items="${list}">
 									<option>${i.c_name}</option>
 								</c:forEach>
 							</select>
-							
 						</div>
 					</div>
 					<div class="form-group">
@@ -88,7 +86,7 @@
 							<input class="form-control" type="date" name = "n_date">
 						</div>
 					</div>
-				<div class="form-group">
+					<div class="form-group">
 						<label class="control-label col-sm-2" for="contents">접종 및<br> 특이사항: </label>
 						<div class="col-sm-8">
 							<textarea class="form-control" rows="10" style="width:100%;" name="n_significant"

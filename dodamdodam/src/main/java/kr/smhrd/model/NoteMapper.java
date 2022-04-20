@@ -11,13 +11,11 @@ public interface NoteMapper {
 
 	public int noteAmount();
 
-	public BoardVO noteContent(int b_seq);
-
-	public void count(int b_seq);
+	public void count(int n_seq);
 
 	public void noteInsert(NoteVO vo);
 
-	public void noteInsert(NoteVO vo, ChildrenVO cvo);
+	public NoteVO noteContent(int n_seq);
 
-	public List<ChildrenVO> ChildInfo();
+	public List<ChildrenVO> ChildInfo(String c_name);
 }

@@ -38,28 +38,46 @@
             <div class="home_main">
               <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
               	<div class="page_name">
-              		<h1 style="text-align:center; color:#FFA9AA;">자녀정보 페이지</h1>
+              		<h1 style="text-align:center; color:#FFA9AA;">게시판 페이지</h1>
               	</div> 	
 				<section class="notice">
-				  <!-- Children List area -->
-				    <div class="panel-body">
-				    	<table class="table table-hover table-bordered">
-				    		<tr class="success">
-				    			<td>아이 이름</td>
-				    			<td>생일</td>
-				    			<td>성별</td>
-				    		</tr>
-				    		<c:forEach var="vo" items="${list}" varStatus="i">
-				    		<tr>
-				    			<td><a href="childrenContent.do?c_seq=${vo.c_seq}">${vo.c_name}</a></td>
-				    			<td>${vo.c_birthdate }</td>
-				    			<td>${vo.c_gender }</td>
-				    		<tr>
-				    		</c:forEach>
-				    	</table>
-				    	<div class="panel-body" align="right">
-				    		<a href="childrenInsertForm.do"><button class="btn btn-warning">자녀정보추가</button></a>
-				    	</div>
+				    <div id="board-Content">
+				        <form action="noteUpdateForm.do" method="post">
+						<input type="hidden" name="b_seq" value="${vo.b_seq}">
+							<table class="table table-hover table-bordered">
+								<tr>
+									<td>번호</td>
+									<td>${vo.n_seq }</td>
+								</tr>
+								<tr>
+									<td>특이사항</td>
+									<td>${vo.n_significant }</td>
+								</tr>
+								<tr>
+									<td>키</td>
+									<td>${vo.n_height }</td>
+								</tr>
+								<tr>
+									<td>몸무게</td>
+									<td>${vo.n_weight }</td>
+								</tr>
+								<tr>
+									<td>예방접종</td>
+									<td>${vo.n_cnt }</td>
+								</tr>
+								<tr>
+									<td>접종날짜</td>
+									<td>${vo.n_date }</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<button type="submit" class="btn btn-info btn-sm">수정</button>
+										<a href="noteDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="note.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
+									</td>
+								</tr>
+							</table>
+						</form>
 				    </div>
 				</section>
               </div>
@@ -71,8 +89,12 @@
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
             <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
             <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
-            <a href="./info.do" class="menu_button4">&nbsp;&nbsp;육아 정보</a>
-            <a href="./video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠</a>
+            <a href="./info.do" class="menu_button4"
+              >&nbsp;&nbsp;육아 정보</a
+            >
+            <a href="./video.do" class="menu_button4"
+              >&nbsp;&nbsp;교육용 컨텐츠</a
+            >
           </div>
         </div>
       </div>

@@ -57,12 +57,12 @@ public class NoteController {
 
 	//육아수첩 글쓰기 입력 기능
 	 @RequestMapping("/noteInsert.do")
-	 public String noteInsert(NoteVO vo, Model model) {
+	 public String noteInsert(NoteVO vo, Model model, String c_name) {
 		 System.out.println("육아수첩 글쓰기 입력 기능 동작");
 		 mapper.noteInsert(vo);
 		 
-		 List<ChildrenVO> childList = mapper.ChildInfo();
-		 model.addAttribute("list", childList);
+		 List<ChildrenVO> list = mapper.ChildInfo(c_name);
+		 model.addAttribute("list", list);
 		 return "redirect:/note.do?pageNum=" + 1;
 
 	 }
@@ -72,7 +72,7 @@ public class NoteController {
 	 public void noteContent(int n_seq,Model model) {
 		 System.out.println("게시글 조회 기능 동작");
 		 
-		 BoardVO vo = mapper.noteContent(n_seq);
+		 NoteVO vo = mapper.noteContent(n_seq);
 		 mapper.count(n_seq);
 		 model.addAttribute("vo", vo);
 	 }

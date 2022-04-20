@@ -81,7 +81,6 @@
 							<button type="submit" class="btn btn-info">저장</button>
 						</div>
 					</div>
-
 					</form>
     			  
                 </div>
