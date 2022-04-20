@@ -33,6 +33,7 @@ public class NoteController {
 	@RequestMapping("/note.do")
 	public String note(@RequestParam("pageNum") int pageNum, Model model, NoteVO page) {
 		//시작 게시물
+		
 		int postStart = 0;
 		if (pageNum >= 1) {
 			postStart = (pageNum - 1) * 10 ;
