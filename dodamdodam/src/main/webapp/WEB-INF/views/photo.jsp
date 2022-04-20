@@ -4,8 +4,10 @@
 <c:set var="today" value="<%=new java.util.Date()%>" />
 <!-- 현재날짜 -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib  prefix="spring" uri="http://www.springframework.org/tags" %>    
 <c:set var="date"><fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></c:set> 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<fmt:formatDate value="${today}" pattern="E" var="todayE" />
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -147,10 +149,194 @@ margin-bottom: 30px;
 .album-photo{
 	display: inline-block;
 }
+#photoDate{
+	 background-color: white;
+	 text-align : center;
+     width: 200px;
+     height: 40px;
+     font-size: 20px;
+     font-family: 'Dongle', sans-serif;
+     font-size : 30px;
+}
+
+
+.text-box {
+	font-family: sans-serif;
+    font-weight: bold;
+    width:100px;
+    height:50px;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+#photoInsertPopUp{
+	position: absolute;
+	top:26%;
+	left :8%;
+	width : 1235px;
+	height : 620px;
+	z-index: 99;
+	display: none;
+}
+#photoInsert{
+	cursor: pointer;
+}
+#formPopUp{
+	position:relative;
+	margin : 0 auto;
+	width : 600px;
+	height:620px;
+	border: 2px solid #666;
+	background-color: whitesmoke;
+}
+#photoTitle{
+	position: absolute;
+	top: 6%;
+	left: 53%;
+	transform:translate(-50%,-50%);
+	font-family: 'Dongle', sans-serif;
+    font-size : 30px;
+}
+#photoTitle > #photoTitleInput{
+	background-color: white;
+	text-align : center;
+    width: 250px;
+    height: 35px;
+    font-family: 'Dongle', sans-serif;
+    font-size : 30px;
+}
+#photoContentInput{
+	background-color: white;
+    font-family: 'Dongle', sans-serif;
+    font-size : 30px;
+}
+#insertDate{
+	position: absolute;
+	top: 6%;
+	left: 15%;
+	transform:translate(-50%,-50%);
+	background-color: white;
+	text-align : center;
+    width: 150px;
+    height: 40px;
+    font-family: 'Dongle', sans-serif;
+    font-size : 30px;
+}
+#photoContent{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+}
+#photoFileAdd{
+	position: absolute;
+	top: 67.5%;
+	left: 37.5%;
+	transform:translate(-50%,-50%);
+}
+#photoSumit{
+	position: absolute;
+	width : 80px;
+	height : 40px;
+	bottom: 3%;
+	left: 40%;
+	transform:translate(-50%,-50%);
+	font-family: 'Dongle', sans-serif;
+    font-size : 30px;
+}
+#insertClose{
+	position: absolute;
+	width : 80px;
+	height : 40px;
+	bottom: 3%;
+	left: 57.5%;
+	transform:translate(-50%,-50%);
+	font-family: 'Dongle', sans-serif;
+    font-size : 30px;
+}
+
 </style>
   </head>
   <body>
-    
+   <div id = "photoInsertPopUp">
+   	<form action = "GalleryInsert.do" method="post" id = "formPopUp" enctype="multipart/form-data">
+   		<input type="date" value="${date }" name = "g_date" id="insertDate">
+   		<input type = "hidden" value="${member.m_id }">
+   		<div id = "photoTitle">
+   		<input type="text" id ="photoTitleInput" name="g_title" placeholder="제목을 입력해주세요.">
+   		</div>
+   		<div id = "photoContent">
+   		<textarea rows="5" cols="50" id = "photoContentInput" name="g_msg" placeholder="여기에 사진과 함께할 짧은 메세지를 넣을 수 있습니다."></textarea>
+   		</div>
+   		<div id ="photoFileAdd">
+   		<input type = "file" name = "uploadFile" multiple>
+   		</div>  
+   		<button type = "button" id ="insertClose"> Close </button>
+   		<button type = "submit" id = "photoSumit"> 전송 </button>
+   	</form>
+   </div>
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
    </div>
@@ -174,19 +360,29 @@ margin-bottom: 30px;
               <div class="home_contents">
 
                 <div class="miniroom_contents" style="text-align: center;">
-                  <h1 style="color: #4a494e; font-family:'Single Day', cursive ; font-size: 60px;">찬호의 사진첩</h1>
+                  <h1 style="color: #4a494e; font-family:'Single Day', cursive ; font-size: 60px;">
+                  	<c:choose>
+                  		<c:when test = "${member != null }">
+                  		${member.m_nick }의 사진첩
+	                  	</c:when>
+	                  	<c:otherwise>
+	                  	나의 사진첩
+	                  	</c:otherwise>
+                  	</c:choose>
+                  	</h1>
 
                   <div class="calendar">
-                    <div class="day" id="bold-text">01.24<br>MON</div>
-                    <div class="month" id="basic-text"><span id="blue">1</span> <span id="red"> 2 </span>  3  4  5  6  7 <span id="blue">8</span> <span id="red">9</span> 10 11 12 13 14 <span id="blue">15</span> <span id="red">16</span> 17 18 19 20 21 <span id="blue">22</span> <span id="red">23</span> 24 25 26 27 28 <span id="blue">29</span> <span id="red">30</span> <span id="red">31</span></div>
-                  
+                  	<input type = "date" value="${date }" id = "photoDate">
+                  	<div class="text-box">
+					    <a href="#" class="btn btn-white btn-        animate">검색</a>
+					</div>
                   </div>
-                  <button type="button" style="float: right; margin-right: 30px; font-size: 20px; font-family:'Single Day', cursive; background-color:#f8e4d9;">새로운 추억 남기기</button>
+                  <button type="button" id="photoInsert" style="float: right; margin-right: 30px; font-size: 20px; font-family:'Single Day', cursive; background-color:#f8e4d9;">새로운 추억 남기기</button>
                 </div>
                 <div class="main-container" >
                 <div class="dayBlock" data-scroll>
-                <div class="gray-text" id="basic-text">오늘의 이야기(2020.01.11)</div>
-                <div class="album-photo"><img src="${path}/resources/static/images/test.PNG"></div>
+                <div class="gray-text" id="basic-text">오늘의 이야기(2020.01.11)</div>babyfoot.jpg
+                <div class="album-photo"><img src="<spring:url value='/resources/test/slide011.jpg'/>"></div>
                 <div class="detail" id="basic-text">친구랑 싸웠다. 죽고시퍼?</div>
                 </div>
                 <div class="dayBlock" data-scroll>
@@ -257,6 +453,14 @@ margin-bottom: 30px;
     	    	   .go();
     	    	},
     });
+    $('#photoInsert').on("click", function () {
+    	$('#photoInsertPopUp').show();
+	})
+    $('#insertClose').on("click", function () {
+    	$('#photoInsertPopUp').hide();
+    	$('#photoTitleInput').val('');
+    	$('#photoContentInput').val('');
+	})
     </script>
   </body>
 </html>
