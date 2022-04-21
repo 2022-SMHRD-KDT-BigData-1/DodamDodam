@@ -120,7 +120,7 @@
 								자녀 키 값 : <br><br>
 								<input type="number" id="n_height" name="n_height">
 								<br><br>
-								<button type="button" id="resultPredict" style="width: 100px; height: 30px; font-size: 16px; font-weight: bolder;">예측 값 확인</button>
+								<button type="submit" id="resultPredict" style="width: 100px; height: 30px; font-size: 16px; font-weight: bolder;">예측 값 확인</button>
 							</form>
 						</div>
 						<div id="result" align="center" style="background-color:pink; width:80%; height:100%; display: none; ">
