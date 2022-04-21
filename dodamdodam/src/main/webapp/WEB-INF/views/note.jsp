@@ -115,7 +115,7 @@
 					<!-- 키 예측 창 -->
 					<div id="update_height" align="center" style="color: black; display:none; font-family:'Single Day', cursive; width: 1300px; height: 300px;">
 						<div align="center" style="background-color: whitesmoke; width: 20%; height: 100%; float:left; margin-left: 80px;">
-							<form  action="predict.do" method="post">
+							<form  action='http://127.0.0.1:7000/' method="post">
 								<br><br><br><br>
 								자녀 키 값 : <br><br>
 								<input type="number" id="n_height" name="n_height">
