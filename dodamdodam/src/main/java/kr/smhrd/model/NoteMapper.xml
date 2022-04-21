@@ -2,20 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.model.NoteMapper">
     
+    <!-- 육아수첩 아이리스트 -->
+    <select id="childrenList" resultType="kr.smhrd.model.ChildrenVO">
+        select * from t_children where m_id = #{m_id}
+    </select>
+    
     <!-- 육아수첩 리스트 -->
-    <select id="note" resultType="kr.smhrd.model.NoteVO">
-        <!-- select * from t_note where m_id=#{m_id} order by n_date desc Limit 10 Offset #{postStart} -->
-        select * from children_note where m_id=#{m_id} order by n_date desc Limit 10 Offset #{postStart}
+    <select id="noteChild" parameterType="kr.smhrd.model.PoststartVO" resultType="kr.smhrd.model.NoteVO">
+        <!-- select * from t_note where c_seq=#{c_seq} order by n_date desc Limit 10 Offset #{postStart} -->
+        select * from children_note where c_seq=#{c_seq} order by n_date desc Limit 5 Offset #{postStart}
     </select>
     
     <!-- 페이지 총 amount -->
-    <select id="noteAmount" resultType="int">
-	    select count(*) from t_note
+    <select id="noteAmount" resultType="int" parameterType="int">
+	    select count(*) from children_note where c_seq=#{c_seq}
 	</select>
     
     <insert id= "noteInsert" parameterType= "kr.smhrd.model.NoteVO">
-        insert into t_note(m_id, c_seq, n_date, n_height, n_weight, n_significant)
-        values(#{m_id}, #{c_seq}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}) 
+        insert into t_note(m_id, c_name, n_date, n_height, n_weight, n_significant)
+        values(#{m_id}, #{c_name}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}) 
     </insert>
     
     <select id="noteContent" parameterType="int" resultType="kr.smhrd.model.NoteVO">

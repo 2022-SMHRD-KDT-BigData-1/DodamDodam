@@ -42,8 +42,6 @@ public class ChildrenController {
 		System.out.println("자녀 이름 : " + vo.getC_name());
 		System.out.println("자녀 생일 : " + vo.getC_birthdate());
 		System.out.println("자녀 성별 : " + vo.getC_gender());
-		System.out.println("부 키 : " + vo.getF_height());
-		System.out.println("모 키 : " + vo.getM_height());
 		return "redirect:/children.do";
 	}
 	

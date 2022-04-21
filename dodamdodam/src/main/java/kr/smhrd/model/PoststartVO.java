@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 기본 생성자 
 @AllArgsConstructor // 생성자
 @Data 
-public class ChildrenVO {
-	
+public class PoststartVO {
+	private int postStart;
 	private int c_seq;
-	private String c_name;
-	private String c_birthdate;
-	private String c_gender;
-	private String m_id;
 }

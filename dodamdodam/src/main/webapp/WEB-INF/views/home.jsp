@@ -113,12 +113,14 @@
                       <br>
                       <img src="${path}/resources/static/images/메인 2살.jpg" width="300px" height="150px" style="margin-top: 20px;"></span
                     > 
+                    <a href="https://home.ebs.co.kr/livehome/main">
                      <span class="updated_news_left2" style="width: 500PX; float: left;"
                       ><span class="updated_news_blue">&nbsp;교육용 컨텐츠&nbsp;</span>
                       EBS교육방송 '우리집 유치원'
                       <br>
                         <img src="${path}/resources/static/images/edu.jpg" width="300px" height="150px" style="margin-top: 20px;">
                       </span> 
+                      </a>
                 </div>  
               
               
