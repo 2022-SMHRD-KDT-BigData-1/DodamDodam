@@ -484,7 +484,12 @@ margin-bottom: 30px;
     	    	},
     });
     $('#photoInsert').on("click", function () {
-    	$('#photoInsertPopUp').show();
+    	if(${empty member}){
+    		alert('로그인후 이용가능합니다!');
+        	location.href='login.do';
+    	}else{
+	    	$('#photoInsertPopUp').show();
+    	}
 	})
     $('#insertClose').on("click", function () {
     	$('#photoInsertPopUp').hide();

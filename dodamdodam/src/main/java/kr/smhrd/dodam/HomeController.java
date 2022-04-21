@@ -1,5 +1,6 @@
 package kr.smhrd.dodam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -14,7 +15,9 @@ import kr.smhrd.model.ChildrenMapper;
 import kr.smhrd.model.ChildrenVO;
 import kr.smhrd.model.DiaryMapper;
 import kr.smhrd.model.DiaryVO;
+import kr.smhrd.model.EmotionVO;
 import kr.smhrd.model.MemberVO;
+import kr.smhrd.model.PieVO;
 
 @Controller
 public class HomeController {
@@ -31,12 +34,11 @@ public class HomeController {
 	@RequestMapping("/diary.do")
 	public void diary(HttpSession session) {
 		
+		MemberVO member = (MemberVO) session.getAttribute("member");
 		
 		
-		String m_id = "admin";
-		List<ChildrenVO> childList = mapper.ChildInfo(m_id); 
-		
-		if(childList != null) {
+		if(member != null) {
+			List<ChildrenVO> childList = mapper.ChildInfo(member.getM_id()); 
 			session.setAttribute("childList", childList);
 		}
 		
@@ -46,22 +48,6 @@ public class HomeController {
 		
 	}
 	
-	@RequestMapping("/test.do")
-	public void test(HttpSession session) {
-		String m_id = "admin";
-		List<ChildrenVO> childList = mapper.ChildInfo(m_id); 
-		
-		if(childList != null) {
-			session.setAttribute("childList", childList);
-		}
-		
-	}
-	@RequestMapping("/diarySelect.do")
-	public @ResponseBody List<DiaryVO> diarySelect(Model model, HttpSession session) {
-		MemberVO member = (MemberVO) session.getAttribute("member");
-		List<DiaryVO> diarylist = mapper2.DiaryAllSelect(member.getM_id()); 
-		System.out.println(diarylist.get(0).getD_content());
-		return diarylist;
-	}
 	
+	 
 }

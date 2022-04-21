@@ -4,11 +4,11 @@
     
     
     <select id = "emotionList" resultType="kr.smhrd.model.EmotionVO">
-		select * from t_emotion where m_id = #{m_id}        
+		select * from t_emotion where m_id = #{m_id} order by e_seq desc       
     </select>
     
     <select id = "DiaryAllSelect" resultType="kr.smhrd.model.DiaryVO">
-		select * from t_diary where m_id = #{m_id}        
+		select * from t_diary where m_id = #{m_id} order by d_seq desc 
     </select>
     
     <insert id="diaryInsert" parameterType = "kr.smhrd.model.DiaryVO">

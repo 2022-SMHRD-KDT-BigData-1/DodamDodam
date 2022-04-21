@@ -1,5 +1,6 @@
 package kr.smhrd.dodam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -14,6 +15,7 @@ import kr.smhrd.model.DiaryMapper;
 import kr.smhrd.model.DiaryVO;
 import kr.smhrd.model.EmotionVO;
 import kr.smhrd.model.MemberVO;
+import kr.smhrd.model.PieVO;
 
 @Controller
 public class DiaryController {
@@ -31,5 +33,25 @@ public class DiaryController {
 		List<EmotionVO> emotionList = mapper.emotionList(member.getM_id()); 
 		System.out.println(emotionList.get(0).getE_anger());
 		return emotionList;
+	}
+	
+
+	@RequestMapping("/diarySelect.do")
+	public @ResponseBody List<PieVO> diarySelect(Model model, HttpSession session) {
+		
+		System.out.println("오긴 옴 ");
+		
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		List<DiaryVO> diarylist = mapper.DiaryAllSelect(member.getM_id());
+		List<EmotionVO> emotionList = mapper.emotionList(member.getM_id());
+		List<PieVO> pieList = new ArrayList<PieVO>();
+		
+		for(int i = 0; i < diarylist.size(); i++) {
+			pieList.add(i, new PieVO(diarylist.get(i).getC_seq(), diarylist.get(i).getD_title(), diarylist.get(i).getD_content(), diarylist.get(i).getD_msg(), diarylist.get(i).getD_date(), emotionList.get(i).getE_joy(), emotionList.get(i).getE_sorrow(), emotionList.get(i).getE_anger(), emotionList.get(i).getE_unrest()));
+		}
+		
+		System.out.println("여기까지오나?");
+		
+		return pieList;
 	}
 }

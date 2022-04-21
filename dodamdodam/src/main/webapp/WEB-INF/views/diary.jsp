@@ -50,14 +50,12 @@
     <script src='${path}/resources/static/ko.js'></script> <!-- 캘린더 -->
     <script>
     
+    if(${empty member}){
+    	alert('로그인후 이용가능합니다!');
+    	location.href='login.do';
+    }
+    
 	    $(document).ready(function () {
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
 	    	
 	    	$.ajax({
 				url : "emotionList.do",
@@ -71,7 +69,7 @@
 	    	function emotion(emotionList){
 				console.log("감정분석 에이젝스 성공")
 				
-				var kai = emotionList.length;
+				var kai = 0;
 				
 				var date = '${date}';
 				
@@ -83,13 +81,13 @@
 				var unrestIdx = [0,0,0,0,0];
 				var dateIdx = ['','','','',''];
 				
-				$.each(emotionList, function(index, vo) {
+				/* $.each(emotionList, function(index, vo) {
 					if('${date}' == vo.d_date){
 						todayIdx = index;
 					}	//if
-				})
+				}) */
 				
-				for(var i = todayIdx; i > todayIdx-5; i--){
+/* 				for(var i = todayIdx; i > todayIdx-5; i--){
 					
 					if(emotionList[i] != null){
 						joyIdx[i] = parseFloat(emotionList[i].e_joy)
@@ -98,13 +96,24 @@
 						unrestIdx[i] = parseFloat(emotionList[i].e_unrest)
 						dateIdx[i] = emotionList[i].d_date
 					}
+				} */
+				for(var i = 0; i < 5; i++){
+					
+					if(emotionList[i] != null){
+						joyIdx[i] = parseFloat(emotionList[i].e_joy)
+						sorrowIdx[i] = parseFloat(emotionList[i].e_sorrow)
+						angerIdx[i] = parseFloat(emotionList[i].e_anger)
+						unrestIdx[i] = parseFloat(emotionList[i].e_unrest)
+						dateIdx[i] = emotionList[i].d_date
+						kai += 1;
+					}
 				}
 				
 				
 				//막대 그래프 추가
 				 Highcharts.chart('container2', {
 			            chart: {
-			                type: 'column'
+			                type: 'column', 
 			            },
 			            title: {
 			                text: '최근 '+kai +'회간의 감정분석 결과에요.'
@@ -264,14 +273,91 @@
     			$('#diaryDate').val(info.dateStr)
     			$("#popUp").show();
     			$("#calendar").css('opacity', '0');
+    			
+    			
+    			
+    			var piedate = 0;
+    			$.each(diary, function(index, vo) {
+					 if(info.dateStr == vo.d_date){
+						 piedate = index;
+					 }
+    			})
+    			
+    			console.log(diary[piedate].e_joy)
+    			console.log("here i am ")
+    			var d_joy = parseInt(diary[piedate].e_joy);
+    			var d_anger = parseInt(diary[piedate].e_anger);
+    			var d_sorrow = parseInt(diary[piedate].e_sorrow);
+    			var d_unrest = parseInt(diary[piedate].e_unrest);
+    			
+    			
+    			
+    			// 차트 3 시작 
+    			
+    			$('.highcharts-figure2').hide();
+    			$('.highcharts-figure3').show();
+    			Highcharts.chart('container3', {
+				    chart: {
+				        plotBackgroundColor: null,
+				        plotBorderWidth: null,
+				        plotShadow: false,
+				        type: 'pie'
+				    },
+				    title: {
+				        text: '오늘 나의 감정'
+				    },
+				    tooltip: {
+				        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				    },
+				    accessibility: {
+				        point: {
+				            valueSuffix: '%'
+				        }
+				    },
+				    plotOptions: {
+				        pie: {
+				            allowPointSelect: true,
+				            cursor: 'pointer',
+				            dataLabels: {
+				                enabled: true,
+				                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+				            }
+				        }
+				    },
+				    series: [{
+				        name: 'Emotion',
+				        colorByPoint: true,
+				        data: [{
+				            name: '기쁨',
+				            y: d_joy,
+				            sliced: true,
+				            selected: true
+				        }, {
+				            name: '분노',
+				            y: d_anger
+				        }, {
+				            name: '슬픔',
+				            y: d_sorrow
+				        }, {
+				            name: '불안',
+				            y: d_unrest
+				        }]
+				    }]
+				});
+    			
+    			
+    			// 차트 3 끝 
+    			
     			$("#close").on("click", function () {
+    				$('.highcharts-figure3').hide();
+    				$('.highcharts-figure2').show();
     				$("#popUp").hide();
     				$("#calendar").css('opacity', '1');
     				$('#diaryTitle').val('');
 					$('#diaryContent').val('');
 					$('#childMSG').val('');
 					$('#counter').html("(0 / 최대 3000자)");
-					 var todayWord = "일기를 작성해주세요"
+					 var todayWord = ""
 		     	    	  $.each(diary, function(index, vo) {
 		     						todayWord += vo.d_content;
 		     	          }); //.each()
@@ -380,6 +466,16 @@
     </script>
     
     <style type="text/css">
+    	#wordMent{
+    		position: absolute;
+    		top: 58%;
+    		left: 62%;
+    		transform : translate(-50%, -50%);
+    		font-size : 25px;
+    		font-family: Georgia, "Malgun Gothic", serif;
+    		font-weight:500;
+    		z-index: 99;
+    	}
     	#calendar{
 	    	position : relative;
 	    	float : left;
@@ -559,8 +655,24 @@
 			left : 60%;
 		  	width : 40%;
 		    margin: 1em auto;
+		    z-index : 99;
 		}	
-	    
+	    .highcharts-figure3 {
+		    position : absolute;
+			top :0%;
+			left : 60%;
+		  	width : 40%;
+		    margin: 1em auto;
+		}	
+	     #container3 {
+		    height: 400px;
+		    }
+		
+		.highcharts-figure3 {
+		    min-width: 310px;
+		    max-width: 800px;
+		    margin: 1em auto;
+		}
     </style>
   </head>
   <body>
@@ -590,7 +702,7 @@
                 <div class="miniroom_contents">
                 	  <div id = "popUp">
                 	<form action="http://127.0.0.1:7000/post2" method="post">
-                		<input type = "hidden" value = "admin" name="m_id">
+                		<input type = "hidden" value = "${member.m_id }" name="m_id">
 					      <div id = "popUpHead">
 					        <br>
 					        <strong class="diaryFont">일기 제목 :
@@ -664,13 +776,15 @@
 					      </form>
 					    </div>
                 	 <div id='calendar'></div>
-                	 	<button></button>
-	                	 <figure class="highcharts-figure2">
-					        <div id="container2"></div>
-					    </figure>
 						<figure class="highcharts-figure">
 						    <div id="container"></div>
 						</figure>
+	                	 <figure class="highcharts-figure2">
+					        <div id="container2"></div>
+					    </figure>
+						 <figure class="highcharts-figure3">
+					        <div id="container3"></div>
+					     </figure>
                 </div>
               </div>
             </div>
@@ -692,7 +806,7 @@
       </div>
     </div>
      <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="230px"/><c:choose
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
@@ -724,6 +838,7 @@
         </audio>
     </div>
     </div>
+    <h1 id="wordMent">${member.m_nick}님이 많이 사용하신 단어 에요.</h1>
     <input type = "hidden" id = "DiaryContents">
   
 	<script type="text/javascript">
