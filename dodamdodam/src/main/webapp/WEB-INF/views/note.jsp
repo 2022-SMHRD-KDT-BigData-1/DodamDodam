@@ -115,12 +115,12 @@
 					<!-- 키 예측 창 -->
 					<div id="update_height" align="center" style="color: black; display:none; font-family:'Single Day', cursive; width: 1300px; height: 300px;">
 						<div align="center" style="background-color: whitesmoke; width: 20%; height: 100%; float:left; margin-left: 80px;">
-							<form  action='http://127.0.0.1:7000/' method="post">
+							<form  action="http://127.0.0.1:7000/height" method="post">
 								<br><br><br><br>
 								자녀 키 값 : <br><br>
-								<input type="number" id="n_height" name="n_height">
+								<input type="number" step="0.01" id="n_height" name="height">
 								<br><br>
-								<button type="submit" id="resultPredict" style="width: 100px; height: 30px; font-size: 16px; font-weight: bolder;">예측 값 확인</button>
+								<button type="submit"  id="resultPredict" style="width: 100px; height: 30px; font-size: 16px; font-weight: bolder;">분석</button>
 							</form>
 						</div>
 						<div id="result" align="center" style="background-color:pink; width:80%; height:100%; display: none; ">
