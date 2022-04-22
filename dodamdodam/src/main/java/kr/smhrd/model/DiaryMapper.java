@@ -12,5 +12,10 @@ public interface DiaryMapper {
 	public void diaryInsert(DiaryVO vo);
 
 	public List<EmotionVO> emotionList(String m_id);
+
+	public void emotionDelete(DiaryVO vo);
+
+	public void diaryDelete(DiaryVO vo);
+	
 	
 }

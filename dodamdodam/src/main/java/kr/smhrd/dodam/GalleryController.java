@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-
+import kr.smhrd.model.DiaryVO;
 import kr.smhrd.model.GalleryMapper;
 import kr.smhrd.model.GalleryVO;
 import kr.smhrd.model.MemberVO;
@@ -27,7 +27,7 @@ public class GalleryController {
 	
 	@Inject
 	private GalleryMapper mapper;
-	
+		
 	@RequestMapping("/GalleryInsert.do")
 	public String GalleryInsert(MultipartFile[] uploadFile, GalleryVO vo, HttpSession session) {
 		 System.out.println("파일 저장 시작");
@@ -104,7 +104,13 @@ public class GalleryController {
 	      
 			return "redirect:/photo.do";
 	}
-
+	
+	@RequestMapping("/galleryDelete.do")
+	public String galleryDelete(GalleryVO vo) {
+		mapper.galleryDelete(vo); 
+		System.out.println("갤러리 테이블 데이터 삭제 완료");
+		return "redirect://photo.do";
+	}
 	
 //	@RequestMapping("/gallerySelect.do")
 //	public @ResponseBody List<GalleryVO> gallerySelect(HttpSession session) {

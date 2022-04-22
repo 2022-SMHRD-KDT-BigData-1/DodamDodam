@@ -11,5 +11,8 @@ public interface GalleryMapper {
 	void GalleryInsert(GalleryVO vo);
 
 	public List<GalleryVO> gallerySelect(String id);
+
+	void galleryDelete(GalleryVO vo);
+	
 	
 }

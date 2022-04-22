@@ -34,6 +34,14 @@ public class DiaryController {
 		System.out.println(emotionList.get(0).getE_anger());
 		return emotionList;
 	}
+	@RequestMapping("/diaryDelete.do")
+	public String diaryDelete(DiaryVO vo) {
+		mapper.emotionDelete(vo); 
+		System.out.println("감정테이블 삭제 완료");
+		mapper.diaryDelete(vo); 
+		System.out.println("다이어리 테이블 삭제 완료");
+		return "redirect:/diary.do";
+	}
 	
 
 	@RequestMapping("/diarySelect.do")

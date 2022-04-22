@@ -207,13 +207,16 @@
 				
            var events = [];
           
-           if(diary!=null){
+           if(diary != null){
         	   
         	   var todayWord = ""
      	    	  $.each(diary, function(index, vo) {
      						todayWord += vo.d_content;
      	          }); //.each()
-               		
+               	
+     	          
+     	         
+     	          
      	    	   var text = todayWord,
      	    	    lines = text.split(/[,\. ]+/g),
      	    	    data = lines.reduce((arr, word) => {
@@ -245,7 +248,7 @@
      		    	        name: 'Occurrences'
      		    	    }],
      		    	    title: {
-     		    	        text: '이러한 단어를 많이 사용하셨어요.'
+     		    	        text: ''
      		    	    }
      		    	});
         	   
@@ -274,33 +277,38 @@
     			$("#popUp").show();
     			$("#calendar").css('opacity', '0');
     			
-    			$('#jacsung').show(); 
     			
     			var piedate = 0;
     			$.each(diary, function(index, vo) {
 					 if(info.dateStr == vo.d_date){
 						 piedate = index;
-						 $('#jacsung').hide();
+						 $('#jacsung').text('삭제');
+						 $("#deleteform").attr("action", "diaryDelete.do"); // 삭제 서브밋으로 변경
+						 
 					 }
     			})
     			
     			
     			
+    			$('.highcharts-figure2').hide();
+    			$('.highcharts-figure3').show();
     			
-    			
-    			console.log(diary[piedate].e_joy)
-    			console.log("here i am ")
-    			var d_joy = parseInt(diary[piedate].e_joy);
-    			var d_anger = parseInt(diary[piedate].e_anger);
-    			var d_sorrow = parseInt(diary[piedate].e_sorrow);
-    			var d_unrest = parseInt(diary[piedate].e_unrest);
+    			if(diary[piedate] != null){
+    				
+	    			var d_joy = parseInt(diary[piedate].e_joy);
+	    			var d_anger = parseInt(diary[piedate].e_anger);
+	    			var d_sorrow = parseInt(diary[piedate].e_sorrow);
+	    			var d_unrest = parseInt(diary[piedate].e_unrest);
+    				var ment = '${member.m_nick} 님의 단어';
+        	         $('#wordMent').text(ment);
+    			}else{
+    				$('.highcharts-figure3').hide();
+    			}
     			
     			
     			
     			// 차트 3 시작 
     			
-    			$('.highcharts-figure2').hide();
-    			$('.highcharts-figure3').show();
     			Highcharts.chart('container3', {
 				    chart: {
 				        plotBackgroundColor: null,
@@ -354,6 +362,8 @@
     			// 차트 3 끝 
     			
     			$("#close").on("click", function () {
+    				$('#jacsung').text('작성');
+    				$("#deleteform").attr("action", "http://f3.project-jupyter.ddns.net:8873/post2"); // action 수정 해야 함 
     				$('.highcharts-figure3').hide();
     				$('.highcharts-figure2').show();
     				$("#popUp").hide();
@@ -398,7 +408,7 @@
 		     		    	        name: 'Occurrences'
 		     		    	    }],
 		     		    	    title: {
-		     		    	        text: '이러한 단어를 많이 사용하셨어요.'
+		     		    	        text: ''
 		     		    	    }
 		     		    	});
 					
@@ -449,7 +459,7 @@
 		     		    	        name: 'Occurrences'
 		     		    	    }],
 		     		    	    title: {
-		     		    	        text: '이러한 단어를 많이 사용하셨어요.'
+		     		    	        text: ''
 		     		    	    }
 		     		    	});
 						
@@ -708,7 +718,7 @@
 
                 <div class="miniroom_contents">
                 	  <div id = "popUp">
-                	<form action="http://127.0.0.1:7000/post2" method="post">
+                	<form action="http://f3.project-jupyter.ddns.net:8873/post2" method="post" id = 'deleteform'>
                 		<input type = "hidden" value = "${member.m_id }" name="m_id">
 					      <div id = "popUpHead">
 					        <br>
@@ -796,17 +806,17 @@
               </div>
             </div>
           </div>
-          <div class="menu_bar">
+         <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
-            <a href="./board.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
-            <a href="./diary2.do" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
+            <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
+            <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
             <a href="./video.html" class="menu_button4"
-              >&nbsp;&nbsp;교육용 컨텐츠</a
+              >&nbsp;&nbsp;교육용 컨텐츠 </a
             >
           </div>
         </div>
@@ -845,7 +855,7 @@
         </audio>
     </div>
     </div>
-    <h1 id="wordMent">${member.m_nick}님이 많이 사용하신 단어 에요.</h1>
+	    	<h1 id="wordMent"></h1>
     <input type = "hidden" id = "DiaryContents">
   
 	<script type="text/javascript">

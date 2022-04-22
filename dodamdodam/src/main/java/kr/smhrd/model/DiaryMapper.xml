@@ -16,4 +16,11 @@
 		values(#{m_id}, #{c_seq}, #{d_title}, #{d_content}, #{d_msg}, #{d_date})
     </insert>
     
+    <delete id="emotionDelete" parameterType = "kr.smhrd.model.DiaryVO">
+		delete from t_emotion where m_id = #{m_id} and d_date = #{d_date}
+    </delete>
+    
+    <delete id="diaryDelete" parameterType = "kr.smhrd.model.DiaryVO">
+		delete from t_diary where m_id = #{m_id} and d_date = #{d_date}
+    </delete>
 </mapper>

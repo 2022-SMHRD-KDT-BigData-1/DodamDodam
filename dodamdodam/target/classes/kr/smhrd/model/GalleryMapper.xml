@@ -11,4 +11,7 @@
 		select * from t_gallery where m_id=#{m_id} order by g_seq desc     
     </select>
     
+    <delete id="galleryDelete" parameterType = "kr.smhrd.model.GalleryVO">
+		delete from t_gallery where m_id = #{m_id} and g_date = #{g_date}
+    </delete>
 </mapper>

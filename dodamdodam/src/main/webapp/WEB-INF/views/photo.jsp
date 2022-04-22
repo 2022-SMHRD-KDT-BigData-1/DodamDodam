@@ -37,6 +37,18 @@
       rel="stylesheet"
     />
     <style>
+    .photoDelBtn{
+    	display:inline-block;
+    	float:right;
+    	border : none;
+    	display :inline-block;
+    	font-family: 'Single Day', cursive ;
+    	font-size: 25px;
+    	cursor: pointer;
+    	z-index: 99;
+    	color : hotpink;
+    	background-color: transparent !important;
+    }
     [data-scroll] {
 	  transition: opacity 1s;
 	  will-change : transform, scale, opcity;
@@ -385,12 +397,16 @@ margin-bottom: 30px;
                 <c:choose>
                 <c:when test="${Gallery != null }">
                 	<c:forEach var = 'vo' items ="${Gallery }" varStatus="i">
-                		<input type = "hidden" value="${vo.g_date}" class = "getDate">
+                		<form action="galleryDelete.do" method = "post">
+                		<input type = "hidden" name = "g_date" value="${vo.g_date}" class = "getDate">
+                		<input type = "hidden" name = "m_id" value="${member.m_id}">
                 		<div class="dayBlock" data-scroll>
-		                <div class="gray-text" id="basic-text">${vo.g_title }( ${vo.g_date} )</div>
+                		
+		                <div class="gray-text" id="basic-text">${vo.g_title }( ${vo.g_date} ) <button type = "submit" class ="photoDelBtn">[x]</button></div>
 		                <div class="album-photo"><img src="<spring:url value='/resources/test/${vo.p1 }'/>"></div>
 		                <div class="detail" id="basic-text">${vo.g_msg }</div>
-                </div>
+                	</div>
+		                </form>
                 	</c:forEach>
                 </c:when>
                 <c:otherwise>
