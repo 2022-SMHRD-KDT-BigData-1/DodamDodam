@@ -72,11 +72,11 @@
 								<div id="board-search">
 									<div class="container">
 										<div class="search-window">
-											<form action="">
+											<form action="boardSearch.do?pageNum=1" method="post">
 												<div class="search-wrap">
 													<label for="search" class="blind">공지사항 내용 검색</label> <input
-														id="search" type="search" name=""
-														placeholder="검색어를 입력해주세요." value="">
+														id="b_search" type="search" name="b_search"
+														placeholder="검색어를 입력해주세요.">
 													<button type="submit" class="btn btn-dark">검색</button>
 												</div>
 											</form>

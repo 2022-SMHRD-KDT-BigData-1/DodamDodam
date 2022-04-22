@@ -15,5 +15,10 @@ public class InfoController {
 	public void info() {
 		
 	}
+	
+	@RequestMapping("/infoAge.do")
+	public void infoAge() {
+		
+	}
 
 }
