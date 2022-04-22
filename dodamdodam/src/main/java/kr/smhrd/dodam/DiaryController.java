@@ -55,7 +55,9 @@ public class DiaryController {
 		List<PieVO> pieList = new ArrayList<PieVO>();
 		
 		for(int i = 0; i < diarylist.size(); i++) {
-			pieList.add(i, new PieVO(diarylist.get(i).getC_seq(), diarylist.get(i).getD_title(), diarylist.get(i).getD_content(), diarylist.get(i).getD_msg(), diarylist.get(i).getD_date(), emotionList.get(i).getE_joy(), emotionList.get(i).getE_sorrow(), emotionList.get(i).getE_anger(), emotionList.get(i).getE_unrest()));
+			if(diarylist.get(i) != null && emotionList.get(i) != null) {
+				pieList.add(i, new PieVO(diarylist.get(i).getC_seq(), diarylist.get(i).getD_title(), diarylist.get(i).getD_content(), diarylist.get(i).getD_msg(), diarylist.get(i).getD_date(), emotionList.get(i).getE_joy(), emotionList.get(i).getE_sorrow(), emotionList.get(i).getE_anger(), emotionList.get(i).getE_unrest()));
+			}
 		}
 		
 		System.out.println("여기까지오나?");

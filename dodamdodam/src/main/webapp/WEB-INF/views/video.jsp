@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -291,10 +295,10 @@ button {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <div class="logo_main">
-    <img src="static/images/도담도담 갈색버전.png" width="200px" />
+    <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
    </div>
    <div class="name_main">
-    <img src="static/images/도담도담 로고.png" width="250px" />
+    <img src="${path}/resources/static/images/도담도담 로고.png" width="250px" />
   </div>
     <div class="bookcover">
       <div class="bookdot">
@@ -317,7 +321,7 @@ button {
                         <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">EBS 교육 컨텐츠</strong>
                       <li>
                         <a href="#">
-                          <img src="/static/images/우리집 유치원.jpg" width="170px" height="114px">
+                          <img src="${path}/resources/static/images/우리집 유치원.jpg" width="170px" height="114px">
                           <div class="blog_list_info">
                             <span>우리집 유치원</span>
 
@@ -332,7 +336,7 @@ button {
                       </li>
                       <li>
                         <a href="#">
-                          <img src="/static/images/꾸미와 토리.jpg" width="170px" height="114px">
+                          <img src="${path}/resources/static/images/꾸미와 토리.jpg" width="170px" height="114px">
                           <div class="blog_list_info">
                             <span>꾸미와 토리</span>
 
@@ -349,7 +353,7 @@ button {
 
                     
                         <a href="#">
-                          <img src="/static/images/내 친구 몬덕이;.jpg" width="170px" height="114px">
+                          <img src="${path}/resources/static/images/내 친구 몬덕이;.jpg" width="170px" height="114px">
                           <div class="blog_list_info">
                             <span>내 친구 몬덕이</span>
 
@@ -369,7 +373,7 @@ button {
                         <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">쥬니어네이버 교육 컨텐츠</strong>
                       <li>
                         <a href="#">
-                          <img src="/static/images/핑크퐁.jpg" width="170px" height="114px">
+                          <img src="${path}/resources/static/images/핑크퐁.jpg" width="170px" height="114px">
                           <div class="blog_list_info">
                             <span>핑크퐁</span>
 
@@ -384,7 +388,7 @@ button {
                       </li>
                       <li>
                         <a href="#">
-                          <img src="/static/images/코코몽.jpg" width="170px" height="114px">
+                          <img src="${path}/resources/static/images/코코몽.jpg" width="170px" height="114px">
                           <div class="blog_list_info">
                             <span>코코몽</span>
 
@@ -398,7 +402,7 @@ button {
                       </li>
                       <li>
                         <a href="#">
-                          <img src="/static/images/트니트니.jpg" width="170px" height="114px">
+                          <img src="${path}/resources/static/images/트니트니.jpg" width="170px" height="114px">
                           <div class="blog_list_info">
                             <span>트니트니</span>
 
@@ -436,7 +440,7 @@ button {
       </div>
     </div>
     <div class="sideform_main" style="background-color: #d5d5d5; border-radius: 5%;" >
-      <img src="static/images/메인 사이드폼 사진.jpg" width="225px" height="220px"/>
+      <img src="${path}/resourcesstatic/images/메인 사이드폼 사진.jpg" width="225px" height="220px"/>
 
       <a
         style="

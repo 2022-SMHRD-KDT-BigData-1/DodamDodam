@@ -815,8 +815,7 @@
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
-            <a href="./video.html" class="menu_button4"
-              >&nbsp;&nbsp;교육용 컨텐츠 </a
+            <a href="video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠 </a
             >
           </div>
         </div>

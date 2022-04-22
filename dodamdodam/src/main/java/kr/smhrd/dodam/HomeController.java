@@ -24,11 +24,13 @@ public class HomeController {
 	
 	@Inject
 	private ChildrenMapper mapper;
-	@Inject
-	private DiaryMapper mapper2;
 	
 	@RequestMapping("/home.do")
 	public void home() {
+		
+	}
+	@RequestMapping("/video.do")
+	public void video() {
 		
 	}
 	@RequestMapping("/result.do")
