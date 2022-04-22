@@ -717,7 +717,7 @@
               <div class="home_contents">
 
                 <div class="miniroom_contents">
-                	  <div id = "popUp">
+                	  <div id = "popUp"> 
                 	<form action="http://f3.project-jupyter.ddns.net:8873/post2" method="post" id = 'deleteform'>
                 		<input type = "hidden" value = "${member.m_id }" name="m_id">
 					      <div id = "popUpHead">
