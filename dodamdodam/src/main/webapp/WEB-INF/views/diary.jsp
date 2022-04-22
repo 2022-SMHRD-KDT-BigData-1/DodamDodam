@@ -299,8 +299,6 @@
 	    			var d_anger = parseInt(diary[piedate].e_anger);
 	    			var d_sorrow = parseInt(diary[piedate].e_sorrow);
 	    			var d_unrest = parseInt(diary[piedate].e_unrest);
-    				var ment = '${member.m_nick} 님의 단어';
-        	         $('#wordMent').text(ment);
     			}else{
     				$('.highcharts-figure3').hide();
     			}
@@ -481,6 +479,8 @@
     </script>
     
     <style type="text/css">
+    	#container{
+    	}
     	#wordMent{
     		position: absolute;
     		width : 24%;
@@ -621,7 +621,7 @@
 		.highcharts-data-table table {
 			position : relative;
 			float : right;
-			top : 45%;
+			top : 50%;
 		  	width : 40%;
 		    margin: 1em auto;
 		}
