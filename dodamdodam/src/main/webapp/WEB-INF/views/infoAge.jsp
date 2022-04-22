@@ -315,8 +315,8 @@ button {
               <div class="home_contents">
               
               
-
-                <div class="miniroom_contents">
+				
+                <div class="miniroom_contents" style="">
 					 <div class="age" style="text-align: center; color: rgb(70, 69, 69); font-size: 30px; font-family: 'Poor Story', cursive;" >
 					 	<h1>2살 육아정보</h1>
 					 </div>
