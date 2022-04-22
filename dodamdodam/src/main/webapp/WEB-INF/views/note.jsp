@@ -195,7 +195,7 @@
 					<!-- 키 예측 창 -->
 					<div id="update_height" align="center" style="color: black; display:none; font-family:'Single Day', cursive; width: 1300px; height: 300px;">
 						<div align="center" style="background-color: whitesmoke; width: 20%; height: 100%; float:left; margin-left: 80px;">
-							<form  action="http://172.17.0.29:8874/height" method="post">
+							<form  action="http://f3.project-jupyter.ddns.net:8873/height" method="post">
 								<br><br><br><br>
 								자녀 키 값 : <br><br>
 								<input type="number" step="0.01" id="n_height" name="height">
