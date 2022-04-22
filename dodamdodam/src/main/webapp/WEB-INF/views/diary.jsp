@@ -274,14 +274,19 @@
     			$("#popUp").show();
     			$("#calendar").css('opacity', '0');
     			
-    			
+    			$('#jacsung').show(); 
     			
     			var piedate = 0;
     			$.each(diary, function(index, vo) {
 					 if(info.dateStr == vo.d_date){
 						 piedate = index;
+						 $('#jacsung').hide();
 					 }
     			})
+    			
+    			
+    			
+    			
     			
     			console.log(diary[piedate].e_joy)
     			console.log("here i am ")
@@ -468,7 +473,9 @@
     <style type="text/css">
     	#wordMent{
     		position: absolute;
-    		top: 58%;
+    		width : 24%;
+    		background-color : #fff;
+    		top: 56%;
     		left: 62%;
     		transform : translate(-50%, -50%);
     		font-size : 25px;
@@ -765,7 +772,7 @@
 					      ></textarea>
 					      <br>
 					      <div id = "diarySubmit"class="button" style="text-align: center">
-					        <button type="submit">
+					        <button type="submit" id = "jacsung">
 					          작성
 					        </button>
 					        &emsp;

@@ -31,6 +31,10 @@ public class HomeController {
 	public void home() {
 		
 	}
+	@RequestMapping("/result.do")
+	public void result() {
+		
+	}
 	@RequestMapping("/diary.do")
 	public void diary(HttpSession session) {
 		

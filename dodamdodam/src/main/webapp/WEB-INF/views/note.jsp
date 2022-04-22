@@ -7,6 +7,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>2021 MINI HOMEPAGE</title>
+    <script src="${path}/resources/static/code/highcharts.js"></script>
+    <script src="${path}/resources/static/code/modules/exporting.js"></script>
+	<script src="${path}/resources/static/code/modules/export-data.js"></script>
+	<script src="${path}/resources/static/code/modules/accessibility.js"></script>
+	<script src="${path}/resources/static/code/highcharts-more.js"></script>
+	<script src="${path}/resources/static/code/modules/solid-gauge.js"></script>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
@@ -32,10 +38,84 @@
       rel="stylesheet"
     />
 <style>
+#yechuk2{
+	position: absolute;
+	top : 70%;
+	left: 40%;
+	font-size: 40px;
+}
+
+.highcharts-figure .chart-container {
+    width: 300px;
+    height: 200px;
+    float: left;
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+@media (max-width: 600px) {
+    .highcharts-figure,
+    .highcharts-data-table table {
+        width: 100%;
+    }
+
+    .highcharts-figure .chart-container {
+        width: 300px;
+        float: none;
+        margin: 0 auto;
+    }
+}
+
 .sideform_main {
 	border-radius: 5%;
 	width: 300px;
 	height: 459px;
+}
+#yechuk{
+	position: absolute;
+	left : 50%;
+	bottom : -5%;
+	transform:translate(0, -50%);
 }
 </style>
 </head>
@@ -115,7 +195,7 @@
 					<!-- 키 예측 창 -->
 					<div id="update_height" align="center" style="color: black; display:none; font-family:'Single Day', cursive; width: 1300px; height: 300px;">
 						<div align="center" style="background-color: whitesmoke; width: 20%; height: 100%; float:left; margin-left: 80px;">
-							<form  action="http://127.0.0.1:7000/height" method="post">
+							<form  action="http://172.17.0.29:8874/height" method="post">
 								<br><br><br><br>
 								자녀 키 값 : <br><br>
 								<input type="number" step="0.01" id="n_height" name="height">
@@ -123,14 +203,21 @@
 								<button type="submit"  id="resultPredict" style="width: 100px; height: 30px; font-size: 16px; font-weight: bolder;">분석</button>
 							</form>
 						</div>
-						<div id="result" align="center" style="background-color:pink; width:80%; height:100%; display: none; ">
+						<div id="result" align="center" style="background-color:pink; width:80%; height:100%;  ">
 							키 예측 모델 입니다.
-
+							
 							신생아 키를 입력하시면 5~6세 때의 키를 예측 해보실 수 있습니다.
 							
 							표준키의 백분위 오차를 바탕으로 예측한 결과로 크게 차이가 나지 않는다면 
 							우리 아이는 정상범주로 성장하는 중입니다. 
 							(단, 최종 키는 소수점 아래 두자리만 나타내는 것으로 결과값은 입력 키에 따라 상이합니다.)
+							<h1 id = "yechuk2"></h1>
+							<div id = "yechuk">
+								<figure class="highcharts-figure">
+								    <div id="container-speed" class="chart-container"></div>
+								    <div id="container-rpm" class="chart-container"></div>
+								</figure>
+							</div>
 						</div>
 			    	</div>
 			    	
@@ -204,6 +291,100 @@
 				$("#update_height").css({
 		            "display":"block"
 		        });
+				
+				
+				//쿼리스트링 가져오기 
+				const url = new URL(window.location.href);
+				const urlParams = url.searchParams;
+				var tr = 0; 
+				tr = urlParams.get('tr');
+				console.log(tr)	
+				tr = parseInt(tr);
+				
+				if ( tr > 50){
+					
+					$('#yechuk2').text(tr+'Cm!')
+				}
+				  var gaugeOptions = {
+						    chart: {
+						        type: 'solidgauge'
+						    },
+
+						    title: null,
+
+						    pane: {
+						        center: ['50%', '85%'],
+						        size: '150%',
+						        startAngle: -90,
+						        endAngle: 90,
+						        background: {
+						            backgroundColor:
+						                Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
+						            innerRadius: '60%',
+						            outerRadius: '100%',
+						            shape: 'arc'
+						        }
+						    },
+
+						    exporting: {
+						        enabled: false
+						    },
+
+						    tooltip: {
+						        enabled: false
+						    },
+
+						    // the value axis
+						    yAxis: {
+						        stops: [
+						            [0.1, '#55BF3B'], // green
+						            [0.5, '#DDDF0D'], // yellow
+						            [0.9, '#DF5353'] // red
+						        ],
+						        lineWidth: 0,
+						        tickWidth: 0,
+						        minorTickInterval: null,
+						        tickAmount: 2,
+						        title: {
+						            y: -70
+						        },
+						        labels: {
+						            y: 16
+						        }
+						    },
+
+						    plotOptions: {
+						        solidgauge: {
+						            dataLabels: {
+						                y: 5,
+						                borderWidth: 0,
+						                useHTML: true
+						            }
+						        }
+						    }
+						};
+
+						// The speed gauge
+						var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
+						    yAxis: {
+						        min: 105,
+						        max: 122,
+						        title: {
+						            text: '나의 자녀 (6세) 예측 키 (cm)'
+						        }
+						    },
+
+						    credits: {
+						        enabled: false
+						    },
+
+						    series: [{
+						        name: 'Speed',
+						        data: [tr],
+						    }]
+
+						}));
+				
 				
 			} else {
 				$('#predict').text('키 예측하기');
