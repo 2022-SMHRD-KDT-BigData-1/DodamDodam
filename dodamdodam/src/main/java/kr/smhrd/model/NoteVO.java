@@ -16,4 +16,5 @@ public class NoteVO {
 	private Double n_height; //키
 	private Double n_weight; //몸무게
 	private String n_significant; //특이사항
+	private String n_vaccine;
 }

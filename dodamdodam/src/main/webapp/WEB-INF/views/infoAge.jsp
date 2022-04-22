@@ -315,95 +315,40 @@ button {
               <div class="home_contents">
               
               
-                 <div class="miniroom_contents">
-                    <div class="blog_list_wrap">
-                        <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
-                          <li>
-                            <a href="#">
-                              <img src="${path}/resources/static/images/edu2.jpg" width="170px" height="114px">
-                              <div class="blog_list_info">
-                                <span>1살 육아정보</span>
-                                <h4>아이가 밥을 잘 먹지 않을때 어떻게 해야할까?</h4>
-                                <p>
-                                  	아이가 밥을 잘 먹지 않을 때는 잘 먹으면 장난감을 사준다고 하면 됩니당~!
-                                </p>
-                                <div class="date_wrap">
-                                  <span>차노뉴스</span>
-                                  <span>7일전</span>
-                                </div>
-                              </div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <img src="${path}/resources/static/images/edu1.jpg" width="170px" height="114px">
-                              <div class="blog_list_info">
-                                <span>2살 육아정보</span>
-                                <h4>아이가 새벽까지 잠이 안들고 칭얼거려요</h4>
-                                <p>
-                                   	아이 옆에 앉아서 '파스칼 부뤼크네르'의 '아직 오지 않은 날들을 위하여'를 읽어주시면 본인도 자고 아이도 같이 잘 수 있답니다~!
-                                </p>
-                                <div class="date_wrap">
-                                  <span>준선일보</span>
-                                  <span>13일전</span>
-                                </div>
-                              </div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
-                              <div class="blog_list_info">
-                                <span>2살 육아정보</span>
-                                <h4>우리 아이 말하기 잘 되고 있는걸까?</h4>
-                                <p>
-                                  	아이가 엄마를 먼저 불렀다고 서운해하면 안되여 아직 응애여서 아빠의 소중함을 잘 깨닫지 못한 나이니까요 아빠가 간식과 장난감을 계속 사다준다면 아빠 알라븅~ 이라고 할지도??
-                                </p>
-                                <div class="date_wrap">
-                                  <span>아빠의청춘</span>
-                                  <span>24일전</span>
-                                </div>
-                              </div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
-                              <div class="blog_list_info">
-                                <span>4살 육아정보</span>
-                                <h4>우리 아이가 또래보다 더 작은 거 같은데 어떡하죠??</h4>
-                                <p>
-                                    	아이가 키가 작은건 부모 키 때문이에요..! 당신의 키가 크다면 아이도 성장기에 더 쭉쭉 자랄겁니당. 주워 온 아이가 아니라면요..!
-                                </p>
-                                <div class="date_wrap">
-                                  <span>성규's 뉴스</span>
-                                  <span>2달전</span>
-                                </div>
-                              </div>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div class="age_info">
-                          <span style="background-color: rgb(255, 232, 197);">1살 육아정보</span>
-                        </br>
-                          <span style="background-color: rgb(255, 207, 188);">2살 육아정보</span>
-                        </br>
-                          <span style="background-color: rgb(255, 189, 151);">3살 육아정보</span>
-                        </br>
-                          <span style="background-color:#ffa977;">4살 육아정보</span>
-                        </br>
-                          <span style="background-color: rgb(255, 158, 94);">5살 육아정보</span>
-                      </div>
-                 </div>
-                 
-                 
-                 
-                 
-                 
-                 
+				
+                <div class="miniroom_contents" style="">
+					 <div class="age" style="text-align: center; color: rgb(70, 69, 69); font-size: 30px; font-family: 'Poor Story', cursive;" >
+					 	<h1>2살 육아정보</h1>
+					 </div>
+					 <div class="age1a" style="color: black; margin-left: 40px; font-size: 30px; font-family: 'Single Day', cursive; float: left; width: 870px; height: 550px;">
+					     2살 우리 아이는?<br><br>
+					     <a style="font-size: 18px;">- 아기가 생후 14~35일이 되었다면 국민건강보험공단에서 지원하는 1차 영유아 건강검진을 소아청소년과에서 
+					        받을 수 있습니다. 1차 영유아 건강검진에서는 문진 및 진찰, 신체계측, 
+					        건강교육을 받으며, 아기를 키우며 궁금했던 점들을 전문의에게 물어볼 수 있습니다.  </a>
+					        <br>
+					        <a style="font-size: 18px;">- asdasdsrqrtafgbvbvbxcvbcvbsfbvfdbxcbvxcbvxcbxvcbadsadasd </a>
+					        <br>
+					        <a style="font-size: 18px;">- sadasdsasssscvbxvzdgfdsgsdgfdgfdgbssssxvbcvssssssssssdsa</a>
+					        <br>
+					        <a style="font-size: 18px;">- sadasdsaxbxbxbvxfdgdfgdfgfdgdfgfdccbxvcbvxcbvxcbxvcbcvdsa</a>
+					        <br>
+					        <a style="font-size: 18px;">- sadasdsacvbxvbvcbvcsdfdsfxbcvbcvbxcvbcxvbvcbvcbxcvbvcxbxvdsa</a>
+					
+					 </div>
+					 <div class="age1b" style="color: black; margin-left: 40px; font-size: 30px; font-family: 'Single Day', cursive; float: left; width: 300px; height: 550px; float: right;">
+					   참고 블로그
+					   <br>
+					   <a style="font-size: 18px;">sadsaddddddsssssssssssssssssssssssssssssssss                        - ssssssssssssssssssssssssssssadsa</a>
+					</div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
               </div>
             </div>
           </div>

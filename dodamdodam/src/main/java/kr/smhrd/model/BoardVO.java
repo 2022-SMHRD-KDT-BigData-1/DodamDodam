@@ -19,5 +19,8 @@ public class BoardVO {
 	private String m_nick;  //닉네임
 	private String b_category;  //분류
 	
+	private String b_search; //검색어(파라미터 용)
+	private int postStart;// 페이지(파라미터 용)
+	
 	
 }

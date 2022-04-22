@@ -110,6 +110,7 @@
 						<label class="control-label col-sm-2" for="contents">백신명: </label>
 						<div class="col-sm-8">
 							<select class="form-control" name="v_name">
+								<option value="없음">없음</option>
 								<optgroup label="결핵">
 									<option value="결핵BCG(피내용)">결핵BCG(피내용), (0개월)</option>
 									<option value="결핵BCG(경피용)">결핵BCG(경피용), (0개월)</option>

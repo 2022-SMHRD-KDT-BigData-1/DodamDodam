@@ -19,8 +19,8 @@
 	</select>
     
     <insert id= "noteInsert" parameterType= "kr.smhrd.model.NoteVO">
-        insert into t_note(m_id, c_name, n_date, n_height, n_weight, n_significant)
-        values(#{m_id}, #{c_name}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}) 
+        insert into t_note(m_id, c_name, n_date, n_height, n_weight, n_significant, n_vaccine)
+        values(#{m_id}, #{c_name}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}, #{n_vaccine}) 
     </insert>
     
     <select id="noteContent" parameterType="int" resultType="kr.smhrd.model.NoteVO">

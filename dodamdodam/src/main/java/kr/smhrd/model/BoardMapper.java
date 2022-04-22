@@ -42,6 +42,13 @@ public interface BoardMapper {
 	public void board2Delete(int b_seq);
 
 	public void boardUpdateForm(int b_seq);
+	
+	//검색기능 파트
+	public List<BoardVO> boardSearch(int postStart, String b_search);
+
+	public int boardSearchAmount(String b_search);
+	
+	
 
 	
 
