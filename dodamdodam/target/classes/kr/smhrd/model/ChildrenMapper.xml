@@ -19,7 +19,7 @@
     
     <!-- 자녀정보 추가 -->
     <insert id="childrenInsert" parameterType="kr.smhrd.model.ChildrenVO">
-        insert into t_children(c_name, c_birthdate, c_gender, f_height, m_height, m_id)
-        values(#{c_name},#{c_birthdate},#{c_gender},#{f_height},#{m_height},#{m_id})
+        insert into t_children(c_name, c_birthdate, c_gender, m_id)
+        values(#{c_name},#{c_birthdate},#{c_gender},#{m_id})
     </insert>
 </mapper>
