@@ -321,7 +321,7 @@ button {
                             <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
                           <li>
                             <a href="#">
-                              <img src="/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/edu2.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>1살 육아정보</span>
                                 <h4>아이가 밥을 잘 먹지 않을때 어떻게 해야할까?</h4>
@@ -337,7 +337,7 @@ button {
                           </li>
                           <li>
                             <a href="#">
-                              <img src="/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/edu1.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>2살 육아정보</span>
                                 <h4>아이가 새벽까지 잠이 안들고 칭얼거려요</h4>
@@ -353,7 +353,7 @@ button {
                           </li>
                           <li>
                             <a href="#">
-                              <img src="/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>2살 육아정보</span>
                                 <h4>우리 아이 말하기 잘 되고 있는걸까?</h4>
@@ -369,7 +369,7 @@ button {
                           </li>
                           <li>
                             <a href="#">
-                              <img src="/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>4살 육아정보</span>
                                 <h4>우리 아이가 또래보다 더 작은 거 같은데 어떡하죠??</h4>
@@ -425,7 +425,7 @@ button {
     </div>
     
    <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="230px"/><c:choose
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height="220px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
