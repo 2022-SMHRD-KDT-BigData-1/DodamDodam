@@ -72,7 +72,7 @@
 								<div id="board-search">
 									<div class="container">
 										<div class="search-window">
-											<form action="boardSearch.do?pageNum=1" method="post">
+											<form action="board2Search.do?pageNum=1" method="post">
 												<div class="search-wrap">
 													<label for="search" class="blind">공지사항 내용 검색</label> <input
 														id="b_search" type="search" name="b_search"
@@ -103,7 +103,7 @@
 												<c:forEach var="i" items="${list}">
 													<tr>
 														<td>${p+plus }</td>
-														<td><a href="boardContent.do?b_seq=${i.b_seq}">${i.b_title}</a></td>
+														<td><a href="board2Content.do?b_seq=${i.b_seq}">${i.b_title}</a></td>
 														<td>${i.m_nick }</td>
 														<td>${i.b_date}</td>
 														<td>${i.b_cnt}</td>
@@ -120,14 +120,13 @@
 
 
 									<!-- 페이징 처리 -->
-									
 									<div class="page-line" align="center">
 										<nav aria-label="Page navigation example">
 											<ul style="justify-content: center" class="pagination">
 												<c:set var="back" value="${postStart/10}" />
 												<li class="page-item" style="display: inline;"><a
 													class="page-link"
-													href="board.do?&pageNum=
+													href="board2Search.do?b_search=${b}&pageNum=
 										
 										<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
 													aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
@@ -137,11 +136,11 @@
 													<c:choose>
 														<c:when test="${postEnd eq 10 }">
 															<li class="page-item" style="display: inline;"><a
-																class="page-link" href="board.do?pageNum=${i}">${i}</a></li>
+																class="page-link" href="board2Search.do?b_search=${b}&pageNum=${i}">${i}</a></li>
 														</c:when>
 														<c:otherwise>
 															<li class="page-item" style="display: inline;"><a
-																class="page-link" href="board.do?pageNum=${i}">${i}</a></li>
+																class="page-link" href="board2Search.do?b_search=${b}&pageNum=${i}">${i}</a></li>
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>
@@ -149,7 +148,7 @@
 
 												<li class="page-item" style="display: inline;"><a
 													class="page-link"
-													href="board.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"
+													href="board2Search.do?b_search=${b}&pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"
 													aria-label="Next"> <span aria-hidden="true">&raquo;</span></a>
 												</li>
 											</ul>

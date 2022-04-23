@@ -33,6 +33,8 @@ public class BoardController {
 		if (pageNum >= 1) {
 			postStart = (pageNum - 1) * 10;
 		}
+		
+		
 		// 전체 게시글 수
 		int amount = mapper.boardAmount();
 		// 마지막페이지
@@ -88,15 +90,49 @@ public class BoardController {
 		// 마지막페이지
 		int endPageNum = (amount - 1) / 10 + 1;
 		int postStart1 = postStart;
-		
+		page.setPostStart(postStart1);
 		System.out.println("postStart : "+ postStart1);
 		
-		List<BoardVO> list = mapper.boardSearch(postStart, b_search);
+		List<BoardVO> list = mapper.boardSearch(page);
 		model.addAttribute("endPageNum", endPageNum);
 		model.addAttribute("postStart", postStart1);
 		model.addAttribute("list", list);
-		return "board.do";
+		model.addAttribute("b",b_search);
+		return "boardSearch";
 	}
+	
+	// 게시판 이동+검색
+		@RequestMapping("/board2Search.do")
+		public String board2(@RequestParam("pageNum") int pageNum, Model model, BoardVO page, HttpServletRequest request) {
+
+			pageNum = (Integer.parseInt(request.getParameter("pageNum")));
+
+			// 시작 게시물
+			int postStart = 0;
+			if (pageNum >= 1) {
+				postStart = (pageNum - 1) * 10;
+			}
+
+			String b_search = request.getParameter("b_search");
+			System.out.println("검색어 :" + b_search);
+			// 전체 게시글 수
+			
+			int amount = mapper.board2SearchAmount(b_search);
+			System.out.println("검색 게시글 합 : " + amount);
+			
+			// 마지막페이지
+			int endPageNum = (amount - 1) / 10 + 1;
+			int postStart1 = postStart;
+			page.setPostStart(postStart1);
+			System.out.println("postStart : "+ postStart1);
+			
+			List<BoardVO> list = mapper.board2Search(page);
+			model.addAttribute("endPageNum", endPageNum);
+			model.addAttribute("postStart", postStart1);
+			model.addAttribute("list", list);
+			model.addAttribute("b",b_search);
+			return "board2Search";
+		}
 
 	// 게시판 글쓰기 이동 기능
 	@RequestMapping("/boardInsertForm.do")

@@ -24,6 +24,11 @@ public interface BoardMapper {
 	public void boardUpdate(BoardVO vo);
 
 	public void boardDelete(int b_seq);
+	
+	//검색기능 파트
+	public int boardSearchAmount(String b_search);
+
+	public List<BoardVO> boardSearch(BoardVO page);
 
 	//게시판 2
 	public void board2Insert(BoardVO vo);
@@ -44,9 +49,9 @@ public interface BoardMapper {
 	public void boardUpdateForm(int b_seq);
 	
 	//검색기능 파트
-	public List<BoardVO> boardSearch(int postStart, String b_search);
+	public int board2SearchAmount(String b_search);
 
-	public int boardSearchAmount(String b_search);
+	public List<BoardVO> board2Search(BoardVO page);
 	
 	
 

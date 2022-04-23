@@ -120,14 +120,13 @@
 
 
 									<!-- 페이징 처리 -->
-									
 									<div class="page-line" align="center">
 										<nav aria-label="Page navigation example">
 											<ul style="justify-content: center" class="pagination">
 												<c:set var="back" value="${postStart/10}" />
 												<li class="page-item" style="display: inline;"><a
 													class="page-link"
-													href="board.do?&pageNum=
+													href="boardSearch.do?b_search=${b}&pageNum=
 										
 										<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
 													aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
@@ -137,11 +136,11 @@
 													<c:choose>
 														<c:when test="${postEnd eq 10 }">
 															<li class="page-item" style="display: inline;"><a
-																class="page-link" href="board.do?pageNum=${i}">${i}</a></li>
+																class="page-link" href="boardSearch.do?b_search=${b}&pageNum=${i}">${i}</a></li>
 														</c:when>
 														<c:otherwise>
 															<li class="page-item" style="display: inline;"><a
-																class="page-link" href="board.do?pageNum=${i}">${i}</a></li>
+																class="page-link" href="boardSearch.do?b_search=${b}&pageNum=${i}">${i}</a></li>
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>
@@ -149,7 +148,7 @@
 
 												<li class="page-item" style="display: inline;"><a
 													class="page-link"
-													href="board.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"
+													href="boardSearch.do?b_search=${b}&pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"
 													aria-label="Next"> <span aria-hidden="true">&raquo;</span></a>
 												</li>
 											</ul>

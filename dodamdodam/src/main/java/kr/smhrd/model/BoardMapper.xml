@@ -46,12 +46,12 @@
     <!-- 게시글 리스트 -->
     <select id="board2" parameterType="kr.smhrd.model.BoardVO" resultType="kr.smhrd.model.BoardVO">
 		<!--select * from t_qna order by q_date desc  -->
-		 select * from t_board where b_category = "1" or "2" order by b_date desc Limit 10 Offset #{postStart}
+		 select * from t_board where b_category in ("1","2") order by b_date desc Limit 10 Offset #{postStart}
 	</select>
 	
     <!-- 페이지 총 amount -->
     <select id="board2Amount" resultType="int">
-	    select count(*) from t_board where b_category = "1" and "2"
+	    select count(*) from t_board where b_category in ("1","2")
 	</select>
     
     <select id = "board2Content" parameterType="int" resultType="kr.smhrd.model.BoardVO">
@@ -68,14 +68,25 @@
     
     
     <!-- 게시글 검색 리스트 --> 
-    <select id="boardSearch" parameterType="String" resultType="kr.smhrd.model.BoardVO">
+    <select id="boardSearch" parameterType="kr.smhrd.model.BoardVO" resultType="kr.smhrd.model.BoardVO">
 		<!-- select * from t_qna order by q_date desc  --> 
 		 select * from t_board where b_category = "0" and b_title like concat('%',#{b_search},'%') order by b_date desc Limit 10 Offset #{postStart}
 	</select>
 	
     <!-- 게시글 검색 총 량-->
     <select id="boardSearchAmount" resultType="int" parameterType="String">
-	    select count(*) from t_board where b_title like concat('%',#{b_search}, '%')
+	    select count(*) from t_board where b_category = "0" and b_title like concat('%',#{b_search}, '%')
+	</select>
+	
+    <!-- 게시글2 검색 리스트 --> 
+    <select id="board2Search" parameterType="kr.smhrd.model.BoardVO" resultType="kr.smhrd.model.BoardVO">
+		<!-- select * from t_qna order by q_date desc  --> 
+		 select * from t_board where b_category in ("1","2") and b_title like concat('%',#{b_search},'%') order by b_date desc Limit 10 Offset #{postStart}
+	</select>
+	
+    <!-- 게시글2 검색 총 량-->
+    <select id="board2SearchAmount" resultType="int" parameterType="String">
+	    select count(*) from t_board where b_category in ("1","2") and b_title like concat('%',#{b_search}, '%')
 	</select>
     
     

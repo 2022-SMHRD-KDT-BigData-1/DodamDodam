@@ -320,64 +320,80 @@ button {
                         <ul>
                             <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
                           <li>
-                            <a href="#">
-                              <img src="${path}/resources/static/images/edu2.jpg" width="170px" height="114px">
+                            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
+                              <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>1살 육아정보</span>
-                                <h4>아이가 밥을 잘 먹지 않을때 어떻게 해야할까?</h4>
+                                <h4>아이 발달 체크리스트</h4>
                                 <p>
-                                  	아이가 밥을 잘 먹지 않을 때는 잘 먹으면 장난감을 사준다고 하면 됩니당~!
+                                  	영아의 발달 과정을 평가하는 목적은 영아의 현재 수준을 파악하여 영아의 최적의 발달을 돕는데 있습니다. 영아기는 한 인간의 일생을 통해 다른 어느 시기보다 발달이 급속도로 이루어지는 시기입니다.
                                 </p>
                                 <div class="date_wrap">
-                                  <span>차노뉴스</span>
+                                  <span>네이버 포스트</span>
                                   <span>7일전</span>
                                 </div>
                               </div>
                             </a>
                           </li>
                           <li>
-                            <a href="#">
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
                               <img src="${path}/resources/static/images/edu1.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>2살 육아정보</span>
-                                <h4>아이가 새벽까지 잠이 안들고 칭얼거려요</h4>
+                                <h4>2세아이 발달팁</h4>
                                 <p>
-                                   	아이 옆에 앉아서 '파스칼 부뤼크네르'의 '아직 오지 않은 날들을 위하여'를 읽어주시면 본인도 자고 아이도 같이 잘 수 있답니다~!
+                                   	...우리 아이들은 제법 잘 걷고 뛰어다니는 모습을 보입니다. 운동 기술이 꽃피우고 언어 발달도 능숙해집니다...
                                 </p>
                                 <div class="date_wrap">
-                                  <span>준선일보</span>
+                                  <span>네이버 포스트</span>
                                   <span>13일전</span>
                                 </div>
                               </div>
                             </a>
                           </li>
                           <li>
-                            <a href="#">
+                            <a href="https://brunch.co.kr/@pictorygogo/65">
                               <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
-                                <span>2살 육아정보</span>
-                                <h4>우리 아이 말하기 잘 되고 있는걸까?</h4>
+                                <span>3살 육아정보</span>
+                                <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
                                 <p>
-                                  	아이가 엄마를 먼저 불렀다고 서운해하면 안되여 아직 응애여서 아빠의 소중함을 잘 깨닫지 못한 나이니까요 아빠가 간식과 장난감을 계속 사다준다면 아빠 알라븅~ 이라고 할지도??
+                                  	'아기 두뇌 교육'에 대한 괌심이 점차 커지고 있습니다. 그럼에도 불구하고 두뇌를 교육한다는 개념 자체는 아직까지 많이 낯설죠. '아기의 두뇌는 왜 교육해야하는 것일까?'...
                                 </p>
                                 <div class="date_wrap">
-                                  <span>아빠의청춘</span>
+                                  <span>브런치</span>
                                   <span>24일전</span>
                                 </div>
                               </div>
                             </a>
                           </li>
                           <li>
-                            <a href="#">
+                            <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
                               <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>4살 육아정보</span>
-                                <h4>우리 아이가 또래보다 더 작은 거 같은데 어떡하죠??</h4>
+                                <h4>4세아이 발달특징</h4>
                                 <p>
-                                    	아이가 키가 작은건 부모 키 때문이에요..! 당신의 키가 크다면 아이도 성장기에 더 쭉쭉 자랄겁니당. 주워 온 아이가 아니라면요..!
+                                    	4세는 발달의 전환점이 되는 시기로, 자신의 능력을 향상시키기 위한 노력을 합니다. 아이는 신체적으로 더 성장했고, 더 많은 에너지...
                                 </p>
                                 <div class="date_wrap">
-                                  <span>성규's 뉴스</span>
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@sjenny00/18">
+                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>5살 육아정보</span>
+                                <h4>5세가 되면 달라지는 11가지</h4>
+                                <p>
+                                    	'아기'로서 가장 귀여움이 만개한 나이인 5세! 아이가 이제 더이상 '아기'가 아니고 완연한 '어린이'가 되어버릴 것 같다는 아쉬움...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
                                   <span>2달전</span>
                                 </div>
                               </div>
