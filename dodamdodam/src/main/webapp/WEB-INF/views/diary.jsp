@@ -281,6 +281,7 @@
     			$('.highcharts-figure2').hide();
     			$('.highcharts-figure3').show();
     			
+    			
     			var piedate = 0;
     			$.each(diary, function(index, vo) {
 					 if(info.dateStr == vo.d_date){
@@ -291,8 +292,8 @@
 						 $('.highcharts-figure3').show()
 						 return false;
 					 }else{
-						 $('.highcharts-figure').hide()
-						 $('.highcharts-figure3').hide()
+						 $('.highcharts-figure').hide();
+						 $('.highcharts-figure3').hide();
 					 }
     			})
     			
@@ -370,6 +371,7 @@
     				$("#deleteform").attr("action", "http://f3.project-jupyter.ddns.net:8873/post2"); // action 수정 해야 함 
     				$('.highcharts-figure3').hide();
     				$('.highcharts-figure2').show();
+    				$('.highcharts-figure').show();
     				$("#popUp").hide();
     				$("#calendar").css('opacity', '1');
     				$('#diaryTitle').val('');
