@@ -15,22 +15,17 @@
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
+    <link rel="stylesheet" href="${path}/resources/static/board2.css" /> 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link
       href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com"  />
     <link
       href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Poor+Story&family=Single+Day&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com"  />
     <link
       href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Single+Day&display=swap"
       rel="stylesheet"
@@ -237,12 +232,12 @@ button {
 .age_info{
     display: table;
     float: right;
-    color: black;
+    background-color: white;
     font-size: 20px;
     font-weight: 900;
     font-family: 'Single Day', cursive;
 }
-.age_info span{
+.age_info button{
     display: table;
     padding-left: 3px;
     margin-right: 150px;
@@ -250,9 +245,7 @@ button {
     text-align: left;
     vertical-align: middle;
     font-size: 30px;
-}
-.age_info:hover{
-    cursor: pointer;
+    font-family: 'Single Day', cursive
 }
 
 /*blog_media*/
@@ -313,10 +306,13 @@ button {
             </div>
             <div class="home_main">
               <div class="home_contents">
-              
-              
                  <div class="miniroom_contents">
-                    <div class="blog_list_wrap">
+                 
+                 
+                 
+                 	
+                 	<!-- Info_Main -->
+                    <div class="blog_list_wrap" id="main_info" style="display: none;">
                         <ul>
                             <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
                           <li>
@@ -337,7 +333,7 @@ button {
                           </li>
                           <li>
                             <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
-                              <img src="${path}/resources/static/images/edu1.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/2_tip9.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>2살 육아정보</span>
                                 <h4>2세아이 발달팁</h4>
@@ -353,7 +349,7 @@ button {
                           </li>
                           <li>
                             <a href="https://brunch.co.kr/@pictorygogo/65">
-                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/3_brain.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>3살 육아정보</span>
                                 <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
@@ -369,7 +365,7 @@ button {
                           </li>
                           <li>
                             <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
-                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/4_grow.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>4살 육아정보</span>
                                 <h4>4세아이 발달특징</h4>
@@ -385,7 +381,7 @@ button {
                           </li>
                           <li>
                             <a href="https://brunch.co.kr/@sjenny00/18">
-                              <img src="${path}/resources/static/images/baby.jpg" width="170px" height="114px">
+                              <img src="${path}/resources/static/images/5_different.jpg" width="170px" height="114px">
                               <div class="blog_list_info">
                                 <span>5살 육아정보</span>
                                 <h4>5세가 되면 달라지는 11가지</h4>
@@ -401,25 +397,491 @@ button {
                           </li>
                         </ul>
                       </div>
+                      
+                      
+                      
+                      
+                      <div class="blog_list_wrap" id="info_1" style="display: none;">
+                        <ul>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                          <li>
+                            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
+                              <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>1살 육아정보</span>
+                                <h4>아이 발달 체크리스트</h4>
+                                <p>
+                                  	영아의 발달 과정을 평가하는 목적은 영아의 현재 수준을 파악하여 영아의 최적의 발달을 돕는데 있습니다. 영아기는 한 인간의 일생을 통해 다른 어느 시기보다 발달이 급속도로 이루어지는 시기입니다.
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>7일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
+                              <img src="${path}/resources/static/images/2_tip9.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>2살 육아정보</span>
+                                <h4>2세아이 발달팁</h4>
+                                <p>
+                                   	...우리 아이들은 제법 잘 걷고 뛰어다니는 모습을 보입니다. 운동 기술이 꽃피우고 언어 발달도 능숙해집니다...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>13일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@pictorygogo/65">
+                              <img src="${path}/resources/static/images/3_brain.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>3살 육아정보</span>
+                                <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
+                                <p>
+                                  	'아기 두뇌 교육'에 대한 괌심이 점차 커지고 있습니다. 그럼에도 불구하고 두뇌를 교육한다는 개념 자체는 아직까지 많이 낯설죠. '아기의 두뇌는 왜 교육해야하는 것일까?'...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>브런치</span>
+                                  <span>24일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
+                              <img src="${path}/resources/static/images/4_grow.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>4살 육아정보</span>
+                                <h4>4세아이 발달특징</h4>
+                                <p>
+                                    	4세는 발달의 전환점이 되는 시기로, 자신의 능력을 향상시키기 위한 노력을 합니다. 아이는 신체적으로 더 성장했고, 더 많은 에너지...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@sjenny00/18">
+                              <img src="${path}/resources/static/images/5_different.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>5살 육아정보</span>
+                                <h4>5세가 되면 달라지는 11가지</h4>
+                                <p>
+                                    	'아기'로서 가장 귀여움이 만개한 나이인 5세! 아이가 이제 더이상 '아기'가 아니고 완연한 '어린이'가 되어버릴 것 같다는 아쉬움...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <div class="blog_list_wrap" id="info_2" style="display: none;">
+                        <ul>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                          <li>
+                            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
+                              <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>1살 육아정보</span>
+                                <h4>아이 발달 체크리스트</h4>
+                                <p>
+                                  	영아의 발달 과정을 평가하는 목적은 영아의 현재 수준을 파악하여 영아의 최적의 발달을 돕는데 있습니다. 영아기는 한 인간의 일생을 통해 다른 어느 시기보다 발달이 급속도로 이루어지는 시기입니다.
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>7일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
+                              <img src="${path}/resources/static/images/2_tip9.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>2살 육아정보</span>
+                                <h4>2세아이 발달팁</h4>
+                                <p>
+                                   	...우리 아이들은 제법 잘 걷고 뛰어다니는 모습을 보입니다. 운동 기술이 꽃피우고 언어 발달도 능숙해집니다...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>13일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@pictorygogo/65">
+                              <img src="${path}/resources/static/images/3_brain.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>3살 육아정보</span>
+                                <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
+                                <p>
+                                  	'아기 두뇌 교육'에 대한 괌심이 점차 커지고 있습니다. 그럼에도 불구하고 두뇌를 교육한다는 개념 자체는 아직까지 많이 낯설죠. '아기의 두뇌는 왜 교육해야하는 것일까?'...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>브런치</span>
+                                  <span>24일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
+                              <img src="${path}/resources/static/images/4_grow.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>4살 육아정보</span>
+                                <h4>4세아이 발달특징</h4>
+                                <p>
+                                    	4세는 발달의 전환점이 되는 시기로, 자신의 능력을 향상시키기 위한 노력을 합니다. 아이는 신체적으로 더 성장했고, 더 많은 에너지...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@sjenny00/18">
+                              <img src="${path}/resources/static/images/5_different.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>5살 육아정보</span>
+                                <h4>5세가 되면 달라지는 11가지</h4>
+                                <p>
+                                    	'아기'로서 가장 귀여움이 만개한 나이인 5세! 아이가 이제 더이상 '아기'가 아니고 완연한 '어린이'가 되어버릴 것 같다는 아쉬움...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <div class="blog_list_wrap" id="info_3" style="display: none;">
+                        <ul>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                          <li>
+                            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
+                              <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>1살 육아정보</span>
+                                <h4>아이 발달 체크리스트</h4>
+                                <p>
+                                  	영아의 발달 과정을 평가하는 목적은 영아의 현재 수준을 파악하여 영아의 최적의 발달을 돕는데 있습니다. 영아기는 한 인간의 일생을 통해 다른 어느 시기보다 발달이 급속도로 이루어지는 시기입니다.
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>7일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
+                              <img src="${path}/resources/static/images/2_tip9.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>2살 육아정보</span>
+                                <h4>2세아이 발달팁</h4>
+                                <p>
+                                   	...우리 아이들은 제법 잘 걷고 뛰어다니는 모습을 보입니다. 운동 기술이 꽃피우고 언어 발달도 능숙해집니다...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>13일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@pictorygogo/65">
+                              <img src="${path}/resources/static/images/3_brain.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>3살 육아정보</span>
+                                <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
+                                <p>
+                                  	'아기 두뇌 교육'에 대한 괌심이 점차 커지고 있습니다. 그럼에도 불구하고 두뇌를 교육한다는 개념 자체는 아직까지 많이 낯설죠. '아기의 두뇌는 왜 교육해야하는 것일까?'...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>브런치</span>
+                                  <span>24일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
+                              <img src="${path}/resources/static/images/4_grow.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>4살 육아정보</span>
+                                <h4>4세아이 발달특징</h4>
+                                <p>
+                                    	4세는 발달의 전환점이 되는 시기로, 자신의 능력을 향상시키기 위한 노력을 합니다. 아이는 신체적으로 더 성장했고, 더 많은 에너지...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@sjenny00/18">
+                              <img src="${path}/resources/static/images/5_different.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>5살 육아정보</span>
+                                <h4>5세가 되면 달라지는 11가지</h4>
+                                <p>
+                                    	'아기'로서 가장 귀여움이 만개한 나이인 5세! 아이가 이제 더이상 '아기'가 아니고 완연한 '어린이'가 되어버릴 것 같다는 아쉬움...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <div class="blog_list_wrap" id="info_4" style="display: none;">
+                        <ul>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                          <li>
+                            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
+                              <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>1살 육아정보</span>
+                                <h4>아이 발달 체크리스트</h4>
+                                <p>
+                                  	영아의 발달 과정을 평가하는 목적은 영아의 현재 수준을 파악하여 영아의 최적의 발달을 돕는데 있습니다. 영아기는 한 인간의 일생을 통해 다른 어느 시기보다 발달이 급속도로 이루어지는 시기입니다.
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>7일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
+                              <img src="${path}/resources/static/images/2_tip9.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>2살 육아정보</span>
+                                <h4>2세아이 발달팁</h4>
+                                <p>
+                                   	...우리 아이들은 제법 잘 걷고 뛰어다니는 모습을 보입니다. 운동 기술이 꽃피우고 언어 발달도 능숙해집니다...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>13일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@pictorygogo/65">
+                              <img src="${path}/resources/static/images/3_brain.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>3살 육아정보</span>
+                                <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
+                                <p>
+                                  	'아기 두뇌 교육'에 대한 괌심이 점차 커지고 있습니다. 그럼에도 불구하고 두뇌를 교육한다는 개념 자체는 아직까지 많이 낯설죠. '아기의 두뇌는 왜 교육해야하는 것일까?'...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>브런치</span>
+                                  <span>24일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
+                              <img src="${path}/resources/static/images/4_grow.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>4살 육아정보</span>
+                                <h4>4세아이 발달특징</h4>
+                                <p>
+                                    	4세는 발달의 전환점이 되는 시기로, 자신의 능력을 향상시키기 위한 노력을 합니다. 아이는 신체적으로 더 성장했고, 더 많은 에너지...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@sjenny00/18">
+                              <img src="${path}/resources/static/images/5_different.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>5살 육아정보</span>
+                                <h4>5세가 되면 달라지는 11가지</h4>
+                                <p>
+                                    	'아기'로서 가장 귀여움이 만개한 나이인 5세! 아이가 이제 더이상 '아기'가 아니고 완연한 '어린이'가 되어버릴 것 같다는 아쉬움...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <div class="blog_list_wrap" id="info_5" style="display: none;">
+                        <ul>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                          <li>
+                            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
+                              <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>1살 육아정보</span>
+                                <h4>아이 발달 체크리스트</h4>
+                                <p>
+                                  	영아의 발달 과정을 평가하는 목적은 영아의 현재 수준을 파악하여 영아의 최적의 발달을 돕는데 있습니다. 영아기는 한 인간의 일생을 통해 다른 어느 시기보다 발달이 급속도로 이루어지는 시기입니다.
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>7일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">
+                              <img src="${path}/resources/static/images/2_tip9.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>2살 육아정보</span>
+                                <h4>2세아이 발달팁</h4>
+                                <p>
+                                   	...우리 아이들은 제법 잘 걷고 뛰어다니는 모습을 보입니다. 운동 기술이 꽃피우고 언어 발달도 능숙해집니다...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>네이버 포스트</span>
+                                  <span>13일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@pictorygogo/65">
+                              <img src="${path}/resources/static/images/3_brain.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>3살 육아정보</span>
+                                <h4>생후부터 3살까지 아기 뇌의 발달 속도 도움되는 육아팁</h4>
+                                <p>
+                                  	'아기 두뇌 교육'에 대한 괌심이 점차 커지고 있습니다. 그럼에도 불구하고 두뇌를 교육한다는 개념 자체는 아직까지 많이 낯설죠. '아기의 두뇌는 왜 교육해야하는 것일까?'...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>브런치</span>
+                                  <span>24일전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.maeili.com/cms/contents/contentsView.do?idx=5723&categoryCd1=5&categoryCd2=1&categoryCd3=1&reCome=1&gubn=1">
+                              <img src="${path}/resources/static/images/4_grow.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>4살 육아정보</span>
+                                <h4>4세아이 발달특징</h4>
+                                <p>
+                                    	4세는 발달의 전환점이 되는 시기로, 자신의 능력을 향상시키기 위한 노력을 합니다. 아이는 신체적으로 더 성장했고, 더 많은 에너지...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://brunch.co.kr/@sjenny00/18">
+                              <img src="${path}/resources/static/images/5_different.jpg" width="170px" height="114px">
+                              <div class="blog_list_info">
+                                <span>5살 육아정보</span>
+                                <h4>5세가 되면 달라지는 11가지</h4>
+                                <p>
+                                    	'아기'로서 가장 귀여움이 만개한 나이인 5세! 아이가 이제 더이상 '아기'가 아니고 완연한 '어린이'가 되어버릴 것 같다는 아쉬움...
+                                </p>
+                                <div class="date_wrap">
+                                  <span>매일아이</span>
+                                  <span>2달전</span>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
 
                       <div class="age_info">
-                          <span style="background-color: rgb(255, 232, 197);">1살 육아정보</span>
-                        </br>
-                          <span style="background-color: rgb(255, 207, 188);">2살 육아정보</span>
-                        </br>
-                          <span style="background-color: rgb(255, 189, 151);">3살 육아정보</span>
-                        </br>
-                          <span style="background-color:#ffa977;">4살 육아정보</span>
-                        </br>
-                          <span style="background-color: rgb(255, 158, 94);">5살 육아정보</span>
+                      	<br>
+                      		<button type="button" id="btn_info_main" class="btn_main1" style="background-color: rgb(255, 240, 210);">육아정보 메인</button>
+                        <br>
+                        	<button type="button" id="btn_info_1" style="background-color: rgb(255, 232, 197);">1살 육아정보</button>
+                        <br>
+                        	<button type="button" id="btn_info_2" style="background-color: rgb(255, 207, 188);">2살 육아정보</button>
+                        <br>
+                        	<button type="button" id="btn_info_3" style="background-color: rgb(255, 189, 151);">3살 육아정보</button>
+                        <br>
+                        	<button type="button" id="btn_info_4" style="background-color: rgb(255, 169, 119);">4살 육아정보</button>
+                        <br>
+                        	<button type="button" id="btn_info_5" style="background-color: rgb(255, 158, 94);">5살 육아정보</button>
                       </div>
+                      
+                      
+                      
+                      
+                      
                  </div>
-                 
-                 
-                 
-                 
-                 
-                 
               </div>
             </div>
           </div>
@@ -474,15 +936,157 @@ button {
     </div>
     </div>
     <script type="text/javascript">
-    var current = 0;
-   setInterval(function() {
-      var next = (current + 1) % 3;
-      var slidePosition = current * (-1237) + "px";
-      $("#slContain").animate({
-         left : slidePosition
-      }, 500);
-      current = next;
-   }, 3000);
+    	/* 육아수첩 메인 */
+	    $('#btn_info_main').on('click',function(){
+	
+	    	var btnText = $('#btn_info_main').text();
+			console.log(btnText)
+	    	
+			if(btnText == '육아정보 메인'){
+				$('#btn_info_main').text('닫기');
+	
+				$('#main_info').slideDown(500);
+				$("#main_info").css({
+		            "display":"block"
+		        });
+				
+				
+			} else {
+				$('#btn_info_main').text('육아정보 메인');
+				$('#main_info').slideUp(500);
+				/* $("#main_info").css({
+		            "display":"none"
+		        }); */
+			}
+		});
+	    
+	    $('#btn_info_1').on('click',function(){
+	    	
+	    	var btnText = $('#btn_info_1').text();
+			console.log(btnText)
+	    	
+			if(btnText == '1살 육아정보'){
+				$('#btn_info_1').text('닫기');
+	
+				$('#info_1').slideDown(500);
+				$("#info_1").css({
+		            "display":"block"
+		        });
+				
+				
+			} else {
+				$('#btn_info_1').text('1살 육아정보');
+				$('#info_1').slideUp(500);
+				/* $("#main_info").css({
+		            "display":"none"
+		        }); */
+			}
+		});
+	    
+	    $('#btn_info_2').on('click',function(){
+	    	
+	    	var btnText = $('#btn_info_2').text();
+			console.log(btnText)
+	    	
+			if(btnText == '2살 육아정보'){
+				$('#btn_info_2').text('닫기');
+	
+				$('#info_2').slideDown(500);
+				$("#info_2").css({
+		            "display":"block"
+		        });
+				
+				
+			} else {
+				$('#btn_info_2').text('2살 육아정보');
+				$('#info_2').slideUp(500);
+				/* $("#main_info").css({
+		            "display":"none"
+		        }); */
+			}
+		});
+	    
+	    $('#btn_info_3').on('click',function(){
+	    	
+	    	var btnText = $('#btn_info_3').text();
+			console.log(btnText)
+	    	
+			if(btnText == '3살 육아정보'){
+				$('#btn_info_3').text('닫기');
+	
+				$('#info_3').slideDown(500);
+				$("#info_3").css({
+		            "display":"block"
+		        });
+				
+				
+			} else {
+				$('#btn_info_3').text('3살 육아정보');
+				$('#info_3').slideUp(500);
+				/* $("#main_info").css({
+		            "display":"none"
+		        }); */
+			}
+		});
+	    
+	    $('#btn_info_4').on('click',function(){
+	    	
+	    	var btnText = $('#btn_info_4').text();
+			console.log(btnText)
+	    	
+			if(btnText == '4살 육아정보'){
+				$('#btn_info_4').text('닫기');
+	
+				$('#info_4').slideDown(500);
+				$("#info_4").css({
+		            "display":"block"
+		        });
+				
+				
+			} else {
+				$('#btn_info_4').text('4살 육아정보');
+				$('#info_4').slideUp(500);
+				/* $("#main_info").css({
+		            "display":"none"
+		        }); */
+			}
+		});
+	    
+	    $('#btn_info_5').on('click',function(){
+	    	
+	    	var btnText = $('#btn_info_5').text();
+			console.log(btnText)
+	    	
+			if(btnText == '5살 육아정보'){
+				$('#btn_info_5').text('닫기');
+	
+				$('#info_5').slideDown(500);
+				$("#info_5").css({
+		            "display":"block"
+		        });
+				
+				
+			} else {
+				$('#btn_info_5').text('5살 육아정보');
+				$('#info_5').slideUp(500);
+				/* $("#main_info").css({
+		            "display":"none"
+		        }); */
+			}
+		});
+	    
+	   	
+	   	
+	   
+	    var current = 0;
+	   	setInterval(function() {
+	    var next = (current + 1) % 3;
+	    var slidePosition = current * (-1237) + "px";
+	    $("#slContain").animate({
+	         left : slidePosition
+		    }, 500);
+		      current = next;
+		  	}, 3000);
     </script>
   </body>
 </html>

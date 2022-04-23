@@ -99,26 +99,36 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:set var="p" value="${postStart}" />
-												<c:set var="plus" value="1" />
-												<c:forEach var="i" items="${list}">
-													<tr>
-														<td>${p+plus }</td>
-														<td><a href="board2Content.do?b_seq=${i.b_seq}">${i.b_title}</a></td>
-														<td>${i.m_nick }</td>
-														<td>${i.b_date}</td>
-														<td>${i.b_cnt}</td>
-														<c:choose>
-															<c:when test="${i.b_category eq 1}">
-																<td>나눔 중</td>
-															</c:when>
-															<c:otherwise>
-																<td>나눔 완료</td>
-															</c:otherwise>
-														</c:choose>
-													</tr>
-													<c:set var="plus" value="${plus +1}" />
-												</c:forEach>
+												<c:choose>
+								    				<c:when test="${member.m_id!=null }">
+								    					<c:set var="p" value="${postStart}" />
+														<c:set var="plus" value="1" />
+														<c:forEach var="i" items="${list}">
+															<tr>
+																<td>${p+plus }</td>
+																<td><a href="board2Content.do?b_seq=${i.b_seq}">${i.b_title}</a></td>
+																<td>${i.m_nick }</td>
+																<td>${i.b_date}</td>
+																<td>${i.b_cnt}</td>
+																<c:choose>
+																	<c:when test="${i.b_category eq 1}">
+																		<td>나눔 중</td>
+																	</c:when>
+																	<c:otherwise>
+																		<td>나눔 완료</td>
+																	</c:otherwise>
+																</c:choose>
+															</tr>
+															<c:set var="plus" value="${plus +1}" />
+														</c:forEach>														
+								    				</c:when>
+								    				<c:otherwise>
+									    				<script>
+									    					alert('로그인하세요');
+									    					location.href="login.do"
+									    				</script>
+									    			</c:otherwise>
+								    			</c:choose>
 											</tbody>
 											<tr>
 												<td colspan="5"></td>
