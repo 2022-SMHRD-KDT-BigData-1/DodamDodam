@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>2021 MINI HOMEPAGE</title>
+    <title>도담도담</title>
     <script src="${path}/resources/static/code/highcharts.js"></script>
 	<script src="${path}/resources/static/code/modules/wordcloud.js"></script>
 	<script src="${path}/resources/static/code/modules/exporting.js"></script>
@@ -277,6 +277,9 @@
     			$("#popUp").show();
     			$("#calendar").css('opacity', '0');
     			
+
+    			$('.highcharts-figure2').hide();
+    			$('.highcharts-figure3').show();
     			
     			var piedate = 0;
     			$.each(diary, function(index, vo) {
@@ -284,14 +287,17 @@
 						 piedate = index;
 						 $('#jacsung').text('삭제');
 						 $("#deleteform").attr("action", "diaryDelete.do"); // 삭제 서브밋으로 변경
-						 
+						 $('.highcharts-figure').show()
+						 $('.highcharts-figure3').show()
+						 return false;
+					 }else{
+						 $('.highcharts-figure').hide()
+						 $('.highcharts-figure3').hide()
 					 }
     			})
     			
     			
     			
-    			$('.highcharts-figure2').hide();
-    			$('.highcharts-figure3').show();
     			
     			if(diary[piedate] != null){
     				

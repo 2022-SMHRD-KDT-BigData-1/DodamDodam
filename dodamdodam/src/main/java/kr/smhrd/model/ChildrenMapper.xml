@@ -22,4 +22,8 @@
         insert into t_children(c_name, c_birthdate, c_gender, m_id)
         values(#{c_name},#{c_birthdate},#{c_gender},#{m_id})
     </insert>
+    
+     <update id="childrenUpdateForm" parameterType = "kr.smhrd.model.ChildrenVO">
+		update t_children set c_name = #{c_name}, c_birthdate = #{c_birthdate}, c_gender = #{c_gender} where c_seq = #{c_seq}
+    </update>
 </mapper>

@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>2021 MINI HOMEPAGE</title>
+    <title>도담도담</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
@@ -157,56 +157,15 @@
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
-            <a href="./video.html" class="menu_button4"
-              >&nbsp;&nbsp;교육용 컨텐츠 </a
+            <a href="video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠 </a
             >
           </div>
         </div>
       </div>
     </div>
     
-    
-    
-    
-<%--     <div class="sideform_main" style="background-color: #d5d5d5">
-      <img src="${path}/resources/static/images/unnamed.jpg" width="225px" />
-      <a
-        style="
-          font-style: inherit;
-          font-size: 15px;
-          color: black;
-          font-weight: bold;
-          margin: auto;
-          text-align: center;
-          font-family: 'Poor Story', cursive;
-        "
-        >-----오늘은 사랑스러운 aaa와-----</a
-      >
-      <a
-        style="
-          font-style: inherit;
-          font-size: 15px;
-          color: black;
-          font-weight: bold;
-          margin: auto;
-          text-align: center;
-          font-family: 'Poor Story', cursive;
-        "
-        >--------nnnn일 째입니다--------
-        </a>
-      <button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-        >&emsp;<button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
-      <div class="lb-audio">
-        <audio controls>
-          <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
-        </audio>
-    </div>
-    <input type = "hidden" id = "DiaryContents">
-    </div> --%>
-    
-    
-    <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height="220px"/><c:choose
+     <div class="sideform_main" style="background-color: #d5d5d5;">
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
@@ -238,6 +197,9 @@
         </audio>
     </div>
     </div>
+    
+    
+    
     <script type="text/javascript">
     var current = 0;
 	setInterval(function() {

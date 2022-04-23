@@ -6,7 +6,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>2021 MINI HOMEPAGE</title>
+    <title>도담도담</title>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
@@ -31,6 +31,11 @@
       rel="stylesheet"
     />
     <style>
+    .sideform_main{
+	    	border-radius : 5%;
+	    	width : 300px;
+	    	height: 459px;
+	    }
       * {
     margin: 0;
     padding: 0;
@@ -426,53 +431,53 @@ button {
                 </div>
               </div>
             </div>
-            <div class="menu_bar">
-              <a href="./home.html" class="menu_button1">&nbsp;&nbsp;홈</a>
-              <a href="./diary.html" class="menu_button2">&nbsp;&nbsp;육아일기</a>
-              <a href="./photo.html" class="menu_button3">&nbsp;&nbsp;사진첩</a>
-              <a href="./board.html" class="menu_button4">&nbsp;&nbsp;게시판</a>
-              <a href="./diary2.html" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
-              <a href="./info.html" class="menu_button4"
-                >&nbsp;&nbsp;육아 정보</a
-              >
-              <a href="./video.html" class="menu_button4"
-                >&nbsp;&nbsp;교육용 컨텐츠</a
-              >
-            </div>
+           <div class="menu_bar">
+            <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
+            <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
+            <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
+            <a href="./boardChoose.do" class="menu_button4">&nbsp;&nbsp;게시판</a>
+            <a href="./note.do?pageNum=1" class="menu_button4">&nbsp;&nbsp;육아수첩</a>
+            <a href="./info.do" class="menu_button4"
+              >&nbsp;&nbsp;육아 정보</a
+            >
+            <a href="video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠 </a
+            >
           </div>
         </div>
       </div>
-      <div class="sideform_main" style="background-color: #d5d5d5; border-radius: 5%;" >
-        <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="225px" height="220px"/>
-
-        <a
-          style="
-            font-style: inherit;
-            font-size: 15px;
-            color: black;
-            font-weight: bold;
-            margin: auto;
-            text-align: center;
-          "
-          >오늘은 사랑스러운 aaa와의</a
-        >
-        <a
-          style="
-            font-style: inherit;
-            font-size: 15px;
-            color: black;
-            font-weight: bold;
-            margin: auto;
-            text-align: center;
-          "
-          >--------nnnn일 째입니다--------</a
-        >
-        <button type="button" class="btn_main1" style="background-color: rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-          ><button type="button" class="btn_main2" style="background-color:  rgb(209, 191, 224); color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button>
-        <div class="lb-audio">
-          <audio controls>
-            <source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
-          </audio>
-      </div>
+    </div>
+     <div class="sideform_main" style="background-color: #d5d5d5;">
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px"/><c:choose
+      			><c:when test="${not empty member}"
+      			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
+      			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
+			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 36px;font-family:'Single Day', cursive; font-size:14px">자녀정보</button></a
+			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-right: 12px; float: right;font-family:'Single Day', cursive; font-size:14px">로그아웃</button></a>
+					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
+					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 125px; font-size:10px">회원정보보기</button></a>	
+					    </c:if>
+		    	</c:when><c:otherwise
+		    		>      
+		    		<p
+        style="
+          font-style: inherit;
+          font-size: 15px;
+          color: black;
+          font-weight: bold;
+          margin: auto;
+          text-align: center;
+          font-family: 'Poor Story', cursive;
+        "
+        >로그인을 해주세요</p
+      >
+      <a href="login.do"> <button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
+        ></a
+			      	>&emsp;<a href="join.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button></a>
+		    	</c:otherwise></c:choose
+		    	><div class="lb-audio"><audio controls
+      	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
+        </audio>
+    </div>
+    </div>
 </body>
 </html>

@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="today" value="<%=new java.util.Date()%>" />
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="date"><fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></c:set> 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>2021 MINI HOMEPAGE</title>
+    <title>도담도담</title>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
@@ -74,7 +78,7 @@
               
                 <div class="Note_insert_form" align="center" style="color:#FFA9AA;">
                   <form class="form-horizontal" action="noteInsert.do" method="post">
-                  	<input type="hidden" name="m_id" id="m_id">
+                  	<input type="hidden" name="m_id" id="m_id" value="${member.m_id }">
 					<div class="form-group" style = "padding-top:30px;">
 						<label class="control-label col-sm-2" for="title"> 자녀 : </label>
 						<div class="col-sm-8">
@@ -82,9 +86,9 @@
 								placeholder="Enter title" required="required">
 								 -->
 							<!-- 자녀 선택  -->
-							<select class="form-control" name="c_name" style="text-align:center;">
+							<select class="form-control" name="c_seq" style="text-align:center;">
 								<c:forEach var="i" items="${list}">
-									<option>${i.c_name}</option>
+									<option value="${i.c_seq}">${i.c_name}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -159,7 +163,7 @@
 					<div class ="form-group">
 						<label class="control-label col-sm-2" for="contents">접종날자: </label>
 						<div class="col-sm-8">
-							<input class="form-control" type="date" name = "n_date">
+							<input class="form-control" type="date" value = "${date }"name = "n_date">
 						</div>
 					</div>
 					<div class="form-group">
@@ -183,7 +187,7 @@
               </div>
             </div>
           </div>
-          <div class="menu_bar">
+        <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
@@ -192,15 +196,14 @@
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
-            <a href="./video.do" class="menu_button4"
-              >&nbsp;&nbsp;교육용 컨텐츠</a
+            <a href="video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠 </a
             >
           </div>
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height="220px"/><c:choose
+     <div class="sideform_main" style="background-color: #d5d5d5;">
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a

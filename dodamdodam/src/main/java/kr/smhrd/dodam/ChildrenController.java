@@ -28,6 +28,11 @@ public class ChildrenController {
 		List<ChildrenVO> list = mapper.childrenList(vo.getM_id());
 		model.addAttribute("list", list);
 	}
+	@RequestMapping("/childrenUpdateForm.do")
+	public String childrenUpdateForm(ChildrenVO vo) {
+		mapper.childrenUpdateForm(vo);
+		return "redirect:/children.do"; 
+	}
 	
 	//자녀정보 입력 창 들어가기
 	@RequestMapping("/childrenInsertForm.do")

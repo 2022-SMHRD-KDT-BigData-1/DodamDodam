@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>2021 MINI HOMEPAGE</title>
+    <title>도담도담</title>
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
@@ -111,7 +111,7 @@
               </div>
             </div>
           </div>
-          <div class="menu_bar">
+     <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>
@@ -120,19 +120,18 @@
             <a href="./info.do" class="menu_button4"
               >&nbsp;&nbsp;육아 정보</a
             >
-            <a href="./video.do" class="menu_button4"
-              >&nbsp;&nbsp;교육용 컨텐츠</a
+            <a href="video.do" class="menu_button4">&nbsp;&nbsp;교육용 컨텐츠 </a
             >
           </div>
         </div>
       </div>
     </div>
-    <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height="220px"/><c:choose
+     <div class="sideform_main" style="background-color: #d5d5d5;">
+      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px"/><c:choose
       			><c:when test="${not empty member}"
       			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
-			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 55px;font-family:'Single Day', cursive; font-size:14px">자녀정보</button></a
+			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 36px;font-family:'Single Day', cursive; font-size:14px">자녀정보</button></a
 			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-right: 12px; float: right;font-family:'Single Day', cursive; font-size:14px">로그아웃</button></a>
 					    <c:if test="${member.m_id eq 'admin'}"><a href="memberList.do"
 					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 125px; font-size:10px">회원정보보기</button></a>	
