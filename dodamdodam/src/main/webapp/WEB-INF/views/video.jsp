@@ -328,7 +328,7 @@ button {
                       <ul>
                           <span style="color: green; font-family: 'Single Day', cursive; font-size: 24px;">EBS 교육 컨텐츠</span>
                         <li>
-                          <a href="#">
+                          <a href="https://home.ebs.co.kr/livehome/main">
                             <img src="${path}/resources/static/images/우리집유치원.jpg" width="170px" height="114px">
                             <div class="blog_list_info">
                               <span>우리집 유치원</span>
@@ -343,7 +343,7 @@ button {
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://home.ebs.co.kr/playart/main">
                             <img src="${path}/resources/static/images/꾸미와 토리.jpg" width="170px" height="114px">
                             <div class="blog_list_info">
                               <span>꾸미와 토리</span>
@@ -360,7 +360,7 @@ button {
                         <li>
 
                       
-                          <a href="#">
+                          <a href="https://home.ebs.co.kr/MyfriendMondeok/main">
                             <img src="${path}/resources/static/images/내 친구 몬덕이.jpg" width="170px" height="114px">
                             <div class="blog_list_info">
                               <span>내 친구 몬덕이</span>
@@ -380,7 +380,7 @@ button {
                       <ul>
                           <span style="color: green; font-family: 'Single Day', cursive; font-size: 24px;">쥬니어네이버 교육 컨텐츠</span>
                         <li>
-                          <a href="#">
+                          <a href="https://jr.naver.com/search?query=%ED%95%91%ED%81%AC%ED%90%81">
                             <img src="${path}/resources/static/images/핑크퐁.jpg" width="170px" height="114px">
                             <div class="blog_list_info">
                               <span>핑크퐁</span>
@@ -395,7 +395,7 @@ button {
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://jr.naver.com/search?query=%EC%BD%94%EC%BD%94%EB%AA%BD">
                             <img src="${path}/resources/static/images/코코몽.jpg" width="170px" height="114px">
                             <div class="blog_list_info">
                               <span>코코몽</span>
@@ -409,7 +409,7 @@ button {
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://jr.naver.com/search?query=%ED%8A%B8%EB%8B%88%ED%8A%B8%EB%8B%88">
                             <img src="${path}/resources/static/images/트니트니.jpg" width="170px" height="114px">
                             <div class="blog_list_info">
                               <span>트니트니</span>

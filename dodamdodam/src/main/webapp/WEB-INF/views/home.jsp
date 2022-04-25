@@ -108,19 +108,21 @@
                  <div class="updated_news_contents">
 
                      <span class="updated_news_left1" style="width: 500PX; float: left;"
-                      ><span class="updated_news_red">&nbsp;육아 정보&nbsp;</span>
-                      2살 아이의 언어 발달 상황은?
+                      ><a href="info.do"><span class="updated_news_red">&nbsp;육아 정보&nbsp;</span></a>
+                      <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=16993209&memberNo=37305962">만 2세 아이 발달 돕는 육아 팁 9
                       <br>
-                      <img src="${path}/resources/static/images/메인 2살.jpg" width="300px" height="150px" style="margin-top: 20px;"></span
+                      <img src="${path}/resources/static/images/2_tip9.jpg" width="300px" height="150px" style="margin-top: 20px;"></a></span
                     > 
-                    <a href="https://home.ebs.co.kr/livehome/main">
                      <span class="updated_news_left2" style="width: 500PX; float: left;"
-                      ><span class="updated_news_blue">&nbsp;교육용 컨텐츠&nbsp;</span>
+                      ><a href="video.do"><span class="updated_news_blue">&nbsp;교육용 컨텐츠&nbsp;</span></a>
+                      <a href="https://home.ebs.co.kr/livehome/main">
                       EBS교육방송 '우리집 유치원'
                       <br>
+                      
                         <img src="${path}/resources/static/images/edu.jpg" width="300px" height="150px" style="margin-top: 20px;">
-                      </span> 
                       </a>
+                      </span> 
+                      
                 </div>  
               
               
