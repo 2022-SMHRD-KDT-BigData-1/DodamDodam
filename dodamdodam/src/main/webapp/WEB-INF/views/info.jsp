@@ -279,6 +279,9 @@ button {
 .blog_media_info span {
   font-size: 12px;
 }
+.btn_main1 {
+	cursor: pointer;
+}
        
        
        
@@ -312,9 +315,9 @@ button {
                  
                  	
                  	<!-- Info_Main -->
-                    <div class="blog_list_wrap" id="main_info" style="display: none;">
+                    <div class="blog_list_wrap" id="info_main" style="display: none;">
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">육아정보 메인</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -403,7 +406,7 @@ button {
                       
                       <div class="blog_list_wrap" id="info_1" style="display: none;">
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">1살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -495,7 +498,7 @@ button {
                       
                       <div class="blog_list_wrap" id="info_2" style="display: none;">
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">2살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -587,7 +590,7 @@ button {
                       
                       <div class="blog_list_wrap" id="info_3" style="display: none;">
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">3살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -679,7 +682,7 @@ button {
                       
                       <div class="blog_list_wrap" id="info_4" style="display: none;">
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">4살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -771,7 +774,7 @@ button {
                       
                       <div class="blog_list_wrap" id="info_5" style="display: none;">
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">블로그 정보</strong>
+                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">5살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -866,15 +869,15 @@ button {
                       	<br>
                       		<button type="button" id="btn_info_main" class="btn_main1" style="background-color: rgb(255, 240, 210);">육아정보 메인</button>
                         <br>
-                        	<button type="button" id="btn_info_1" style="background-color: rgb(255, 232, 197);">1살 육아정보</button>
+                        	<button type="button" id="btn_info_1" class="btn_main1" style="background-color: rgb(255, 232, 197);">1살 육아정보</button>
                         <br>
-                        	<button type="button" id="btn_info_2" style="background-color: rgb(255, 207, 188);">2살 육아정보</button>
+                        	<button type="button" id="btn_info_2" class="btn_main1" style="background-color: rgb(255, 207, 188);">2살 육아정보</button>
                         <br>
-                        	<button type="button" id="btn_info_3" style="background-color: rgb(255, 189, 151);">3살 육아정보</button>
+                        	<button type="button" id="btn_info_3" class="btn_main1" style="background-color: rgb(255, 189, 151);">3살 육아정보</button>
                         <br>
-                        	<button type="button" id="btn_info_4" style="background-color: rgb(255, 169, 119);">4살 육아정보</button>
+                        	<button type="button" id="btn_info_4" class="btn_main1" style="background-color: rgb(255, 169, 119);">4살 육아정보</button>
                         <br>
-                        	<button type="button" id="btn_info_5" style="background-color: rgb(255, 158, 94);">5살 육아정보</button>
+                        	<button type="button" id="btn_info_5" class="btn_main1" style="background-color: rgb(255, 158, 94);">5살 육아정보</button>
                       </div>
                       
                       
@@ -942,16 +945,30 @@ button {
 	    	
 			if(btnText == '육아정보 메인'){
 				$('#btn_info_main').text('닫기');
+				
+				$('#info_1').hide();
+				$('#info_2').hide();
+				$('#info_3').hide();
+				$('#info_4').hide();
+				$('#info_5').hide();
+				
+				$('#btn_info_1').text('1살 육아정보');
+				$('#btn_info_2').text('2살 육아정보');
+				$('#btn_info_3').text('3살 육아정보');
+				$('#btn_info_4').text('4살 육아정보');
+				$('#btn_info_5').text('5살 육아정보');
+				
+				
 	
-				$('#main_info').slideDown(500);
-				$("#main_info").css({
+				$('#info_main').slideDown(500);
+				$("#info_main").css({
 		            "display":"block"
 		        });
 				
 				
 			} else {
 				$('#btn_info_main').text('육아정보 메인');
-				$('#main_info').slideUp(500);
+				$('#info_main').slideUp(500);
 				/* $("#main_info").css({
 		            "display":"none"
 		        }); */
@@ -965,6 +982,19 @@ button {
 	    	
 			if(btnText == '1살 육아정보'){
 				$('#btn_info_1').text('닫기');
+				
+				$('#info_main').hide();
+				$('#info_2').hide();
+				$('#info_3').hide();
+				$('#info_4').hide();
+				$('#info_5').hide();
+				
+				$('#btn_info_main').text('육아정보 메인');
+				$('#btn_info_2').text('2살 육아정보');
+				$('#btn_info_3').text('3살 육아정보');
+				$('#btn_info_4').text('4살 육아정보');
+				$('#btn_info_5').text('5살 육아정보');
+				
 	
 				$('#info_1').slideDown(500);
 				$("#info_1").css({
@@ -988,6 +1018,18 @@ button {
 	    	
 			if(btnText == '2살 육아정보'){
 				$('#btn_info_2').text('닫기');
+				
+				$('#info_main').hide();
+				$('#info_1').hide();
+				$('#info_3').hide();
+				$('#info_4').hide();
+				$('#info_5').hide();
+				
+				$('#btn_info_main').text('육아정보 메인');
+				$('#btn_info_1').text('1살 육아정보');
+				$('#btn_info_3').text('3살 육아정보');
+				$('#btn_info_4').text('4살 육아정보');
+				$('#btn_info_5').text('5살 육아정보');
 	
 				$('#info_2').slideDown(500);
 				$("#info_2").css({
@@ -1011,6 +1053,18 @@ button {
 	    	
 			if(btnText == '3살 육아정보'){
 				$('#btn_info_3').text('닫기');
+				
+				$('#info_main').hide();
+				$('#info_1').hide();
+				$('#info_2').hide();
+				$('#info_4').hide();
+				$('#info_5').hide();
+				
+				$('#btn_info_main').text('육아정보 메인');
+				$('#btn_info_1').text('1살 육아정보');
+				$('#btn_info_2').text('2살 육아정보');
+				$('#btn_info_4').text('4살 육아정보');
+				$('#btn_info_5').text('5살 육아정보');
 	
 				$('#info_3').slideDown(500);
 				$("#info_3").css({
@@ -1034,6 +1088,18 @@ button {
 	    	
 			if(btnText == '4살 육아정보'){
 				$('#btn_info_4').text('닫기');
+				
+				$('#info_main').hide();
+				$('#info_1').hide();
+				$('#info_2').hide();
+				$('#info_3').hide();
+				$('#info_5').hide();
+				
+				$('#btn_info_main').text('육아정보 메인');
+				$('#btn_info_1').text('1살 육아정보');
+				$('#btn_info_2').text('2살 육아정보');
+				$('#btn_info_3').text('3살 육아정보');
+				$('#btn_info_5').text('5살 육아정보');
 	
 				$('#info_4').slideDown(500);
 				$("#info_4").css({
@@ -1057,6 +1123,18 @@ button {
 	    	
 			if(btnText == '5살 육아정보'){
 				$('#btn_info_5').text('닫기');
+				
+				$('#info_main').hide();
+				$('#info_1').hide();
+				$('#info_2').hide();
+				$('#info_3').hide();
+				$('#info_4').hide();
+				
+				$('#btn_info_main').text('육아정보 메인');
+				$('#btn_info_1').text('1살 육아정보');
+				$('#btn_info_2').text('2살 육아정보');
+				$('#btn_info_3').text('3살 육아정보');
+				$('#btn_info_4').text('4살 육아정보');
 	
 				$('#info_5').slideDown(500);
 				$("#info_5").css({
