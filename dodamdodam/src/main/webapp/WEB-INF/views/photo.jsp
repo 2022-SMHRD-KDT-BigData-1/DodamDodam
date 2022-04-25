@@ -523,7 +523,7 @@ margin-bottom: 30px;
 			
 			if($($('.getDate')[i]).val() == begyo ){
 				/* ptn = $($('.getDate')[i]).scrollTop(); */
-				ptn = 500 * i;
+				ptn = 546 * i;
 				break;
 			}
 		}
