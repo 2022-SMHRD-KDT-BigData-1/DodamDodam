@@ -84,7 +84,7 @@
 				    				<c:forEach var="i" items="${list}">
 				    				<tr>
 				    					<td>${i.c_name}</td>
-				    					<td><a href="noteContent.do?n_seq=${i.n_seq}">${i.n_significant}</a></td>
+				    					<td><a href="noteContent.do?n_seq=${i.n_seq}" style="text-decoration: underline;">${i.n_significant}</a></td>
 				    					<td>${i.n_height}</td>
 				    					<td>${i.n_weight}</td>
 				    					<td>${i.n_date}</td>

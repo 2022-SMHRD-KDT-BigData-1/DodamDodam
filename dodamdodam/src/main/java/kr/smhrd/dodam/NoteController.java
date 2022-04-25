@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.smhrd.model.BoardVO;
 import kr.smhrd.model.ChildrenVO;
 import kr.smhrd.model.MemberVO;
 import kr.smhrd.model.NoteMapper;
@@ -79,9 +80,6 @@ public class NoteController {
 	}
 	
 	
-	
-	
-	
 	//육아수첩 글쓰기 페이지 이동 기능
 	@RequestMapping("/noteInsertForm.do")
 	public void noteInsertForm(NoteVO vo, Model model,HttpSession session) {
@@ -89,8 +87,7 @@ public class NoteController {
 		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
 		if(m_id==null) {
 			System.out.println("육아수첩 작성 페이지 이동 실패");
-		}
-		else {
+		} else {
 			List<ChildrenVO> list = mapper.ChildInfo(m_id);
 			System.out.println(list);
 			model.addAttribute("list", list);
@@ -104,8 +101,6 @@ public class NoteController {
 		 mapper.noteInsert(vo);
 		 return "redirect:/note.do?pageNum=" + 1;
 	 }
-	 
-	 
 	
 	 //육아수첩 조회 기능
 	 @RequestMapping("/noteContent.do")
@@ -113,9 +108,32 @@ public class NoteController {
 		 System.out.println("게시글 조회 기능 동작");
 		 
 		 NoteVO vo = mapper.noteContent(n_seq);
-		 mapper.count(n_seq);
 		 model.addAttribute("vo", vo);
 	 }
+	 
+	// 육아수접 글 수정 이동기능
+	@RequestMapping("/noteUpdateForm.do")
+	public void noteUpdateForm(int n_seq, Model model) {
+		System.out.println("게시글 수정 페이지 이동기능 동작");
+		NoteVO vo = mapper.noteUpdateForm(n_seq);
+		model.addAttribute("vo", vo);
+	}
+	
+	// 육아수첩 글 수정 기능
+	@RequestMapping("/noteUpdate.do")
+	public String noteUpdate(NoteVO vo) {
+		System.out.println("게시글 수정 기능 동작");
+		mapper.noteUpdate(vo);
+		return "redirect:/note.do?pageNum=" + 1;
+	}
+	
+	// 게시판 글 삭제 기능
+		@RequestMapping("/noteDelete.do")
+		public String noteDelete(int n_seq) {
+			System.out.println("게시글 삭제 기능 동작");
+			mapper.noteDelete(n_seq);
+			return "redirect:/note.do?pageNum=" + 1;
+		}
 	 
 	 
 	

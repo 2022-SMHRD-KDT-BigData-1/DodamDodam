@@ -1,6 +1,7 @@
 select * from t_board 
 select * from t_member
 desc t_board
+select * from t_note
 
 Create view v_board as select b_title, b_content, m_nick, b_date, b_cnt from t_board
 drop view v_board

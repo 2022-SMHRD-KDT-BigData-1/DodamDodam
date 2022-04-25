@@ -1,10 +1,10 @@
+<%@page import="kr.smhrd.model.NoteVO"%>
+<%@page import="kr.smhrd.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="today" value="<%=new java.util.Date()%>" />
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="date"><fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></c:set> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% NoteVO vo = (NoteVO)session.getAttribute("list"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${path}/resources/static/font.css" />
     <link rel="stylesheet" href="${path}/resources/static/layout.css" />
     <link rel="stylesheet" href="${path}/resources/static/home.css" />
-    <link rel="stylesheet" href="${path}/resources/static/board.css" />
+    <link rel="stylesheet" href="${path}/resources/static/board2.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
@@ -45,11 +45,6 @@
 </head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-    	.form-group {
-    		width :700px;
-    	}
-    </style>
 <body>
   <div class="logo_main">
     <img src="${path}/resources/static/images/도담도담 갈색버전.png" width="200px" />
@@ -71,124 +66,103 @@
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </div>
             <div class="home_main">
-              <div class="home_contents">
-              	<div class="page_name" style = "padding-top:30px;">
-              		<h1 style="text-align:center; color:#FFA9AA;">육아 수첩 작성</h1>
-              	</div>
-              
-                <div class="Note_insert_form" align="center" style="color:#FFA9AA;">
-                  <form class="form-horizontal" action="noteInsert.do" method="post">
-                  	<input type="hidden" name="m_id" id="m_id" value="${member.m_id }">
-					<div class="form-group" style = "padding-top:30px;">
-						<label class="control-label col-sm-2" for="title"> 자녀 : </label>
-						<div class="col-sm-8">
-							<!-- <input type="text" class="form-control" name="b_title" id="b_title"
-								placeholder="Enter title" required="required">
-								 -->
-							<!-- 자녀 선택  -->
-							<select class="form-control" name="c_seq" style="text-align:center;">
-									<option value="">아이를 선택해주세요</option>
-								<c:forEach var="i" items="${list}">
-									<option value="${i.c_seq}">${i.c_name}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents">키: </label>
-						<div class="col-sm-8">
-							<input class="form-control"  name="n_height"
-								id="n_height" required="required"></input>
-						</div>
-						
-					</div>
-					
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents">몸무게: </label>
-						<div class="col-sm-8">
-							<input class="form-control" name="n_weight"
-								id="n_weight" required="required"></input>
-						</div>
-					</div >
-					
-					<div class ="form-group">
-						<label class="control-label col-sm-2" for="contents">백신명: </label>
-						<div class="col-sm-8">
-							<select class="form-control" name="n_vaccine">
-								<option value="없음">접종내역 없음</option>
-								<optgroup label="결핵">
-									<option value="결핵BCG(피내용)">결핵BCG(피내용), (0개월)</option>
-									<option value="결핵BCG(경피용)">결핵BCG(경피용), (0개월)</option>
-								</optgroup>
-								<optgroup label="B형간염">
-									<option value="HepB">HepB, (0개월,1개월,6개월)</option>
-								</optgroup>
-								<optgroup label="디프테리아,파상풍,백일해">
-									<option value="DTaP">DTaP, (2개월,4개월,6개월,15~18개월)</option>
-								</optgroup>
-								<optgroup label="플리오">
-									<option value="IPV">IPV, (2개월,4개월,6개월,만4세~만6세)</option>
-								</optgroup>
-								<optgroup label="b형헤모필루스 인플루엔자">
-									<option value="PRP-T/HbOC">PRP-T/HbOC, (2개월,4개월,6개월,12개월~15개월)</option>
-								</optgroup>
-								<optgroup label="페렴구균">
-									<option value="PCV(단백결합)">PCV(단백결합), (2개월,4개월,6개월,12개월~15개월)</option>
-									<option value="PPSV(다당질)">PPSV(다당질), (24개월~만12세 사이)</option>
-								</optgroup>
-								<optgroup label="홍역,유행성이하선염,풍진">
-									<option value="MMR">MMR, (12개월~15개월,만4세~만6세)</option>
-								</optgroup>
-								<optgroup label="수두">
-									<option value="Var">Var, (12개월~15개월)</option>
-								</optgroup>
-								<optgroup label="A형간염">
-									<option value="HepA">HepA, (12개월~36개월)</option>
-								</optgroup>
-								<optgroup label="일본뇌염">
-									<option value="JE(사백신)">JE(사백신), (12개월~36개월, 만6세)</option>
-									<option value="JE(생백신)">JE(생백신), (12개월~36개월)</option>
-								</optgroup>
-								<optgroup label="인플루엔자">
-									<option value="Flu(사백신)">Flu(사백신), (6개월부터~만4세까지)</option>
-									<option value="Flu(생백신)">Flu(생백신), (24개월부터~만5세까지)</option>
-								</optgroup>
-								<optgroup label="로타바이러스">
-									<option value="RV10">RV10, (2개월,4개월)</option>
-									<option value="RV50">RV50, (2개월,4개월,6개월)</option>
-								</optgroup>
-							</select>
-						</div>
-					</div>
-					
-					<div class ="form-group">
-						<label class="control-label col-sm-2" for="contents">접종날자: </label>
-						<div class="col-sm-8">
-							<input class="form-control" type="date" value = "${date }"name = "n_date">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents">접종 및<br> 특이사항: </label>
-						<div class="col-sm-8">
-							<textarea class="form-control" rows="10" style="width:100%;" name="n_significant"
-								id="n_significant" required="required"></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="contents"></label>
-						<div class="col-sm-8">
-							<button type="reset" class="btn btn-info">취소</button>
-							<button type="submit" class="btn btn-info">저장</button>
-						</div>
-					</div>
-
-					</form>
-    			  
-                </div>
+              <div class="home_contents" style="overflow: auto; width: 1000px; height: 800px">
+              	<div class="page_name">
+              		<h1 style="text-align:center; color:#FFA9AA;">나눔장터 페이지</h1>
+              	</div> 	
+				<section class="notice">			   
+				    <div id="board-Content">
+				        <form action="noteUpdate.do" method="post">
+						<input type="hidden" name="n_seq" value="${vo.n_seq}">
+							<table class="table table-hover table-bordered">
+								<tr>
+									<td>아이이름</td>
+									<td>${vo.c_name}</td>
+								</tr>
+								<tr>
+									<td>특이사항</td>
+									<td><input type="text" class="form-control" name="n_significant"
+										value="${vo.n_significant}" required="required"></td>
+								</tr>
+								<tr>
+									<td>키</td>
+									<td><input type="text" class="form-control" name="n_height"
+										value="${vo.n_height}" required="required"></td>
+								</tr>
+								<tr>
+									<td>몸무게</td>
+									<td><input type="text" class="form-control" name="n_weight"
+										value="${vo.n_weight}" required="required"></td>
+								</tr>
+								<tr>
+									<td>예방접종</td>
+									<td>
+										<select class="form-control" name="n_vaccine">
+											<option value="없음">접종내역 없음</option>
+											<optgroup label="결핵">
+												<option value="결핵BCG(피내용)">결핵BCG(피내용), (0개월)</option>
+												<option value="결핵BCG(경피용)">결핵BCG(경피용), (0개월)</option>
+											</optgroup>
+											<optgroup label="B형간염">
+												<option value="HepB">HepB, (0개월,1개월,6개월)</option>
+											</optgroup>
+											<optgroup label="디프테리아,파상풍,백일해">
+												<option value="DTaP">DTaP, (2개월,4개월,6개월,15~18개월)</option>
+											</optgroup>
+											<optgroup label="플리오">
+												<option value="IPV">IPV, (2개월,4개월,6개월,만4세~만6세)</option>
+											</optgroup>
+											<optgroup label="b형헤모필루스 인플루엔자">
+												<option value="PRP-T/HbOC">PRP-T/HbOC, (2개월,4개월,6개월,12개월~15개월)</option>
+											</optgroup>
+											<optgroup label="페렴구균">
+												<option value="PCV(단백결합)">PCV(단백결합), (2개월,4개월,6개월,12개월~15개월)</option>
+												<option value="PPSV(다당질)">PPSV(다당질), (24개월~만12세 사이)</option>
+											</optgroup>
+											<optgroup label="홍역,유행성이하선염,풍진">
+												<option value="MMR">MMR, (12개월~15개월,만4세~만6세)</option>
+											</optgroup>
+											<optgroup label="수두">
+												<option value="Var">Var, (12개월~15개월)</option>
+											</optgroup>
+											<optgroup label="A형간염">
+												<option value="HepA">HepA, (12개월~36개월)</option>
+											</optgroup>
+											<optgroup label="일본뇌염">
+												<option value="JE(사백신)">JE(사백신), (12개월~36개월, 만6세)</option>
+												<option value="JE(생백신)">JE(생백신), (12개월~36개월)</option>
+											</optgroup>
+											<optgroup label="인플루엔자">
+												<option value="Flu(사백신)">Flu(사백신), (6개월부터~만4세까지)</option>
+												<option value="Flu(생백신)">Flu(생백신), (24개월부터~만5세까지)</option>
+											</optgroup>
+											<optgroup label="로타바이러스">
+												<option value="RV10">RV10, (2개월,4개월)</option>
+												<option value="RV50">RV50, (2개월,4개월,6개월)</option>
+											</optgroup>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>접종날짜</td>
+									<td><input type="date" class="form-control" name="n_date"
+										value="${vo.n_date}" required="required"></td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<button type="submit" class="btn btn-info btn-sm">수정</button>
+										<a href="noteDelete.do?n_seq=${vo.n_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="note.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
+									</td>
+								</tr>
+							</table>
+						</form>
+				    </div>
+				</section>
               </div>
             </div>
           </div>
-        <div class="menu_bar">
+      <div class="menu_bar">
             <a href="./home.do" class="menu_button1">&nbsp;&nbsp;홈</a>
             <a href="./diary.do" class="menu_button2">&nbsp;&nbsp;육아일기</a>
             <a href="./photo.do" class="menu_button3">&nbsp;&nbsp;사진첩</a>

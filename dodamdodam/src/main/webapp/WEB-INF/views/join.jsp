@@ -186,15 +186,15 @@
 			console.log(data);
 			
 			if(data.m_id == null) {
-				$('p').text("사용가능한 ID 입니다.");
-				$('p').css('color','blue');
+				$('#resultIdCheck').text("사용가능한 ID 입니다.");
+				$('#resultIdCheck').css('color','blue');
 				$('#m_pw').removeAttr("readonly");
 				$('#m_nick').removeAttr("readonly");
 				$('#m_tel').removeAttr("readonly");
 				$('#m_gender').removeAttr("readonly");
 			} else {
-				$('p').text("중복된 ID 입니다.");
-				$('p').css('color','red');
+				$('#resultIdCheck').text("중복된 ID 입니다.");
+				$('#resultIdCheck').css('color','red');
 				$('#m_pw').attr("readonly", true);
 				$('#m_nick').attr("readonly", true);
 				$('#m_tel').attr("readonly", true);

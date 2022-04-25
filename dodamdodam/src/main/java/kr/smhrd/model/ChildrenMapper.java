@@ -18,6 +18,8 @@ public interface ChildrenMapper {
 	public void count(int c_seq);
 
 	public void childrenUpdateForm(ChildrenVO vo);
+
+	public void childrenDelete(int c_seq);
 	
 	
 }

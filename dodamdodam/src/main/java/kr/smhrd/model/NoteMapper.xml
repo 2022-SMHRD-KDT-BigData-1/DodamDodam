@@ -23,21 +23,25 @@
         values(#{m_id}, #{c_seq}, #{n_date}, #{n_height}, #{n_weight}, #{n_significant}, #{n_vaccine}) 
     </insert>
     
-    <select id="noteContent" parameterType="int" resultType="kr.smhrd.model.NoteVO">
+    <select id="noteContent" resultType="kr.smhrd.model.NoteVO">
         select * from t_note where n_seq = #{n_seq}
+    </select>
+    
+    <select id = "noteUpdateForm" parameterType="int" resultType="kr.smhrd.model.NoteVO">
+		select * from children_note where n_seq = #{n_seq}
     </select>
     
     <select id = "ChildInfo" resultType="kr.smhrd.model.ChildrenVO">
 		select * from t_children where m_id=#{m_id}      
     </select>
     
-    <select id="notechild" parameterType="String" resultType="kr.smhrd.model.NoteVO">
+<!--     <select id="notechild" parameterType="String" resultType="kr.smhrd.model.NoteVO">
         select * from t_children where m_id = #{m_id}
-    </select>
+    </select> -->
     
     <update id="noteUpdate" parameterType="kr.smhrd.model.NoteVO">
-        update t_note set n_height, n_weight, n_significant = #{n_height}, #{n_weight}, #{n_significant} where n_seq=#{n_seq}
-    </update>
+        update t_note set n_height = #{n_height} , n_weight = #{n_weight}, n_significant = #{n_significant}, n_vaccine = #{n_vaccine}, n_date = #{n_date} where n_seq=#{n_seq}
+    </update> 
     
     <delete id="noteDelete">
         delete from t_note where n_seq = #{n_seq}

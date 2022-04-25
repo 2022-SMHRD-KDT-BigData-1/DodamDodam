@@ -71,7 +71,7 @@
 				<section class="notice">
 				    <div id="board-Content">
 				        <form action="noteUpdateForm.do" method="post">
-						<input type="hidden" name="b_seq" value="${vo.b_seq}">
+						<input type="hidden" name="n_seq" value="${vo.n_seq}">
 							<table class="table table-hover table-bordered">
 								<tr>
 									<td>번호</td>
@@ -91,7 +91,7 @@
 								</tr>
 								<tr>
 									<td>예방접종</td>
-									<td>${vo.n_cnt }</td>
+									<td>${vo.n_vaccine }</td>
 								</tr>
 								<tr>
 									<td>접종날짜</td>
@@ -100,7 +100,7 @@
 								<tr>
 									<td colspan="2">
 										<button type="submit" class="btn btn-info btn-sm">수정</button>
-										<a href="noteDelete.do?b_seq=${vo.b_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
+										<a href="noteDelete.do?n_seq=${vo.n_seq}"><button type="button" class="btn btn-info btn-sm">삭제</button></a>
 										<a href="note.do?pageNum=1"><button type="button" class="btn btn-info btn-sm">목록</button></a>
 									</td>
 								</tr>

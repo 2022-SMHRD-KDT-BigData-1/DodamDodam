@@ -281,6 +281,8 @@ button {
 }
 .btn_main1 {
 	cursor: pointer;
+	border-color: coral;
+	border: 2px; 
 }
        
        
@@ -316,8 +318,8 @@ button {
                  	
                  	<!-- Info_Main -->
                     <div class="blog_list_wrap" id="info_main" style="display: none;">
+                        <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">육아정보 메인</strong><hr>
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">육아정보 메인</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/1_checklist.jpg" width="170px" height="114px">
@@ -406,8 +408,8 @@ button {
                       
                       <!-- 1살 육아정보 -->
                       <div class="blog_list_wrap" id="info_1" style="display: none;">
+                        <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">1살 육아정보</strong><hr>
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">1살 육아정보</strong>
                           <li>
                             <a href="https://www.maeili.com/cms/contents/contentsList.do?cateCd1=3&gubn=1">
                               <img src="${path}/resources/static/images/1_father.jpg" width="170px" height="114px">
@@ -498,8 +500,8 @@ button {
                       
                       <!-- 2살 육아정보 -->
                       <div class="blog_list_wrap" id="info_2" style="display: none;">
+                        <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">2살 육아정보</strong><hr>
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">2살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/2_play.jpg" width="170px" height="114px">
@@ -590,8 +592,8 @@ button {
                       
                       <!-- 3살 육아정보 -->
                       <div class="blog_list_wrap" id="info_3" style="display: none;">
+                        <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">3살 육아정보</strong><hr>
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">3살 육아정보</strong>
                           <li>
                             <a href="https://www.chaisplay.com/stories/1111-3%EC%84%B8-%EC%95%84%EC%9D%B4-%EC%97%84%EB%A7%88%EA%B0%80-%EC%95%84%EC%9D%B4-%EB%B0%9C%EB%8B%AC%EC%9D%84-%EB%8F%95%EA%B8%B0-%EC%9C%84%EC%97%90-%EA%BC%AD-%EC%B1%99%EA%B8%B0%EB%A9%B4-%EC%A2%8B%EC%9D%84-34%EA%B0%80%EC%A7%80">
                               <img src="${path}/resources/static/images/3_grow.jpg" width="170px" height="114px">
@@ -682,8 +684,8 @@ button {
                       
                       <!-- 4세 육아정보 -->
                       <div class="blog_list_wrap" id="info_4" style="display: none;">
+                        <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">4살 육아정보</strong><hr>
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">4살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/4_grow1.jpg" width="170px" height="114px">
@@ -774,8 +776,8 @@ button {
                       
                       
                       <div class="blog_list_wrap" id="info_5" style="display: none;">
+                        <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">5살 육아정보</strong><hr>
                         <ul>
-                            <strong style="color: #000; font-family: 'Single Day', cursive; font-size: 24px;">5살 육아정보</strong>
                           <li>
                             <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=13997572&memberNo=12161421">
                               <img src="${path}/resources/static/images/5_grow.jpg" width="170px" height="114px">

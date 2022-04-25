@@ -26,4 +26,8 @@
      <update id="childrenUpdateForm" parameterType = "kr.smhrd.model.ChildrenVO">
 		update t_children set c_name = #{c_name}, c_birthdate = #{c_birthdate}, c_gender = #{c_gender} where c_seq = #{c_seq}
     </update>
+    
+     <delete id="childrenDelete">
+		delete from t_children where c_seq = #{c_seq}
+    </delete>
 </mapper>

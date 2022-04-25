@@ -58,6 +58,14 @@ public class ChildrenController {
 		 ChildrenVO vo = mapper.childrenContent(c_seq);
 		 model.addAttribute("vo", vo);
 	 }
+	 
+	// 자녀정보 삭제 기능
+		@RequestMapping("/childrenDelete.do")
+		public String childrenDelete(int c_seq) {
+			System.out.println("게시글 삭제 기능 동작");
+			mapper.childrenDelete(c_seq);
+			return "redirect:/children.do";
+		}
 	
 	
 
