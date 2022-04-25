@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href = "note.do?tr=115">
+<a href = "note.do?tr=115.55">
 	<button>값 전송 </button>
 </a>
 </body>

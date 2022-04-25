@@ -286,7 +286,7 @@
 		var tr = 0; 
 		tr = urlParams.get('tr');
 		console.log(tr)	
-		tr = parseInt(tr);
+		tr = parseFloat(tr);
 		
 		if ( tr > 50){
 			
