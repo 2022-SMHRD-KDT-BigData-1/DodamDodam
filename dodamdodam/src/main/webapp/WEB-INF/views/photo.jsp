@@ -141,7 +141,7 @@
 }
 .album-photo img{
     width: 100%;
-    height: 100%;
+    height: 400px;
     align-items: center;
 
 
@@ -523,7 +523,7 @@ margin-bottom: 30px;
 			
 			if($($('.getDate')[i]).val() == begyo ){
 				/* ptn = $($('.getDate')[i]).scrollTop(); */
-				ptn = 500 * i;
+				ptn = 546 * i;
 				break;
 			}
 		}
