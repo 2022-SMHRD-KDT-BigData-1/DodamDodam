@@ -127,9 +127,9 @@
       </div>
     </div>
      <div class="sideform_main" style="background-color: #d5d5d5;">
-      <img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px"/><c:choose
+      <c:choose
       			><c:when test="${not empty member}"
-      			><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
+      			><img src="${path}/resources/static/images/메인 사이드폼 사진.jpg" width="230px" height ="220px" style="border-radius: 10px"/><p style=" font-style: inherit; font-size: 15px; color: black; font-weight: bold; margin: 1px; text-align: center;">${member.m_nick}님 환영합니다.</p
       			><a href="memberUpdateForm.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; color: rgb(15, 15, 13); margin-left: 10px;font-family:'Single Day', cursive; font-size:14px">개인정보수정</button></a
 			    ><a href="children.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 36px;font-family:'Single Day', cursive; font-size:14px">자녀정보</button></a
 			    ><a href="logout.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-right: 12px; float: right;font-family:'Single Day', cursive; font-size:14px">로그아웃</button></a>
@@ -137,7 +137,7 @@
 					    	><button type="button" id="memberList" class="btn_main2" style="background-color:  #f8e4d9; color: rgb(15, 15, 13); margin-left: 125px; font-size:10px">회원정보보기</button></a>	
 					    </c:if>
 		    	</c:when><c:otherwise
-		    		>      
+		    		><img src="${path}/resources/static/images/noprofile.jpg" width="230px" height ="220px" style="border-radius: 10px"/>      
 		    		<p
         style="
           font-style: inherit;
@@ -150,9 +150,8 @@
         "
         >로그인을 해주세요</p
       >
-      <a href="login.do"> <button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
-        ></a
-			      	>&emsp;<a href="join.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button></a>
+      <a href="login.do"><button type="button" class="btn_main1" style="background-color: #f8e4d9; font-family:'Poor Story', cursive; font-size:larger; color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">로그인</button
+        ></a>&emsp;<a href="join.do"><button type="button" class="btn_main2" style="background-color:  #f8e4d9;  font-family:'Poor Story', cursive; font-size:larger;color: rgb(15, 15, 13); margin-left: 30px; margin-top: 10px;">회원가입</button></a>
 		    	</c:otherwise></c:choose
 		    	><div class="lb-audio"><audio controls
       	><source src="${path}/resources/static/audios/order-99518.mp3" type="audio/mp3">  
